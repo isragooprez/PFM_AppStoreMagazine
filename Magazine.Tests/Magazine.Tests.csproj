@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F0ADA573-AF90-43D4-B3D1-5F51601FAAAD}</ProjectGuid>
+    <ProjectGuid>{1F473680-C357-4291-9899-A9121878656C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Magazine.Tests</RootNamespace>
@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Magazine\Magazine.csproj">
-      <Project>{944E1393-8C41-4A87-BF9A-5A84758D4C2C}</Project>
+      <Project>{A687130A-AB29-454B-B846-1AD0B6DD6F67}</Project>
       <Name>Magazine</Name>
     </ProjectReference>
   </ItemGroup>
