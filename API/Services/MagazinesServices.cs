@@ -15,7 +15,7 @@ using API.Services;
 
 namespace API.Services
 {
-    public class MagazinesServices : ApiController
+    public class MagazinesServices
     {
         private MagazinesDBEntities db = new MagazinesDBEntities();
 
@@ -24,6 +24,7 @@ namespace API.Services
         {
             return db.Magazines;
         }
+
         public Magazine GetMagazine(int id)
         {
             return db.Magazines.Find(id);
@@ -48,13 +49,9 @@ namespace API.Services
             return magazine;
         }
 
-        protected override void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            db.Dispose();
         }
 
         public bool MagazineExists(int id)

@@ -90,6 +90,15 @@ namespace API.Controllers
             return Ok(magazine);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                magazineService.Dispose(disposing);
+            }
+            base.Dispose(disposing);
+        }
+
 
     }
 }
