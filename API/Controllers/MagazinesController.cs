@@ -11,7 +11,14 @@ namespace API.Controllers
     public class MagazinesController : ApiController
     {
 
-        private MagazinesServices magazineService = new MagazinesServices();
+        private MagazinesServices magazineService= new MagazinesServices();
+        
+
+        //private MagazinesServices magazineService;
+        //public MagazinesController(MagazinesServices _magazineService)
+        //{
+        //    magazineService = _magazineService;
+        //}
 
         // GET: api/Magazines
         public IQueryable<Magazine> GetMagazines()

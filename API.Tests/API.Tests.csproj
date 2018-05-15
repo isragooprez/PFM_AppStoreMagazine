@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -47,6 +50,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -98,12 +104,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Magazine.csdl" />
+    <Compile Include="Controllers\MagazinesControllerTest.cs" />
+    <EntityDeploy Include="Models\Magazine.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Magazine.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Magazine.edmx.diagram">
+      <DependentUpon>Magazine.edmx</DependentUpon>
+    </None>
+    <None Include="Models\Magazine.msl" />
+    <None Include="Models\Magazine.ssdl" />
+    <Compile Include="Models\Magazine.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazine.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Magazine.cs">
+      <DependentUpon>Magazine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Magazine.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazine.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Magazine1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Magazine.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App.config" />
+    <Content Include="App.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MagazinesDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MagazinesDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MagazinesDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Models\Magazine.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Magazine.edmx</DependentUpon>
+      <LastGenOutput>Magazine.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Magazine.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Magazine.edmx</DependentUpon>
+      <LastGenOutput>Magazine1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -113,6 +170,9 @@
       <Project>{EA2884B7-A727-4513-9E29-6C826F2E95CC}</Project>
       <Name>API</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

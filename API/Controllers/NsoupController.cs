@@ -1,6 +1,8 @@
-﻿using API.Services;
+﻿using API.Models;
+using API.Services;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,20 +12,23 @@ namespace API.Controllers
 {
     public class NsoupController : ApiController
     {
-        string base_url= "http://scimagojr.com/journalsearch.php?q=09505849";
+        string base_url= "http://scimagojr.com/journalsearch.php?q=";
+        //string parameter = "09505849";
+        string parameter = "Kaunas University of Technology";
 
         // GET: api/Nsoup
-        public string Get()
+        public List<NsoupMagazine> Get()
         {
-
+           
             NsoupServices nsoupService = new NsoupServices();
-            return nsoupService.FetchScimagojr(base_url);
+            return nsoupService.FetchScimagojr(parameter);
         }
 
-        // GET: api/Nsoup/5
-        public string Get(int id)
+        // GET: api/Nsoup/kanus
+        public List<NsoupMagazine> Get(string filter)
         {
-            return "value";
+            NsoupServices nsoupService = new NsoupServices();
+            return nsoupService.FetchScimagojr(filter);
         }
 
         // POST: api/Nsoup

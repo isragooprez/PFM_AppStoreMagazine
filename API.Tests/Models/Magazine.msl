@@ -1,0 +1,40 @@
+﻿<? xml version="1.0" encoding="utf-8"?>
+
+      <Mapping Space = "C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer = "MagazinesDBModelStoreContainer" CdmEntityContainer="MagazinesDBEntities">
+          <EntitySetMapping Name = "Magazines" >
+            < EntityTypeMapping TypeName="MagazinesDBModel.Magazine">
+              <MappingFragment StoreEntitySet = "Magazines" >
+                < ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name = "Country" ColumnName="Country" />
+                <ScalarProperty Name = "Subjec" ColumnName="Subjec" />
+                <ScalarProperty Name = "Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name = "PublicationType" ColumnName="PublicationType" />
+                <ScalarProperty Name = "ISSN" ColumnName="ISSN" />
+                <ScalarProperty Name = "Coverage" ColumnName="Coverage" />
+                <ScalarProperty Name = "Scope" ColumnName="Scope" />
+                <ScalarProperty Name = "Quartiles" ColumnName="Quartiles" />
+                <ScalarProperty Name = "SJR" ColumnName="SJR" />
+                <ScalarProperty Name = "CitationsPerDocument" ColumnName="CitationsPerDocument" />
+                <ScalarProperty Name = "Cites" ColumnName="Cites" />
+                <ScalarProperty Name = "InternationalCollaboration" ColumnName="InternationalCollaboration" />
+                <ScalarProperty Name = "DocumentsNoncitable" ColumnName="DocumentsNoncitable" />
+                <ScalarProperty Name = "DocumentsUncited" ColumnName="DocumentsUncited" />
+                <ScalarProperty Name = "TotalCites" ColumnName="TotalCites" />
+                <ScalarProperty Name = "UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name = "Users" >
+            < EntityTypeMapping TypeName="MagazinesDBModel.User">
+              <MappingFragment StoreEntitySet = "Users" >
+                < ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name = "Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name = "Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name = "Email" ColumnName="Email" />
+                <ScalarProperty Name = "Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
