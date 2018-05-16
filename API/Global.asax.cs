@@ -20,14 +20,19 @@ namespace API
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+           
+
             /***Configuracion Router API***/
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
+           
+            /*** IoC Injection MVC5 ***/
+
             /***Configuracion de Bundle o contendor Carrito de compras en Sesion  ***/
             //ModelBinders.Binders.Add(typeof(VirtualCarModels), new VirtualCarModelBinder());
-            
+
             /*** Configuracion de JSON ***/
             GlobalConfiguration.Configuration.Formatters.Clear();
             GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());

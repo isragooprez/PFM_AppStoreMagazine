@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Magazine.Models
+namespace API._60.Domain.Entities
 {
-    public class MagazineModels
+    public class MagazineDTO
     {
         public int Id { get; set; }
         public string Country { get; set; }
@@ -23,8 +23,5 @@ namespace Magazine.Models
         public string DocumentsNoncitable { get; set; }
         public string DocumentsUncited { get; set; }
         public string TotalCites { get; set; }
-
-        public Nullable<int> UserId { get; set; }
-        public virtual UserModels User { get; set; }
     }
 }

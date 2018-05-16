@@ -5,32 +5,45 @@ using System.Web.Http.Description;
 using System.Data.Entity.Infrastructure;
 using API.Services;
 using System.Net;
+using API._50.Dominio.Core;
+using API._80.Infraestructure.Data.Core;
+using API._50.Domain.Core;
 
 namespace API.Controllers
 {
     public class MagazinesController : ApiController
     {
 
-        private MagazinesServices magazineService= new MagazinesServices();
-        
+        IFactoryDAO factoryDAO = new FactoryDAO();
 
-        //private MagazinesServices magazineService;
-        //public MagazinesController(MagazinesServices _magazineService)
+        //IoC Inyection
+        //IFactoryDAO factoryDAO;
+        //public MagazinesController(IFactoryDAO _factoryDAO)
         //{
-        //    magazineService = _magazineService;
+        //    factoryDAO = _factoryDAO;
         //}
+
+        //private readonly IRepositoryMagazine repositoryMagazine;
+        //public MagazinesController()
+        //{
+        //}
+        //private MagazinesController(IRepositoryMagazine _repositoryMagazine)
+        //{
+        //    repositoryMagazine = _repositoryMagazine;
+        //}
+
 
         // GET: api/Magazines
         public IQueryable<Magazine> GetMagazines()
         {
-            return magazineService.GetMagazines();
+            return factoryDAO.GetRepositoryMagazine().AsQueryable();
         }
 
         // GET: api/Magazines/5
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult GetMagazine(int id)
         {
-            Magazine magazine = magazineService.GetMagazine(id);
+            Magazine magazine = factoryDAO.GetRepositoryMagazine().FindById(magaz => magaz.Id == id);
             if (magazine == null)
             {
                 return NotFound();
@@ -50,12 +63,11 @@ namespace API.Controllers
 
             try
             {
-                magazineService.PutMagazine(id, magazine);
-
+                factoryDAO.GetRepositoryMagazine().Update(magazine);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!magazineService.MagazineExists(id))
+                if (!MagazineExists(id))
                 {
                     return NotFound();
                 }
@@ -72,7 +84,7 @@ namespace API.Controllers
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult PostMagazine(Magazine magazine)
         {
-            magazineService.PostMagazine(magazine);
+            factoryDAO.GetRepositoryMagazine().Add(magazine);
 
             return CreatedAtRoute("DefaultApi", new { id = magazine.Id }, magazine);
         }
@@ -81,15 +93,14 @@ namespace API.Controllers
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult DeleteMagazine(int id)
         {
-
-            Magazine magazine = magazineService.GetMagazine(id);
+            Magazine magazine = factoryDAO.GetRepositoryMagazine().FindById(magaz => magaz.Id == id);
             if (magazine == null)
             {
                 return NotFound();
             }
 
-            var result = magazineService.DeleteMagazine(magazine);
-            if (result == null)
+            factoryDAO.GetRepositoryMagazine().Delete(magazine);
+            if (magazine == null)
             {
                 return NotFound();
             }
@@ -97,15 +108,12 @@ namespace API.Controllers
             return Ok(magazine);
         }
 
-        protected override void Dispose(bool disposing)
+        private bool MagazineExists(int id)
         {
-            if (disposing)
-            {
-                magazineService.Dispose(disposing);
-            }
-            base.Dispose(disposing);
+            if (factoryDAO.GetRepositoryMagazine().FindById(magaz => magaz.Id == id).Id > 0)
+                return true;
+            return false;
         }
-
 
     }
 }

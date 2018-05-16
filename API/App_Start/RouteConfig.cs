@@ -13,6 +13,12 @@ namespace API
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "NsoupFilter",
+            //    url: "{controller}/{action}/{filter}",
+            //    defaults: new { controller = "Nsoup", action = "GetFilter" }
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

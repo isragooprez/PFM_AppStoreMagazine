@@ -22,7 +22,14 @@ namespace Magazine.Controllers
         // GET: Magazine/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            //AspNetUsers aspNetUsers = factoryDAO.getRepositoryUsers().FindById(user => user.Id == id);
+
+            MagazineModels magazine;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
+            magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+
+
+            return View(magazine);
         }
 
         // GET: Magazine/Create
@@ -33,11 +40,13 @@ namespace Magazine.Controllers
 
         // POST: Magazine/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MagazineModels _magazine)
         {
             try
             {
-                // TODO: Add insert logic here
+                MagazineModels magazine;
+                HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PostAsJsonAsync("Magazines", _magazine).Result;
+                magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
 
                 return RedirectToAction("Index");
             }
@@ -50,16 +59,30 @@ namespace Magazine.Controllers
         // GET: Magazine/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            MagazineModels magazine;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
+            magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+            return View(magazine);
         }
 
         // POST: Magazine/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MagazineModels _magazine)
         {
             try
             {
-                // TODO: Add update logic here
+
+                MagazineModels magazinefind;
+                HttpResponseMessage _httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
+                magazinefind = _httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+
+                if (magazinefind != null)
+                {
+
+                    MagazineModels magazine;
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PutAsJsonAsync("Magazines/" + _magazine.Id, _magazine).Result;
+                    magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+                }
 
                 return RedirectToAction("Index");
             }
@@ -72,16 +95,24 @@ namespace Magazine.Controllers
         // GET: Magazine/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            MagazineModels magazine;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
+            magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+            return View(magazine);
         }
 
         // POST: Magazine/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MagazineModels _magazine)
         {
             try
             {
-                // TODO: Add delete logic here
+
+
+                MagazineModels magazine;
+                HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.DeleteAsync("Magazines/" + id).Result;
+                magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+
 
                 return RedirectToAction("Index");
             }

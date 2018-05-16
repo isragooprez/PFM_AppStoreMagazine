@@ -2,7 +2,6 @@
 using API.Services;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,20 +11,28 @@ namespace API.Controllers
 {
     public class NsoupController : ApiController
     {
-        string base_url= "http://scimagojr.com/journalsearch.php?q=";
-        //string parameter = "09505849";
-        string parameter = "Kaunas University of Technology";
+
+        ////string base_url= "http://scimagojr.com/journalsearch.php?q=";
+        ////string parameter = "09505849";
+        //string parameter = "Kaunas University of Technology";
+
+        //// GET: api/Nsoup
+        //public List<NsoupMagazine> Get()
+        //{
+
+        //    NsoupServices nsoupService = new NsoupServices();
+        //    return nsoupService.FetchScimagojr(parameter);
+        //}
+
 
         // GET: api/Nsoup
-        public List<NsoupMagazine> Get()
+        public IEnumerable<string> Get()
         {
-           
-            NsoupServices nsoupService = new NsoupServices();
-            return nsoupService.FetchScimagojr(parameter);
+            return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Nsoup/kanus
-        public List<NsoupMagazine> Get(string filter)
+        // GET: api/Nsoup/5
+        public List<NsoupMagazine> GetFilter(string filter)
         {
             NsoupServices nsoupService = new NsoupServices();
             return nsoupService.FetchScimagojr(filter);
@@ -45,5 +52,9 @@ namespace API.Controllers
         public void Delete(int id)
         {
         }
+
+
+
+       
     }
 }

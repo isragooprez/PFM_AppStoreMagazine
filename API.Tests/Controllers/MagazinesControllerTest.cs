@@ -15,13 +15,13 @@ namespace API.Tests.Controllers
         [TestMethod()]
         public void GetMagazinesTest()
         {
-            MagazinesController magazinesController = new MagazinesController();
+            //MagazinesController magazinesController = new MagazinesController();
 
-            var result = magazinesController.GetMagazines().AsEnumerable();
-            Assert.IsNotNull(magazinesController.GetMagazines());
-            //Assert.IsNotNull(magazinesController.GetMagazines().Where(m => m.Id >= 0));
-            Console.WriteLine("TEST ISRAGOOPREZ");
-            Console.WriteLine(result);
+            //var result = magazinesController.GetMagazines().AsEnumerable();
+            //Assert.IsNotNull(magazinesController.GetMagazines());
+            ////Assert.IsNotNull(magazinesController.GetMagazines().Where(m => m.Id >= 0));
+            //Console.WriteLine("TEST ISRAGOOPREZ");
+            //Console.WriteLine(result);
 
             //MagazinesServices magazinesServices = new MagazinesServices();
             //Assert.IsNotNull(magazinesServices.GetMagazines().Where(m => m.Country.Equals("3")));
