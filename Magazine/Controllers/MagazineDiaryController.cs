@@ -8,35 +8,37 @@ using System.Web.Mvc;
 
 namespace Magazine.Controllers
 {
-    public class NsoupController : Controller
+    public class MagazineDiaryController : Controller
     {
-        // GET: Nsoup
+        // GET: MagazineDiary
         public ActionResult Index()
         {
+
             return View();
         }
+
+
         // GET: MagazineDiary/ListNsoupFilter/filter
-        public ActionResult ListNsoupFilter(string filter)
+        public ActionResult ListNsoupFilter(string filter = " ")
         {
-            List<NsoupMagazineModels> nsoupModels;
-            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/09505849").Result;
-            nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
+            NsoupMagazineModels nsoupModels;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter).Result;
+            nsoupModels = httpResponseMessage.Content.ReadAsAsync<NsoupMagazineModels>().Result;
             return View(nsoupModels);
         }
-
-        // GET: Nsoup/Details/5
+        // GET: MagazineDiary/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Nsoup/Create
+        // GET: MagazineDiary/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nsoup/Create
+        // POST: MagazineDiary/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -52,13 +54,13 @@ namespace Magazine.Controllers
             }
         }
 
-        // GET: Nsoup/Edit/5
+        // GET: MagazineDiary/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Nsoup/Edit/5
+        // POST: MagazineDiary/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -74,13 +76,13 @@ namespace Magazine.Controllers
             }
         }
 
-        // GET: Nsoup/Delete/5
+        // GET: MagazineDiary/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Nsoup/Delete/5
+        // POST: MagazineDiary/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

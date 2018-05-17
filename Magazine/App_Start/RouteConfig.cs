@@ -13,6 +13,11 @@ namespace Magazine
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Default2",
+            //    url: "Nsoup/{filter}",
+            //    defaults: new { controller = "Nsoup", action = "ListNsoupFilter" }
+            //);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

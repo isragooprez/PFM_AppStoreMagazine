@@ -202,6 +202,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MagazineController.cs" />
+    <Compile Include="Controllers\MagazineDiaryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NsoupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -209,6 +210,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Entidad.cs" />
+    <Compile Include="Models\ModelBinder\MagazineModelBinder.cs" />
+    <Compile Include="Models\MagazinesDiaryModels.cs" />
+    <Compile Include="Models\NsoupMagazineModels.cs" />
     <Compile Include="ProxiAPI\GlobalVarApi.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -287,10 +291,10 @@
     <Content Include="Views\Magazine\Edit.cshtml" />
     <Content Include="Views\Magazine\Delete.cshtml" />
     <Content Include="Views\Magazine\Details.cshtml" />
+    <Content Include="Views\Nsoup\ListNsoupFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Nsoup\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -15,6 +15,13 @@ namespace Magazine
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+               name: "DefaultApi2",
+                routeTemplate: "Nsoup/{filter}",
+                defaults: new { filter = " " }
+            );
+
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

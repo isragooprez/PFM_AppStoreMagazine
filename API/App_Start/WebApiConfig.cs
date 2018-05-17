@@ -22,8 +22,8 @@ namespace API
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi2",
-                routeTemplate: "api/{controller}/{filter}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/Nsoup/{filter}",
+                defaults: new { filter = " "}
             );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
