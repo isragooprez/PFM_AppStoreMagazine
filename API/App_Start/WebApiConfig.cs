@@ -20,11 +20,13 @@ namespace API
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
 
+
             config.Routes.MapHttpRoute(
-                name: "DefaultApi2",
+                 name: "NsoupFilter",
                 routeTemplate: "api/Nsoup/{filter}",
-                defaults: new { filter = " "}
-            );
+                defaults: new { controller = "Nsoup", action = "GetFilter", filter=" "}
+                );
+         
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
