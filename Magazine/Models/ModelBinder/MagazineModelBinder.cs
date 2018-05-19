@@ -14,13 +14,13 @@ namespace Magazine.Models.ModelBinder
 
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            MagazinesDiaryModels magazineDiaryModels = (MagazinesDiaryModels)controllerContext.HttpContext.Session[token_session_magazine_diary];
-            if (magazineDiaryModels == null)
+            MagazinesDiaryModels _magazineDiaryModels = (MagazinesDiaryModels)controllerContext.HttpContext.Session[token_session_magazine_diary];
+            if (_magazineDiaryModels == null)
             {
-                magazineDiaryModels = new MagazinesDiaryModels();
-                controllerContext.HttpContext.Session[token_session_magazine_diary] = magazineDiaryModels;
+                _magazineDiaryModels = new MagazinesDiaryModels();
+                controllerContext.HttpContext.Session[token_session_magazine_diary] = _magazineDiaryModels;
             }
-            return magazineDiaryModels;
+            return _magazineDiaryModels;
         }
     }
 }

@@ -26,7 +26,13 @@ namespace API
                 routeTemplate: "api/Nsoup/{filter}",
                 defaults: new { controller = "Nsoup", action = "GetFilter", filter=" "}
                 );
-         
+
+            config.Routes.MapHttpRoute(
+              name: "NsoupGetData",
+             routeTemplate: "api/Nsoup/GetDataMagazine/{url}",
+             defaults: new { controller = "Nsoup", action = "GetDataMagazine", url = " " }
+             );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

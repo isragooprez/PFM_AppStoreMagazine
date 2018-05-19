@@ -1,6 +1,7 @@
 ﻿using Magazine.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Magazine.Controllers
 {
-    public class MagazineDiaryController : Controller
+    public class MagazinesDiaryController : Controller
     {
         // GET: MagazineDiary
         public ActionResult Index()
@@ -19,13 +20,44 @@ namespace Magazine.Controllers
 
 
         // GET: MagazineDiary/ListNsoupFilter/filter
-        public ActionResult ListNsoupFilter(string filter = " ")
+        public ActionResult ListNsoupFilter(string filter)
         {
+
+            if (filter == string.Empty)
+            {
+                filter = "Kaunas";
+            }
             NsoupMagazineModels nsoupModels;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter).Result;
             nsoupModels = httpResponseMessage.Content.ReadAsAsync<NsoupMagazineModels>().Result;
             return View(nsoupModels);
         }
+
+        // GET: MagazinesDiary/AddDiary/5
+        public ActionResult AddDiary(string url, MagazinesDiaryModels _magazineDiaryModels)
+        {
+            ViewBag.Message = "There are no added magazines.";
+            try
+            {
+                // GET: /MagazineDiary/GetDataMagazine/url
+                string gg = ConfigurationManager.AppSettings.Get("BASE_URL");
+                    string cleanURL = url.Trim().Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty).Replace('&', ',');
+                    MagazineModels magazineModels;
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
+                    magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+                    _magazineDiaryModels.Add(magazineModels);
+
+                    return View(_magazineDiaryModels);
+
+                //return RedirectToAction("Index", "Magazine");
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home",_magazineDiaryModels);
+                //return View("Index");
+            }
+        }
+
         // GET: MagazineDiary/Details/5
         public ActionResult Details(int id)
         {

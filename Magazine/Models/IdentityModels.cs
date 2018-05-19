@@ -29,5 +29,7 @@ namespace Magazine.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Magazine.Models.MagazineModels> MagazineModels { get; set; }
     }
 }

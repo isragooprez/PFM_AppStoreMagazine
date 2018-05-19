@@ -15,11 +15,21 @@ namespace Magazine
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-               name: "DefaultApi2",
-                routeTemplate: "Nsoup/{filter}",
-                defaults: new { filter = " " }
+                name: "FilterNsoup",
+                routeTemplate: "Home/Index/{filter:string}",
+                defaults: new { controller = "Home", action = "Index" }
             );
 
+            config.Routes.MapHttpRoute(
+             name: "AddMagazine",
+             routeTemplate: "MagazineDiary/AddDiary/{url:string}",
+             defaults: new { controller = "MagazinesDiary", action = "AddDiary" }
+         );
+            //config.Routes.MapHttpRoute(
+            //    name: "SaveMagazines",
+            //    routeTemplate: "Home/Save/{lstMagazines}",
+            //    defaults: new { controller = "Home", action = "Save" }
+            //);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

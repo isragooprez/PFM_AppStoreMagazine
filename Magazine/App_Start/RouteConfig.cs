@@ -18,6 +18,13 @@ namespace Magazine
             //    url: "Nsoup/{filter}",
             //    defaults: new { controller = "Nsoup", action = "ListNsoupFilter" }
             //);
+
+           // routes.MapRoute(
+           //    name: "Defaultfilter",
+           //    url: "Home/Index/{filterNsoupMagazine}",
+           //    defaults: new { controller = "Home", action = "Index"}
+           //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

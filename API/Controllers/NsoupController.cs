@@ -38,6 +38,15 @@ namespace API.Controllers
             return nsoupService.FetchScimagojr(filter);
         }
 
+        // GET: api/Nsoup/GetDataMagazine/5
+        public Magazine GetDataMagazine(string url)
+        {
+            
+            NsoupServices nsoupService = new NsoupServices();
+            return nsoupService.GedDataMagazine(url);
+        }
+
+
         // POST: api/Nsoup
         public void Post([FromBody]string value)
         {
@@ -55,6 +64,6 @@ namespace API.Controllers
 
 
 
-       
+
     }
 }

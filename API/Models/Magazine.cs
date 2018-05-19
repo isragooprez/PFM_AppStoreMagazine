@@ -15,8 +15,19 @@ namespace API.Models
     
     public partial class Magazine
     {
-        [JsonProperty("id")]
+
+        [JsonProperty("Id")]
         public int Id { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+        [JsonProperty("Imagen")]
+        public string Imagen { get; set; }
+        [JsonProperty("Hindexnumber")]
+        public string Hindexnumber { get; set; }
+        [JsonProperty("Hindexlegend")]
+        public string Hindexlegend { get; set; }
+        [JsonProperty("Url")]
+        public string Url { get; set; }
         [JsonProperty("Country")]
         public string Country { get; set; }
         [JsonProperty("Subjec")]
@@ -48,7 +59,8 @@ namespace API.Models
         [JsonProperty("TotalCites")]
         public string TotalCites { get; set; }
         [JsonProperty("UserId")]
-        public Nullable<int> UserId { get; set; }
+        public int UserId { get; set; }
+
         public virtual User User { get; set; }
     }
 }

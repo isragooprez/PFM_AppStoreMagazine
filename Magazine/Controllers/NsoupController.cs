@@ -1,6 +1,7 @@
 ﻿using Magazine.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -18,11 +19,17 @@ namespace Magazine.Controllers
         // GET: MagazineDiary/ListNsoupFilter/filter
         public ActionResult ListNsoupFilter(string filter)
         {
+            if (filter == string.Empty || filter == null)
+            {
+                filter = "Kaunas";
+            }
             List<NsoupMagazineModels> nsoupModels;
-            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/09505849").Result;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/"+filter.Trim().ToString()).Result;
             nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
             return View(nsoupModels);
         }
+
+        
 
         // GET: Nsoup/Details/5
         public ActionResult Details(int id)

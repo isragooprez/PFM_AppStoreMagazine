@@ -1,31 +1,82 @@
-﻿@{
+﻿@model IEnumerable<Magazine.Models.NsoupMagazineModels>
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="form-group">
+        <h2 class="col-sm-12 control-label" style="text-align:center">SJR</h2>
+        <h4 class="col-sm-12 control-label" style="text-align:center">Scimago Journal & Country Rank</h4>
+    </div>
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="form-group">
+                <div class="col-sm-12 col-lg-12">
+                    @Html.TextBox("filter", null, new { maxlength = 50, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-12">
+
+                    <input type="submit" value="Search" class="btn btn-primary glyphicon glyphicon-search" />
+                    <input type="button" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+    <br />
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" style=" width:200px;height:200px;">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                <div class="item_add"><span class="item_price">@Html.ActionLink("Add", "AddDiary", "MagazinesDiary", new { url = item.Url}, new { @class = "btn btn-primary" })</span></div>
+            </td>
+        </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("Save", "Save", null, new { lstMagazines = Model.AsQueryable() }, new { @class = "btn btn-primary" })
+    </p>
+
 </div>
