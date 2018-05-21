@@ -14,10 +14,10 @@ namespace Magazine.Models.ModelBinder
 
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            MagazinesDiaryModels _magazineDiaryModels = (MagazinesDiaryModels)controllerContext.HttpContext.Session[token_session_magazine_diary];
+            MagazinesVirtualModels _magazineDiaryModels = (MagazinesVirtualModels)controllerContext.HttpContext.Session[token_session_magazine_diary];
             if (_magazineDiaryModels == null)
             {
-                _magazineDiaryModels = new MagazinesDiaryModels();
+                _magazineDiaryModels = new MagazinesVirtualModels();
                 controllerContext.HttpContext.Session[token_session_magazine_diary] = _magazineDiaryModels;
             }
             return _magazineDiaryModels;

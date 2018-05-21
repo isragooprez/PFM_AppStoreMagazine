@@ -23,7 +23,7 @@ namespace Magazine
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             /***Configuracion de Bundle o contendor Carrito de compras en Sesion  ***/
-            ModelBinders.Binders.Add(typeof(MagazinesDiaryModels), new MagazineModelBinder());
+            ModelBinders.Binders.Add(typeof(MagazinesVirtualModels), new MagazineModelBinder());
             /*** Configuracion de JSON ***/
             GlobalConfiguration.Configuration.Formatters.Clear();
             GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());

@@ -22,11 +22,6 @@ namespace Magazine.Controllers
         // GET: MagazineDiary/ListNsoupFilter/filter
         public ActionResult ListNsoupFilter(string filter)
         {
-
-            if (filter == string.Empty)
-            {
-                filter = "Kaunas";
-            }
             NsoupMagazineModels nsoupModels;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter).Result;
             nsoupModels = httpResponseMessage.Content.ReadAsAsync<NsoupMagazineModels>().Result;
@@ -34,32 +29,65 @@ namespace Magazine.Controllers
         }
 
         // GET: MagazinesDiary/AddDiary/5
-        public ActionResult AddDiary(string url, MagazinesDiaryModels _magazineDiaryModels)
+        public ActionResult AddDiary(string url, MagazinesVirtualModels _magazineDiaryModels)
         {
-            ViewBag.Message = "There are no added magazines.";
             try
             {
-                // GET: /MagazineDiary/GetDataMagazine/url
-                string gg = ConfigurationManager.AppSettings.Get("BASE_URL");
-                    string cleanURL = url.Trim().Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty).Replace('&', ',');
-                    MagazineModels magazineModels;
-                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
-                    magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
-                    _magazineDiaryModels.Add(magazineModels);
-
+                if (url == null && _magazineDiaryModels.Count() == 0)
+                    ViewBag.Message = "There are no added magazines.";
+                else if (url==null && _magazineDiaryModels.Count()>0 )
                     return View(_magazineDiaryModels);
-
-                //return RedirectToAction("Index", "Magazine");
+                else
+                {
+                    var isExisteProdVirtualCar = (from mgz in _magazineDiaryModels where mgz.Url == url select mgz).Any();
+                    if (isExisteProdVirtualCar == true)
+                    {
+                        ViewBag.MessageExist = "La revista ya se a sido Agendada.";
+                    }
+                    else
+                    {
+                        string cleanURL = url.Trim().Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty).Replace('&', ',');
+                        MagazineStoreModels magazineModels;
+                        HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
+                        magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;
+                        //
+                        // TODO OJO FALTA cont5rolar auntomatico
+                        //
+                        magazineModels.UserId = 2;
+                        _magazineDiaryModels.Add(magazineModels);
+                    }
+                }
+                return View(_magazineDiaryModels);
             }
             catch
             {
-                return RedirectToAction("Index", "Home",_magazineDiaryModels);
-                //return View("Index");
+                return RedirectToAction("Index", "Home", _magazineDiaryModels);
             }
         }
 
+        public ActionResult StoreMagazines(MagazinesVirtualModels _magazineDiaryModels)
+        {
+            try
+            {
+                MagazineStoreModels magazine_created = new MagazineStoreModels();
+                foreach (var _magazine in _magazineDiaryModels)
+                {
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PostAsJsonAsync("Magazines", _magazine).Result;
+                    magazine_created = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;
+                }
+                CleanStoreVirtualMagazines(_magazineDiaryModels);
+                _magazineDiaryModels = null;
+                if (magazine_created != null) return RedirectToAction("Index", "Home"); else return RedirectToAction("AddDiary", "MagazinesDiary");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+
         // GET: MagazineDiary/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string url, MagazinesVirtualModels _magazineDiaryModels)
         {
             return View();
         }
@@ -109,9 +137,28 @@ namespace Magazine.Controllers
         }
 
         // GET: MagazineDiary/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string url, MagazinesVirtualModels _magazineDiaryModels)
         {
-            return View();
+            MagazinesVirtualModels aux_magazineStoreModels = new MagazinesVirtualModels();
+
+            var isExisteProdVirtualCar = (from mgz in _magazineDiaryModels where mgz.Url == url select mgz).Any();
+            if (isExisteProdVirtualCar == true)
+            {
+                var mgzvirtualMagazine = (from mgz in _magazineDiaryModels where mgz.Url == url select mgz).First();
+                foreach (MagazineStoreModels mgzDiary in _magazineDiaryModels)
+                {
+                    if (mgzvirtualMagazine.Url == mgzDiary.Url)
+                        aux_magazineStoreModels.Add(mgzDiary);
+                }
+
+                foreach (MagazineStoreModels aux_mgzDiary in aux_magazineStoreModels)
+                {
+                    //if (mgzvirtualMagazine.Url == aux_mgzDiary.Url)
+                        _magazineDiaryModels.Remove(aux_mgzDiary);
+                }
+
+            }
+            return RedirectToAction("AddDiary", _magazineDiaryModels);
         }
 
         // POST: MagazineDiary/Delete/5
@@ -128,6 +175,11 @@ namespace Magazine.Controllers
             {
                 return View();
             }
+        }
+
+        public void CleanStoreVirtualMagazines(MagazinesVirtualModels _magazineDiaryModels)
+        {
+            _magazineDiaryModels.Clear();
         }
     }
 }

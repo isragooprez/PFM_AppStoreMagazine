@@ -13,17 +13,11 @@ namespace Magazine
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "Default2",
-            //    url: "Nsoup/{filter}",
-            //    defaults: new { controller = "Nsoup", action = "ListNsoupFilter" }
-            //);
-
-           // routes.MapRoute(
-           //    name: "Defaultfilter",
-           //    url: "Home/Index/{filterNsoupMagazine}",
-           //    defaults: new { controller = "Home", action = "Index"}
-           //);
+            routes.MapRoute(
+            name: "StoreMagaziness",
+            url: "MagazinesDiary/StoreMagazines/",
+            defaults: new { controller = "MagazinesDiary", action = "StoreMagazines" }
+            );
 
             routes.MapRoute(
                 name: "Default",

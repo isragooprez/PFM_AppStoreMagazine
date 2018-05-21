@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Magazine.Models
 {
-    public class MagazinesDiaryModels:List<MagazineModels>
+    public class MagazinesVirtualModels:List<MagazineStoreModels>
     {
     }
 }
