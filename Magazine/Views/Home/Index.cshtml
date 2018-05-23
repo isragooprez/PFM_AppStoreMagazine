@@ -2,79 +2,272 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
 <div class="jumbotron">
-    <div class="form-group">
+    <div class="col-sm-offset-2 col-md-4 col-md-offset-4">
         <h2 class="col-sm-12 control-label" style="text-align:center">SJR</h2>
         <h4 class="col-sm-12 control-label" style="text-align:center">Scimago Journal & Country Rank</h4>
-    </div>
-    <div class="col-md-4 col-md-offset-4">
         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
         {
-            <div class="form-group">
-                <div class="col-sm-12 col-lg-12">
-                    @Html.TextBox("filter", null, new { maxlength = 50, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-12">
-
+                    @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
                     <input type="submit" value="Search" class="btn btn-primary glyphicon glyphicon-search" />
-                    <input type="button" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary" />
-                </div>
-            </div>
+                    <input type="submit" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary glyphicon glyphicon-search" />
         }
     </div>
     <br />
 </div>
+<br />    <br />    <br />    <br />
+<!-- Page -->
+<div class="page-content">
+    <!-- Panel -->
+    <div class="panel">
+        <div class="panel-body container-fluid">
+            <!-- Example Pricing List2 -->
+            <div class="example-wrap">
+                <h4 class="example-title">MAGAZINES FOUND</h4>
+                <div class="example">
 
-<div class="row">
 
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Url)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Country)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Publisher)
-                </th>
-            </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <img src="@Html.DisplayFor(modelItem => item.Image)" style=" width:200px;height:200px;">
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Url)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Country)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Publisher)
-                    </td>
-                    <td>
-                        @*<div class="item_add"><span class="item_price">@Html.ActionLink("Add", "AddDiary", "MagazinesDiary", new { url = item.Url }, new { @class = "btn btn-primary" })</span></div>*@
+                    @if (Model != null)
+                    {
+                        <div class="row">
 
-                        @Ajax.ActionLink("Add", "AddDiary", "MagazinesDiary", new { url = item.Url}, new AjaxOptions { HttpMethod = "POST" })
-                    </td>
-                </tr>
-            }
-        </table>
-    
 
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="pricing-list text-left">
+                                        <div class="pricing-header bg-blue-600">
+                                            <div class="pricing-title"> @Html.DisplayFor(modelItem => item.Name)</div>
+                                            <div class="pricing-price">
+
+                                                <img src="@Html.DisplayFor(modelItem => item.Image)" style=" width:150px;height:200px;">
+
+
+                                            </div>
+                                            <p class="padding-horizontal-30 padding-bottom-25">Vestibulum lacinia arcu eget nulla. Class aptent taciti</p>
+                                        </div>
+                                        <ul class="pricing-features">
+                                            <li>
+                                                <strong>    @Html.DisplayNameFor(model => model.Country) </strong> @Html.DisplayFor(modelItem => item.Country)
+                                            </li>
+                                            <li>
+                                                <strong>@Html.DisplayNameFor(model => model.Publisher)</strong> @Html.DisplayFor(modelItem => item.Publisher)
+                                            </li>
+
+                                        </ul>
+                                        <div class="pricing-footer text-center bg-blue-grey-100">
+                                            @Ajax.ActionLink("Add", "AddDiary", "MagazinesStore", new { url = item.Url }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-primary btn-lg" })
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+
+                    }
+                    else
+                    {
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h3 style="text-align:center"> @ViewBag.Message</h3>
+
+                    }
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <!-- End Example Pricing List2 -->
+        </div>
+    </div>
+    <!-- End Panel -->
 </div>
+
+
+
+
+
+
+
+<!-- End Page -->
+<!-- Page -->
+@*<div class="page">
+        <div class="page-content container-fluid">
+            <div class="row" data-plugin="matchHeight" data-by-row="true">
+                <div class="col-xlg-6 col-lg-8 col-md-12">
+                    <!-- Panel Traffic -->
+                    <div class="widget widget-shadow example-responsive" id="widgetLinearea">
+                        <div class="widget-content bg-white padding-30" style="min-width:480px;">
+                            <div class="row padding-bottom-20" style="height:calc(100% - 322px);">
+                                <div class="col-sm-8 col-xs-6">
+                                    <div class="blue-grey-700">YOUR TRAFFIC VIEWS</div>
+                                </div>
+                                <div class="col-sm-4 col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="counter counter-md">
+                                                <div class="counter-number-group text-nowrap">
+                                                    <span class="counter-number">76</span>
+                                                    <span class="counter-number-related">%</span>
+                                                </div>
+                                                <div class="counter-label blue-grey-400">PC Browser</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="counter counter-md">
+                                                <div class="counter-number-group text-nowrap">
+                                                    <span class="counter-number">24</span>
+                                                    <span class="counter-number-related">%</span>
+                                                </div>
+                                                <div class="counter-label blue-grey-400">Mobile Phone</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ct-chart margin-bottom-30" style="height:270px;"></div>
+                            <ul class="list-inline text-center margin-bottom-0">
+                                <li>
+                                    <i class="icon wb-large-point blue-200 margin-right-10" aria-hidden="true"></i>                  PC BROWSER
+                                </li>
+                                <li class="margin-left-35">
+                                    <i class="icon wb-large-point teal-200 margin-right-10" aria-hidden="true"></i>                  MOBILE PHONE
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Panel Traffic -->
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+@*<script>
+        $(document).ready(function ($) {
+
+            Site.run();
+
+            // widget-linearea
+            (function () {
+                var linearea = new Chartist.Line('#widgetLinearea .ct-chart', {
+                    labels: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+                    series: [
+                        [0, 2.5, 2, 2.8, 2.6, 3.8, 0],
+                        [0, 1.4, 0.5, 2, 1.2, 0.9, 0]
+                    ]
+                }, {
+                        low: 0,
+                        showArea: true,
+                        showPoint: false,
+                        showLine: false,
+                        fullWidth: true,
+                        chartPadding: {
+                            top: 0,
+                            right: 10,
+                            bottom: 0,
+                            left: 0
+                        },
+                        axisX: {
+                            showGrid: false,
+                            labelOffset: {
+                                x: -14,
+                                y: 0
+                            },
+                        },
+                        axisY: {
+                            labelOffset: {
+                                x: -10,
+                                y: 0
+                            },
+                            labelInterpolationFnc: function (num) {
+                                return num % 1 === 0 ? num : false;
+                            }
+                        }
+                    });
+            })();
+
+            //widget-pie-progress
+            (function () {
+                $("#widgetPieProgress .pieProgress-one").asPieProgress({
+                    namespace: 'pie-progress',
+                    barcolor: $.colors("primary", 600),
+                    trackcolor: $.colors("blue-grey", 100),
+                });
+
+                $("#widgetPieProgress .pieProgress-two").asPieProgress({
+                    namespace: 'pie-progress',
+                    barcolor: $.colors("cyan", 600),
+                    trackcolor: $.colors("blue-grey", 100),
+                });
+
+                $("#widgetPieProgress .pieProgress-three").asPieProgress({
+                    namespace: 'pie-progress',
+                    barcolor: $.colors("purple", 600),
+                    trackcolor: $.colors("blue-grey", 100),
+                });
+            })();
+
+            // widget bar
+            (function () {
+                var bar = new Chartist.Bar('#widgetBar .ct-chart', {
+                    labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
+                    series: [
+                        [160, 200, 150, 400, 460, 440, 240, 250, 50],
+                        [600 - 160, 600 - 200, 600 - 150, 600 - 400, 600 -
+                            460, 600 - 440, 600 - 240, 600 - 250, 600 - 50
+                        ]
+                    ]
+                }, {
+                        stackBars: true,
+                        fullWidth: true,
+                        seriesBarDistance: 0,
+                        axisX: {
+                            showGrid: false,
+                        },
+                        axisY: {
+                            showGrid: false,
+                            labelInterpolationFnc: function (num) {
+                                return num / 200 % 1 === 0 ? num : false;
+                            }
+                        }
+                    });
+            })();
+
+            // widget gmap
+            (function () {
+                var map = new GMaps({
+                    el: '#gmap',
+                    lat: -12.043333,
+                    lng: -77.028333,
+                    zoomControl: true,
+                    zoomControlOpt: {
+                        style: "SMALL",
+                        position: "TOP_LEFT"
+                    },
+                    panControl: true,
+                    streetViewControl: false,
+                    mapTypeControl: false,
+                    overviewMapControl: false
+                });
+
+                map.addStyle({
+                    styledMapName: "Styled Map",
+                    styles: $.components.get('gmaps', 'styles'),
+                    mapTypeId: "map_style"
+                });
+
+                map.setStyle("map_style");
+            })();
+        });
+    </script>*@
