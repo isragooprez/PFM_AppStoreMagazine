@@ -33,6 +33,7 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
 
+
     <!--[if lt IE 9]>
       <script src="~/Template/assets/vendor/html5shiv/html5shiv.min.js"></script>
       <![endif]-->
@@ -571,6 +572,7 @@
                                     </div>
                                 </a>
                             }
+
                             <ul class="site-menu-sub">
                                 <li class="site-menu-item active">
                                     <a class="animsition-link" href="@Url.Action("Index", "Home")" data-slug="dashboard-v1">
@@ -592,283 +594,136 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)" data-slug="layout">
-                                <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
-                                <span class="site-menu-title">API Prez Books</span>
-                                <span class="site-menu-arrow"></span>
-                            </a>
-                            <ul class="site-menu-sub">
-                                <li class="site-menu-item">
-                                    <a class="animsition-link" href="@Url.Action("Index", "Help")" data-slug="layout-grids">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">Api Help</span>
-                                    </a>
-                                </li>
+                        @*@if (User.Identity.Name == "isragoo.prez@gmail.com")*@
+                        @if (true)
+                        {
 
-                                <li class="site-menu-item has-sub">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">api Products</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
-                                    <ul class="site-menu-sub">
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Productoes" data-slug="layout-headers">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Books</span>
-                                            </a>
-
-                                        </li>
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Productoes/1" data-slug="layout-headers">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Book by Id</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="site-menu-item has-sub">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">api Pedidos</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
-                                    <ul class="site-menu-sub">
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Pedidoes" data-slug="layout-bordered-header">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Pedidos</span>
-                                            </a>
-                                        </li>
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Pedidoes/1" data-slug="layout-bordered-header">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Pedido by Id</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="site-menu-item has-sub">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">api Clientes</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
-                                    <ul class="site-menu-sub">
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Clientes" data-slug="layout-two-columns">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Clientes</span>
-                                            </a>
-                                        </li>
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Clientes/1" data-slug="layout-two-columns">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Cliente by Id</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="site-menu-item has-sub">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">api Categorias</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
-                                    <ul class="site-menu-sub">
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Categorias" data-slug="layout-boxed">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Categorias Book</span>
-                                            </a>
-                                        </li>
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/Categorias/1" data-slug="layout-boxed">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Categorias by Id</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="site-menu-item has-sub">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
-                                        <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">Detalle Virtual Car</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
-                                    <ul class="site-menu-sub">
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/DetallePedidoes" data-slug="layout-boxed">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Detalle Pedido</span>
-                                            </a>
-                                        </li>
-                                        <li class="site-menu-item">
-                                            <a class="animsition-link" href="/api/DetallePedidoes/1" data-slug="layout-boxed">
-                                                <i class="site-menu-icon " aria-hidden="true"></i>
-                                                <span class="site-menu-title">Get Detalle Pedido by Id</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        @*<li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="page">
-                                    <i class="site-menu-icon wb-file" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Pages</span>
-                                    <span class="site-menu-arrow"></span>
-                                </a>
-                                <ul class="site-menu-sub">
-                                    <li class="site-menu-item has-sub">
-                                        <a href="javascript:void(0)" data-slug="">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Errors</span>
-                                            <span class="site-menu-arrow"></span>
-                                        </a>
-                                        <ul class="site-menu-sub">
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/400.html" data-slug="page-error-400">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">400</span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/403.html" data-slug="page-error-403">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">403</span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/404.html" data-slug="page-error-404">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">404</span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/500.html" data-slug="page-error-500">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">500</span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/503.html" data-slug="page-error-503">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">503</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="pages/faq.html" data-slug="page-faq">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">FAQ</span>
-                                        </a>
-                                    </li>
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="pages/register.html" data-slug="page-register">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Register</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="site-menu-item has-sub">
-                                        <a href="javascript:void(0)" data-slug="page-map">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Maps</span>
-                                            <span class="site-menu-arrow"></span>
-                                        </a>
-                                        <ul class="site-menu-sub">
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/map-google.html" data-slug="page-map-google">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">Google Maps</span>
-                                                </a>
-                                            </li>
-                                            <li class="site-menu-item">
-                                                <a class="animsition-link" href="pages/map-vector.html" data-slug="page-map-vector">
-                                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">Vector Maps</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>*@
-                        <li class="site-menu-category">OTHER</li>
-                        @*<li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="uikit">
-                                    <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Basic UI</span>
+                            <li class="site-menu-item has-sub">
+                                <a href="javascript:void(0)" data-slug="layout">
+                                    <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                                    <span class="site-menu-title">API Prez Books</span>
                                     <span class="site-menu-arrow"></span>
                                 </a>
                                 <ul class="site-menu-sub">
                                     <li class="site-menu-item">
-                                        <a class="animsition-link" href="uikit/carousel.html" data-slug="uikit-carousel">
+                                        <a class="animsition-link" href="@Url.Action("Index", "Help")" data-slug="layout-grids">
                                             <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Carousel</span>
+                                            <span class="site-menu-title">Api Help</span>
                                         </a>
                                     </li>
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="uikit/modals.html" data-slug="uikit-modals">
+
+                                    <li class="site-menu-item has-sub">
+                                        <a href="javascript:void(0)" data-slug="uikit-panel">
                                             <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Modals</span>
+                                            <span class="site-menu-title">api Products</span>
+                                            <span class="site-menu-arrow"></span>
                                         </a>
+                                        <ul class="site-menu-sub">
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/Productoes" data-slug="layout-headers">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Books</span>
+                                                </a>
+
+                                            </li>
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/Productoes/1" data-slug="layout-headers">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Book by Id</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="site-menu-item has-sub">
                                         <a href="javascript:void(0)" data-slug="uikit-panel">
                                             <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Panel</span>
+                                            <span class="site-menu-title">api Pedidos</span>
                                             <span class="site-menu-arrow"></span>
                                         </a>
                                         <ul class="site-menu-sub">
                                             <li class="site-menu-item">
-                                                <a class="animsition-link" href="uikit/panel-structure.html" data-slug="uikit-panel-structure">
+                                                <a class="animsition-link" href="/api/Pedidoes" data-slug="layout-bordered-header">
                                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">Panel Structure</span>
+                                                    <span class="site-menu-title">Get Pedidos</span>
                                                 </a>
                                             </li>
                                             <li class="site-menu-item">
-                                                <a class="animsition-link" href="uikit/panel-actions.html" data-slug="uikit-panel-actions">
+                                                <a class="animsition-link" href="/api/Pedidoes/1" data-slug="layout-bordered-header">
                                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">Panel Actions</span>
+                                                    <span class="site-menu-title">Get Pedido by Id</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="site-menu-item has-sub">
+                                        <a href="javascript:void(0)" data-slug="uikit-panel">
+                                            <i class="site-menu-icon " aria-hidden="true"></i>
+                                            <span class="site-menu-title">api Clientes</span>
+                                            <span class="site-menu-arrow"></span>
+                                        </a>
+                                        <ul class="site-menu-sub">
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/Clientes" data-slug="layout-two-columns">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Clientes</span>
                                                 </a>
                                             </li>
                                             <li class="site-menu-item">
-                                                <a class="animsition-link" href="uikit/panel-portlets.html" data-slug="uikit-panel-portlets">
+                                                <a class="animsition-link" href="/api/Clientes/1" data-slug="layout-two-columns">
                                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                                    <span class="site-menu-title">Panel Portlets</span>
+                                                    <span class="site-menu-title">Get Cliente by Id</span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
 
-                                </ul>
-                            </li>*@
-                        @*<li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="advanced">
-                                    <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Advanced UI</span>
-                                    <span class="site-menu-arrow"></span>
-                                </a>
-                                <ul class="site-menu-sub">
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="advanced/animation.html" data-slug="advanced-animation">
+                                    <li class="site-menu-item has-sub">
+                                        <a href="javascript:void(0)" data-slug="uikit-panel">
                                             <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Animation</span>
+                                            <span class="site-menu-title">api Categorias</span>
+                                            <span class="site-menu-arrow"></span>
                                         </a>
+                                        <ul class="site-menu-sub">
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/Categorias" data-slug="layout-boxed">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Categorias Book</span>
+                                                </a>
+                                            </li>
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/Categorias/1" data-slug="layout-boxed">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Categorias by Id</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <li class="site-menu-item has-sub">
+                                        <a href="javascript:void(0)" data-slug="uikit-panel">
+                                            <i class="site-menu-icon " aria-hidden="true"></i>
+                                            <span class="site-menu-title">Detalle Virtual Car</span>
+                                            <span class="site-menu-arrow"></span>
+                                        </a>
+                                        <ul class="site-menu-sub">
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/DetallePedidoes" data-slug="layout-boxed">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Detalle Pedido</span>
+                                                </a>
+                                            </li>
+                                            <li class="site-menu-item">
+                                                <a class="animsition-link" href="/api/DetallePedidoes/1" data-slug="layout-boxed">
+                                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                                    <span class="site-menu-title">Get Detalle Pedido by Id</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="advanced/maps-google.html" data-slug="advanced-maps-google">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Google Maps</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>*@
+                        <li class="site-menu-category">OTHER</li>
 
 
                         @if (User.Identity.IsAuthenticated)
@@ -876,15 +731,13 @@
                             <li class="site-menu-item">
                                 <a class="animsition-link" href="@Url.Action("Index", "Clientes", new { area = "" }, Request.Url.Scheme)" data-slug="angular">
                                     <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Cleintes</span>
+                                    <span class="site-menu-title">Clientes</span>
                                     <div class="site-menu-label">
                                         <span class="label label-danger label-round">*</span>
                                     </div>
                                 </a>
                             </li>
                         }
-
-
 
                         <li class="site-menu-item">
                             <a class="animsition-link" href="@Url.Action("About", "Home", new { area = "" }, Request.Url.Scheme)" data-slug="angular">
@@ -906,22 +759,7 @@
                         </li>
 
                     </ul>
-                    @*<div class="site-menubar-section">
-                            <h5>
-                                Milestone
-                                <span class="pull-right">30%</span>
-                            </h5>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar active" style="width: 30%;" role="progressbar"></div>
-                            </div>
-                            <h5>
-                                Release
-                                <span class="pull-right">60%</span>
-                            </h5>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-warning" style="width: 60%;" role="progressbar"></div>
-                            </div>
-                        </div>*@
+
                 </div>
             </div>
         </div>
@@ -938,62 +776,12 @@
             </a>
         </div>
     </div>
-    <div class="site-gridmenu">
-        <ul>
-            <li>
-                <a href="apps/mailbox/mailbox.html">
-                    <i class="icon wb-envelope"></i>
-                    <span>Mailbox</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/calendar/calendar.html">
-                    <i class="icon wb-calendar"></i>
-                    <span>Calendar</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/contacts/contacts.html">
-                    <i class="icon wb-user"></i>
-                    <span>Contacts</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/media/overview.html">
-                    <i class="icon wb-camera"></i>
-                    <span>Media</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/documents/categories.html">
-                    <i class="icon wb-order"></i>
-                    <span>Documents</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/projects/projects.html">
-                    <i class="icon wb-image"></i>
-                    <span>Project</span>
-                </a>
-            </li>
-            <li>
-                <a href="apps/forum/forum.html">
-                    <i class="icon wb-chat-group"></i>
-                    <span>Forum</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.html">
-                    <i class="icon wb-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-        </ul>
-    </div>
     <!-- Page -->
     <div class="page">
-        <div class="page-content">
-            @RenderBody()
+        <div class="page-content padding-30 container-fluid">
+            <div class="row" data-plugin="matchHeight" data-by-row="true">
+                @RenderBody()
+            </div>
         </div>
     </div>
     <!-- End Page -->
@@ -1037,479 +825,20 @@
     <script src="~/Template/assets/js/components/switchery.js"></script>
 
 
-<script>
-    (function(document, window, $) {
-      'use strict';
 
-      var Site = window.Site;
 
-      $(document).ready(function($) {
-        Site.run();
-      });
 
-      // Example Row Toggler
-      // -------------------
-      (function() {
-        $('#exampleRowToggler').footable();
-      })();
 
-      // Expand / Collapse All Rows
-      // --------------------------
-      (function() {
-        var fooColExp = $('#exampleAccordion');
-        fooColExp.footable().trigger('footable_expand_first_row');
+    <script>
+        $(document).ready(function ($) {
+            Site.run();
 
-        $('#exampleCollapseBtn').on('click', function() {
-          fooColExp.trigger('footable_collapse_all');
+
         });
-        $('#exampleExpandBtn').on('click', function() {
-          fooColExp.trigger('footable_expand_all');
-        })
-      })();
-
-      // Accordion
-      // ---------
-      (function() {
-        $('#exampleFooAccordion').footable().on('footable_row_expanded',
-          function(e) {
-            $('#exampleFooAccordion tbody tr.footable-detail-show').not(
-              e.row).each(function() {
-              $('#exampleFooAccordion').data('footable').toggleDetail(
-                this);
-            });
-          });
-      })();
-
-      // Pagination
-      // ----------
-      (function() {
-        $('#examplePagination').footable();
-        $('#exampleShow').change(function(e) {
-          e.preventDefault();
-          var pagesize = $(this).find('option:selected').val();
-          $('#examplePagination').data('page-size', pagesize);
-          $('#examplePagination').trigger('footable_initialized');
-        });
-      })();
-
-      // Filtering
-      // ---------
-      (function() {
-        var filtering = $('#exampleFootableFiltering');
-        filtering.footable().on('footable_filtering', function(e) {
-          var selected = $('#filteringStatus').find(':selected').val();
-          e.filter += (e.filter && e.filter.length > 0) ? ' ' +
-            selected : selected;
-          e.clear = !e.filter;
-        });
-
-        // Filter status
-        $('#filteringStatus').change(function(e) {
-          e.preventDefault();
-          filtering.trigger('footable_filter', {
-            filter: $(this).val()
-          });
-        });
-
-        // Search input
-        $('#filteringSearch').on('input', function(e) {
-          e.preventDefault();
-          filtering.trigger('footable_filter', {
-            filter: $(this).val()
-          });
-        });
-      })();
-
-      // Add & Remove Row
-      // ----------------
-      (function() {
-        var addrow = $('#exampleFooAddRemove');
-        addrow.footable().on('click', '.delete-row-btn', function() {
-
-          //get the footable object
-          var footable = addrow.data('footable');
-
-          //get the row we are wanting to delete
-          var row = $(this).parents('tr:first');
-
-          //delete the row
-          footable.removeRow(row);
-        });
-
-        // Search input
-        $('#addRemoveSearch').on('input', function(e) {
-          e.preventDefault();
-
-          addrow.trigger('footable_filter', {
-            filter: $(this).val()
-          });
-        });
-
-        // Add Row Button
-        $('#addRowBtn').click(function() {
-
-          //get the footable object
-          var footable = addrow.data('footable');
-
-          //build up the row we are wanting to add
-          var newRow =
-            '<tr><td><button class="btn btn-icon btn-danger btn-outline btn-round btn-xs demo-delete-btn"><i class="icon wb-close-mini" aria-hidden="true"></i></button></td><td>Adam</td><td>Doe</td><td>Traffic Court Referee</td><td>22 Jun 1972</td><td><span class="label label-table label-success">Active</span></td></tr>';
-
-          //add it
-          footable.appendRow(newRow);
-        });
-      })();
-
-    })(document, window, jQuery);
-  </script>
+    </script>
 
 
-    @*<script>
-            $(document).ready(function ($) {
-                Site.run();
 
-                (function () {
-                    var snow = new Skycons({
-                        "color": $.colors("blue-grey", 500)
-                    });
-                    snow.set(document.getElementById("widgetSnow"), "snow");
-                    snow.play();
-
-                    var sunny = new Skycons({
-                        "color": $.colors("blue-grey", 700)
-                    });
-                    sunny.set(document.getElementById("widgetSunny"), "clear-day");
-                    sunny.play();
-                })();
-
-                (function () {
-                    var lineareaColor = new Chartist.Line(
-                        '#widgetLineareaColor .ct-chart', {
-                            labels: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-                            series: [
-                                [4, 4.5, 4.3, 4, 5, 6, 5.5],
-                                [3, 2.5, 3, 3.5, 4.2, 4, 5],
-                                [1, 2, 2.5, 2, 3, 2.8, 4]
-                            ]
-                        }, {
-                            low: 0,
-                            showArea: true,
-                            showPoint: false,
-                            showLine: false,
-                            fullWidth: true,
-                            chartPadding: {
-                                top: 0,
-                                right: 0,
-                                bottom: 0,
-                                left: 0
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-                })();
-
-                (function () {
-                    var stacked_bar = new Chartist.Bar(
-                        '#widgetStackedBar .ct-chart', {
-                            labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-                                'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-                                'V', 'W', 'X', 'Y', 'Z'
-                            ],
-                            series: [
-                                [50, 90, 100, 90, 110, 100, 120, 130, 115, 95, 80, 85,
-                                    100, 140, 130, 120, 135, 110, 120, 105, 100, 105,
-                                    90, 110, 100, 60
-                                ],
-                                [150, 190, 200, 190, 210, 200, 220, 230, 215, 195,
-                                    180, 185, 200, 240, 230, 220, 235, 210, 220, 205,
-                                    200, 205, 190, 210, 200, 160
-                                ]
-                            ]
-                        }, {
-                            stackBars: true,
-                            fullWidth: true,
-                            seriesBarDistance: 0,
-                            chartPadding: {
-                                top: 0,
-                                right: 30,
-                                bottom: 30,
-                                left: 20
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-                })();
-
-                // timeline
-                // --------
-                (function () {
-                    var timeline_labels = [];
-                    var timeline_data1 = [];
-                    var timeline_data2 = [];
-                    var totalPoints = 20;
-                    var updateInterval = 1000;
-                    var now = new Date().getTime();
-
-                    function GetData() {
-                        timeline_labels.shift();
-                        timeline_data1.shift();
-                        timeline_data2.shift();
-
-                        while (timeline_data1.length < totalPoints) {
-                            var x = Math.random() * 100 + 800;
-                            var y = Math.random() * 100 + 400;
-                            timeline_labels.push(now += updateInterval);
-                            timeline_data1.push(x);
-                            timeline_data2.push(y);
-                        }
-                    }
-
-                    var timlelineData = {
-                        labels: timeline_labels,
-                        series: [
-                            timeline_data1,
-                            timeline_data2
-                        ]
-                    };
-
-                    var timelineOptions = {
-                        low: 0,
-                        showArea: true,
-                        showPoint: false,
-                        showLine: false,
-                        fullWidth: true,
-                        chartPadding: {
-                            top: 0,
-                            right: 0,
-                            bottom: 0,
-                            left: 0
-                        },
-                        axisX: {
-                            showLabel: false,
-                            showGrid: false,
-                            offset: 0
-                        },
-                        axisY: {
-                            showLabel: false,
-                            showGrid: false,
-                            offset: 0
-                        }
-                    };
-                    new Chartist.Line("#widgetTimeline .ct-chart", timlelineData,
-                        timelineOptions);
-
-                    function update() {
-                        GetData();
-
-                        new Chartist.Line("#widgetTimeline .ct-chart", timlelineData,
-                            timelineOptions);
-                        setTimeout(update, updateInterval);
-                    }
-
-                    update();
-
-                })();
-
-                (function () {
-                    new Chartist.Line("#widgetLinepoint .ct-chart", {
-                        labels: ['1', '2', '3', '4', '5', '6'],
-                        series: [
-                            [1, 1.5, 0.5, 2, 2.5, 1.5]
-                        ]
-                    }, {
-                            low: 0,
-                            showArea: false,
-                            showPoint: true,
-                            showLine: true,
-                            fullWidth: true,
-                            lineSmooth: false,
-                            chartPadding: {
-                                top: -10,
-                                right: -4,
-                                bottom: 10,
-                                left: -4
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-                })();
-
-                (function () {
-                    new Chartist.Bar("#widgetSaleBar .ct-chart", {
-                        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K',
-                            'L', 'M', 'N', 'O', 'P', 'Q'
-                        ],
-                        series: [
-                            [50, 90, 100, 90, 110, 100, 120, 130, 115, 95, 80, 85,
-                                100, 140, 130, 120
-                            ]
-                        ]
-                    }, {
-                            low: 0,
-                            fullWidth: true,
-                            chartPadding: {
-                                top: -10,
-                                right: 20,
-                                bottom: 30,
-                                left: 20
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-                })();
-
-                (function () {
-                    new Chartist.Bar("#widgetWatchList .small-bar-one", {
-                        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
-                        series: [
-                            [50, 90, 100, 90, 110, 100, 120, 130]
-                        ]
-                    }, {
-                            low: 0,
-                            fullWidth: true,
-                            chartPadding: {
-                                top: -10,
-                                right: 0,
-                                bottom: 0,
-                                left: 20
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-
-                    new Chartist.Bar("#widgetWatchList .small-bar-two", {
-                        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
-                        series: [
-                            [50, 90, 100, 90, 110, 100, 120, 120]
-                        ]
-                    }, {
-                            low: 0,
-                            fullWidth: true,
-                            chartPadding: {
-                                top: -10,
-                                right: 0,
-                                bottom: 0,
-                                left: 20
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-
-                    new Chartist.Line("#widgetWatchList .line-chart", {
-                        labels: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-                        series: [
-                            [20, 50, 70, 110, 100, 200, 230],
-                            [50, 80, 140, 130, 150, 110, 160]
-                        ]
-                    }, {
-                            low: 0,
-                            showArea: false,
-                            showPoint: false,
-                            showLine: true,
-                            lineSmooth: false,
-                            fullWidth: true,
-                            chartPadding: {
-                                top: 0,
-                                right: 10,
-                                bottom: 0,
-                                left: 10
-                            },
-                            axisX: {
-                                showLabel: true,
-                                showGrid: false,
-                                offset: 30
-                            },
-                            axisY: {
-                                showLabel: true,
-                                showGrid: true,
-                                offset: 30
-                            }
-                        });
-                })();
-
-                (function () {
-                    new Chartist.Line("#widgetLinepointDate .ct-chart", {
-                        labels: ['1', '2', '3', '4', '5', '6'],
-                        series: [
-                            [1, 1.5, 0.5, 2, 2.5, 1.5]
-                        ]
-                    }, {
-                            low: 0,
-                            showArea: false,
-                            showPoint: true,
-                            showLine: true,
-                            fullWidth: true,
-                            lineSmooth: false,
-                            chartPadding: {
-                                top: 0,
-                                right: -4,
-                                bottom: 10,
-                                left: -4
-                            },
-                            axisX: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            },
-                            axisY: {
-                                showLabel: false,
-                                showGrid: false,
-                                offset: 0
-                            }
-                        });
-
-                })();
-
-            });
-        </script>*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -12,6 +12,8 @@ using ExCSS;
 using NSoup;
 using NSoup.Nodes;
 using Newtonsoft.Json;
+using System.Text;
+using System.Web.Script.Serialization;
 
 namespace API.Services
 {
@@ -21,6 +23,7 @@ namespace API.Services
 
         public List<NsoupMagazine> FetchScimagojr(string parameter)
         {
+
             List<NsoupMagazine> listNsoupMagazines = new List<NsoupMagazine>();
             // Connecting & Fetching ...
             IConnection connection = NSoupClient.Connect(ConfigurationManager.AppSettings.Get("BASE_URL") + parameter);
@@ -134,7 +137,10 @@ namespace API.Services
                 _documUnCit.Value = elem.Select("td")[2].Text();
                 lst_DocumentsUncitable.Add(_documUnCit);
             }
+
+
             return JsonConvert.SerializeObject(lst_DocumentsUncitable);
+
         }
 
         public string ToJsonDocumentsNoncitable(Document document)
@@ -245,7 +251,16 @@ namespace API.Services
                 lst_quartiles.Add(_quartiles);
             }
 
+            JavaScriptSerializer j = new JavaScriptSerializer();
             return JsonConvert.SerializeObject(lst_quartiles);
+        }
+
+        private string ConvertArrayToString(object[] array)
+        {
+            string result = string.Empty;
+            foreach (object obj in array)
+                result += obj.ToString();
+            return result;
         }
 
         public string UrlEnCode(string url)

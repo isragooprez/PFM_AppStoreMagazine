@@ -2,15 +2,18 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
+
+
 <div class="jumbotron">
     <div class="col-sm-offset-2 col-md-4 col-md-offset-4">
         <h2 class="col-sm-12 control-label" style="text-align:center">SJR</h2>
         <h4 class="col-sm-12 control-label" style="text-align:center">Scimago Journal & Country Rank</h4>
         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
         {
-                    @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
-                    <input type="submit" value="Search" class="btn btn-primary glyphicon glyphicon-search" />
-                    <input type="submit" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary glyphicon glyphicon-search" />
+            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
+            <input type="submit" value="Search" class="btn btn-primary glyphicon glyphicon-search" />
+            <input type="submit" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary glyphicon glyphicon-search" />
         }
     </div>
     <br />
@@ -20,7 +23,7 @@
 <div class="page-content">
     <!-- Panel -->
     <div class="panel">
-        <div class="panel-body container-fluid">
+        <div class="panel-body">
             <!-- Example Pricing List2 -->
             <div class="example-wrap">
                 <h4 class="example-title">MAGAZINES FOUND</h4>
@@ -30,7 +33,7 @@
 
                     @if (Model != null)
                     {
-                        <div class="row">
+                        <div class="row row-lg">
 
 
                             @foreach (var item in Model)
@@ -75,6 +78,24 @@
                         <br />
                         <h3 style="text-align:center"> @ViewBag.Message</h3>
 
+                        <div class="col-md-6">
+                            <!-- Example Bi-Polar Line -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">Bi-Polar Line Chart With Area Only</h4>
+                                <p>
+                                    You can also only draw the area shapes of the line chart. Area
+                                    shapes will always be constructed around their areaBase (that
+                                    can be configured in the options) which also allows you to draw
+                                    nice bi-polar areas.
+                                </p>
+                                <div class="example">
+                                    <div class="ct-chart" id="exampleOnlyArea"></div>
+                                </div>
+                            </div>
+                            <!-- End Example Bi Polar Line -->
+                        </div>
+
+
                     }
 
 
@@ -96,178 +117,3 @@
 
 
 
-
-
-
-<!-- End Page -->
-<!-- Page -->
-@*<div class="page">
-        <div class="page-content container-fluid">
-            <div class="row" data-plugin="matchHeight" data-by-row="true">
-                <div class="col-xlg-6 col-lg-8 col-md-12">
-                    <!-- Panel Traffic -->
-                    <div class="widget widget-shadow example-responsive" id="widgetLinearea">
-                        <div class="widget-content bg-white padding-30" style="min-width:480px;">
-                            <div class="row padding-bottom-20" style="height:calc(100% - 322px);">
-                                <div class="col-sm-8 col-xs-6">
-                                    <div class="blue-grey-700">YOUR TRAFFIC VIEWS</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <div class="counter counter-md">
-                                                <div class="counter-number-group text-nowrap">
-                                                    <span class="counter-number">76</span>
-                                                    <span class="counter-number-related">%</span>
-                                                </div>
-                                                <div class="counter-label blue-grey-400">PC Browser</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <div class="counter counter-md">
-                                                <div class="counter-number-group text-nowrap">
-                                                    <span class="counter-number">24</span>
-                                                    <span class="counter-number-related">%</span>
-                                                </div>
-                                                <div class="counter-label blue-grey-400">Mobile Phone</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ct-chart margin-bottom-30" style="height:270px;"></div>
-                            <ul class="list-inline text-center margin-bottom-0">
-                                <li>
-                                    <i class="icon wb-large-point blue-200 margin-right-10" aria-hidden="true"></i>                  PC BROWSER
-                                </li>
-                                <li class="margin-left-35">
-                                    <i class="icon wb-large-point teal-200 margin-right-10" aria-hidden="true"></i>                  MOBILE PHONE
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Panel Traffic -->
-                </div>
-            </div>
-        </div>
-    </div>*@
-
-
-@*<script>
-        $(document).ready(function ($) {
-
-            Site.run();
-
-            // widget-linearea
-            (function () {
-                var linearea = new Chartist.Line('#widgetLinearea .ct-chart', {
-                    labels: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-                    series: [
-                        [0, 2.5, 2, 2.8, 2.6, 3.8, 0],
-                        [0, 1.4, 0.5, 2, 1.2, 0.9, 0]
-                    ]
-                }, {
-                        low: 0,
-                        showArea: true,
-                        showPoint: false,
-                        showLine: false,
-                        fullWidth: true,
-                        chartPadding: {
-                            top: 0,
-                            right: 10,
-                            bottom: 0,
-                            left: 0
-                        },
-                        axisX: {
-                            showGrid: false,
-                            labelOffset: {
-                                x: -14,
-                                y: 0
-                            },
-                        },
-                        axisY: {
-                            labelOffset: {
-                                x: -10,
-                                y: 0
-                            },
-                            labelInterpolationFnc: function (num) {
-                                return num % 1 === 0 ? num : false;
-                            }
-                        }
-                    });
-            })();
-
-            //widget-pie-progress
-            (function () {
-                $("#widgetPieProgress .pieProgress-one").asPieProgress({
-                    namespace: 'pie-progress',
-                    barcolor: $.colors("primary", 600),
-                    trackcolor: $.colors("blue-grey", 100),
-                });
-
-                $("#widgetPieProgress .pieProgress-two").asPieProgress({
-                    namespace: 'pie-progress',
-                    barcolor: $.colors("cyan", 600),
-                    trackcolor: $.colors("blue-grey", 100),
-                });
-
-                $("#widgetPieProgress .pieProgress-three").asPieProgress({
-                    namespace: 'pie-progress',
-                    barcolor: $.colors("purple", 600),
-                    trackcolor: $.colors("blue-grey", 100),
-                });
-            })();
-
-            // widget bar
-            (function () {
-                var bar = new Chartist.Bar('#widgetBar .ct-chart', {
-                    labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
-                    series: [
-                        [160, 200, 150, 400, 460, 440, 240, 250, 50],
-                        [600 - 160, 600 - 200, 600 - 150, 600 - 400, 600 -
-                            460, 600 - 440, 600 - 240, 600 - 250, 600 - 50
-                        ]
-                    ]
-                }, {
-                        stackBars: true,
-                        fullWidth: true,
-                        seriesBarDistance: 0,
-                        axisX: {
-                            showGrid: false,
-                        },
-                        axisY: {
-                            showGrid: false,
-                            labelInterpolationFnc: function (num) {
-                                return num / 200 % 1 === 0 ? num : false;
-                            }
-                        }
-                    });
-            })();
-
-            // widget gmap
-            (function () {
-                var map = new GMaps({
-                    el: '#gmap',
-                    lat: -12.043333,
-                    lng: -77.028333,
-                    zoomControl: true,
-                    zoomControlOpt: {
-                        style: "SMALL",
-                        position: "TOP_LEFT"
-                    },
-                    panControl: true,
-                    streetViewControl: false,
-                    mapTypeControl: false,
-                    overviewMapControl: false
-                });
-
-                map.addStyle({
-                    styledMapName: "Styled Map",
-                    styles: $.components.get('gmaps', 'styles'),
-                    mapTypeId: "map_style"
-                });
-
-                map.setStyle("map_style");
-            })();
-        });
-    </script>*@

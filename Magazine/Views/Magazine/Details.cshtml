@@ -1,147 +1,640 @@
 ﻿@model Magazine.Models.MagazineModels
+@using Newtonsoft.Json;
+@using System.Web.Script.Serialization;
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
+<script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
 
+
+<!-- Plugin -->
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-responsive/dataTables.responsive.css">
+
+<link rel="stylesheet" href="~/Template/assets/vendor/chartist-js/chartist.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/morris-js/morris.css">
+
+<!-- Inline -->
+<link href="~/Template/docs/css/chart.css" rel="stylesheet" />
+<link href="~/Template/docs/css/datatable.css" rel="stylesheet" />
 <h2>Details</h2>
+<!-- Panel -->
+<div class="panel">
+    <div class="panel-body">
+        <!-- Example Pricing List2 -->
+        <div class="example-wrap">
+            <h4 class="example-title">DETALLE</h4>
+            <div class="example">
+                <div class="row row-lg">
+                    <div>
+                        <h4>MagazineModels</h4>
+                        <hr />
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
 
-<div>
-    <h4>MagazineModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.Country)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Subjec)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Subjec)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subjec)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.Subjec)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Publisher)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Publisher)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Publisher)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.Publisher)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublicationType)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PublicationType)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublicationType)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.PublicationType)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ISSN)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ISSN)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ISSN)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.ISSN)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Coverage)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Coverage)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Coverage)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.Coverage)
+                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Scope)
-        </dt>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Scope)
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Scope)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.Scope)
+                            </dd>
+                        </dl>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quartiles)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quartiles)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SJR)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SJR)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CitationsPerDocument)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CitationsPerDocument)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cites)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cites)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InternationalCollaboration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InternationalCollaboration)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DocumentsNoncitable)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DocumentsNoncitable)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DocumentsUncited)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DocumentsUncited)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalCites)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TotalCites)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-
-    </dl>
+                </div>
+            </div>
+            <!-- End Example Pricing List2 -->
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- End Panel -->
+<!-- Panel -->
+<div class="panel">
+    <header class="panel-heading">
+        <h3 class="panel-title">@Html.DisplayNameFor(model => model.Quartiles)</h3>
+    </header>
+    <div class="panel-body">
+        @{
+
+            dynamic input = JsonConvert.DeserializeObject(Model.Quartiles);
+        }
+        <table class="table table-hover dataTable table-striped width-full" id="exampleTableSearch">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Year</th>
+                    <th>Quartile</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Category</th>
+                    <th>Year</th>
+                    <th>Quartile</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var inputAttribute in input)
+                {
+                    <tr>
+                        <td>@inputAttribute.Category</td>
+                        <td>@inputAttribute.Year</td>
+                        <td>@inputAttribute.Quartile</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="row row-lg">
+            <div class="col-md-6">
+                <!-- DATA SJR Bi-Polar Line -->
+                <div class="example-wrap">
+                    <h4 class="example-title">SJR</h4>
+                    <p>
+                        The line chart requires an array of labels for each of the data
+                        points. This is shown on the X axis. The data for line charts
+                        is broken up into an array of datasets. Each dataset has a colour
+                        for the fill, a colour for the line and colours for the points
+                        and strokes of the points. These colours are strings just like
+                        CSS. You can use RGBA, RGB, HEX or HSL notation.
+                    </p>
+                    <div class="example">
+                        <div class="ct-chart" id="SJROnlyArea"></div>
+                    </div>
+                </div>
+                <!-- End Example Bi Polar Line -->
+            </div>
+            <div class="col-md-6">
+                <!-- DATA International CollaborationOnly AreaBi-Polar Line -->
+                <div class="example-wrap">
+                    <h4 class="example-title">International Collaboration</h4>
+                    <p>
+                        The line chart requires an array of labels for each of the data
+                        points. This is shown on the X axis. The data for line charts
+                        is broken up into an array of datasets. Each dataset has a colour
+                        for the fill, a colour for the line and colours for the points
+                        and strokes of the points. These colours are strings just like
+                        CSS. You can use RGBA, RGB, HEX or HSL notation.
+                    </p>
+                    <div class="example">
+                        <div class="ct-chart" id="InternationalCollaborationOnlyArea"></div>
+                    </div>
+                </div>
+                <!-- End Example Bi Polar Line -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Panel -->
+<div class="page-content">
+    <!-- Panel -->
+    <div class="panel">
+        <div class="panel-body container-fluid">
+            <div class="row row-lg">
+                <div class="col-md-6">
+                    <!-- Example Line -->
+                    <div class="example-wrap">
+                        <h4 class="example-title">Total Cites</h4>
+                        <p>
+                            The line chart requires an array of labels for each of the data
+                            points. This is shown on the X axis. The data for line charts
+                            is broken up into an array of datasets. Each dataset has a colour
+                            for the fill, a colour for the line and colours for the points
+                            and strokes of the points. These colours are strings just like
+                            CSS. You can use RGBA, RGB, HEX or HSL notation.
+                        </p>
+                        <div class="example text-center">
+                            <canvas id="TotalCitesChartjsLine" height="300" width="450"></canvas>
+                        </div>
+                    </div>
+                    <!-- End Example Line -->
+                </div>
+                <div class="col-md-6 ">
+                    <!-- Example Bar -->
+                    <div class="example-wrap">
+                        <h4 class="example-title">Citations Per Document</h4>
+                        <p>
+                            The bar chart has the a very similar data structure to the line
+                            chart, and has an array of datasets, each with colours and an
+                            array of data. Again, colours are in CSS format. We have an array
+                            of labels too for display. In the example, we are showing the
+                            same data as the previous line chart example.
+                        </p>
+                        <div class="example text-center">
+                            <canvas id="CitationsPerDocumentChartjsBar" height="300" width="450"></canvas>
+                        </div>
+                    </div>
+                    <!-- End Example Bar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel -->
+</div>
+
+<!-- Panel -->
+<div class="panel">
+    <div class="panel-body container-fluid">
+        <div class="row row-lg">
+
+            <div class="col-md-6">
+                <!-- Example ExternalCitesMorrisArea Area -->
+                <div class="example-wrap">
+                    <h4 class="example-title">External Cites per Doc | Cites per Doc</h4>
+                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                    <div class="example">
+                        <div id="ExternalCitesMorrisArea"></div>
+                    </div>
+                </div>
+                <!-- End Example Area -->
+            </div>
+            <div class="col-md-6">
+                <!-- Example ExternalCitesMorrisArea Area -->
+                <div class="example-wrap">
+                    <h4 class="example-title">Citable documents | Non-citable documents</h4>
+                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                    <div class="example">
+                        <div id="NonCitesMorrisArea"></div>
+                    </div>
+                </div>
+                <!-- End Example Area -->
+            </div>
+            <div class="col-md-6">
+                <!-- Example ExternalCitesMorrisArea Area -->
+                <div class="example-wrap">
+                    <h4 class="example-title">Cited documents | Uncited documents</h4>
+                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                    <div class="example">
+                        <div id="UnCitesMorrisArea"></div>
+                    </div>
+                </div>
+                <!-- End Example Area -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Panel -->
+
+<!-- MAIN  JQUERY -->
+<script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+
+<!-- Plugins -->
+<script src="~/Template/assets/vendor/raphael/raphael-min.js"></script>
+<script src="~/Template/assets/vendor/morris-js/morris.min.js"></script>
+<script src="~/Template/assets/vendor/chartist-js/chartist.js"></script>
+<script src="~/Template/assets/vendor/chart-js/Chart.js"></script>
+
+@*<script src="~/Template/assets/js/configs/config-colors.js"></script>
+    <script src="~/Template/assets/js/configs/config-tour.js"></script>*@
+
+
+<!-- End Panel -->
+<script src="~/Template/assets/js/components/datatables.js"></script>
+
+<script>
+        (function (document, window, $) {
+            'use strict';
+         
+              //Model
+            var modelo = @Html.Raw(Json.Encode(Model));
+
+
+            // DATA SJR Chartist Bi-Polar Line
+            // ------------------------------
+            (function () {
+                //DATA InternationalCollaborationOnlyArea
+                var jarr = JSON.parse(modelo.InternationalCollaboration);
+                var data_IntColl = [];
+                var dataX_Year = [];
+                var dataY_IntColl = [];
+                var jsas = jarr.forEach(function (ele) {
+                    data_IntColl.push([ele[" InternationalCollaboration"], ele["Year"]]);
+                    dataX_Year.push(ele["Year"]);
+                    dataY_IntColl.push(ele[" InternationalCollaboration"]);
+                });
+                new Chartist.Line('#InternationalCollaborationOnlyArea', {
+                    labels: dataX_Year,
+                    series: [dataY_IntColl]
+                }, {
+                        high: Math.max.apply(null, dataY_IntColl),
+                        low: Math.min.apply(null, dataY_IntColl),
+                        showArea: true,
+                        showLine: true,
+                        showPoint: true,
+                        fullWidth: false,
+                        axisX: {
+                            showLabel: true,
+                            showGrid: false
+                        }
+                    });
+            })();
+
+
+            // DATA SJR Chartist Bi-Polar Line
+            // ------------------------------
+            (function () {
+                //DATA SJR
+                var jarr = JSON.parse(modelo.SJR);
+                var data_SJR = [];
+                var dataX_Year = [];
+                var dataY_Sjr = [];
+                var jsas = jarr.forEach(function (ele) {
+                    data_SJR.push([ele["Sjr"], ele["Year"]]);
+                    dataX_Year.push(ele["Year"]);
+                    dataY_Sjr.push(ele["Sjr"]);
+                });
+                new Chartist.Line('#SJROnlyArea', {
+                    labels: dataX_Year,
+                    series: [dataY_Sjr]
+                }, {
+                        high: Math.max.apply(null, dataY_Sjr),
+                        low: Math.min.apply(null, dataY_Sjr),
+                        showArea: true,
+                        showLine: false,
+                        showPoint: false,
+                        fullWidth: false,
+                        axisX: {
+                            showLabel: true,
+                            showGrid: false
+                        }
+                    });
+            })();
+
+            // //DATA TOTALCITES Chartjs Line
+            // --------------------
+            (function () {
+
+                //DATA TOTALCITES
+                var jarr = JSON.parse(modelo.TotalCites);
+                var data_TotalCites = [];
+                var dataX_Year = [];
+                var dataY_Value1 = [];
+                var dataY_Value2 = [];
+                var jsas = jarr.forEach(function (ele) {
+                    data_TotalCites.push([ele["Cites"], ele["Year"], ele["Value"]]);
+                    dataX_Year.push(ele["Year"]);
+                    if (ele["Cites"] == "Self Cites") dataY_Value1.push(ele["Value"]);
+                    else dataY_Value2.push(ele["Value"]);
+                });
+                Array.prototype.unique = function (a) {
+                    return function () { return this.filter(a) }
+                }(function (a, b, c) {
+                    return c.indexOf(a, b + 1) < 0
+                });
+                var lineChartData = {
+                    labels: dataX_Year.unique(),
+                    scaleShowGridLines: false,
+                    scaleShowVerticalLines: false,
+                    scaleGridLineColor: "#ebedf0",
+                    datasets: [{
+                        fillColor: "rgba(204, 213, 219, .2)",
+                        strokeColor: "rgba(232, 53, 69, 300)",
+                        pointColor: "rgba(232, 53, 69, 300)",
+                        pointStrokeColor: "	#DC143C",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(232, 53, 69, 300)",
+                        data: dataY_Value2
+                    }, {
+                        fillColor: "rgba(98, 168, 234, .2)",
+                            strokeColor: "rgb(32, 42, 249,600)",
+                            pointColor: "rgb(32, 42, 249,600)",
+                            pointStrokeColor: "	#DC143C",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgb(32, 42, 249,600)",
+                            data: dataY_Value1
+                    }]
+                };
+                var myLine = new Chart(document.getElementById(
+                    "TotalCitesChartjsLine").getContext("2d")).Line(lineChartData);
+            })();
+
+            // CitationsPerDocument Chartjs Bar
+            // --------------------
+            (function () {
+                var jarr = JSON.parse(modelo.CitationsPerDocument);
+                var data_TotalCites = [];
+                var dataX_Year = [];
+                var dataY_Value1 = [];
+                var dataY_Value2 = [];
+                var dataY_Value3 = [];
+                var jsas = jarr.forEach(function (ele) {
+                    data_TotalCites.push([ele["CitesPerDocument"], ele["Year"], ele["Value"]]);
+                    dataX_Year.push(ele["Year"]);
+                    if (ele["CitesPerDocument"] == "Cites / Doc. (4 years)")
+                        dataY_Value1.push(ele["Value"]);
+                    else if (ele["CitesPerDocument"] == "Cites / Doc. (3 years)")
+                        dataY_Value2.push(ele["Value"]);
+                    else
+                        dataY_Value3.push(ele["Value"]);
+                });
+                Array.prototype.unique = function (a) {
+                    return function () { return this.filter(a) }
+                }(function (a, b, c) {
+                    return c.indexOf(a, b + 1) < 0
+                });
+                var barChartData = {
+                    labels: dataX_Year.unique(),
+                    scaleShowGridLines: false,
+                    scaleShowVerticalLines: false,
+                    scaleGridLineColor: "#ebedf0",
+                    barShowStroke: false,
+                    datasets: [{
+                        fillColor: "rgba(232, 53, 69, 300, 500)",
+                        strokeColor: "rgba(232, 53, 69, 300, 500)",
+                        highlightFill: "rgba(232, 53, 69, 300, 500)",
+                        highlightStroke: "rgba(232, 53, 69, 300, 500)",
+                        data: dataY_Value1
+                        },
+                        {
+                            fillColor: "rgb(32, 42, 249, 300)",
+                            strokeColor: "rgb(32, 42, 249, 300)",
+                            highlightFill: "rgb(32, 42, 249, 300)",
+                            highlightStroke: "rgb(32, 42, 249, 300)",
+                        data:dataY_Value2
+                        },
+                        {
+                            fillColor: "rgb(243, 149, 59,600)",
+                            strokeColor: "rgb(243, 149, 59,600)",
+                            highlightFill: "rgb(243, 149, 59,600)",
+                            highlightStroke: "rgb(243, 149, 59,600)",
+                            data: dataY_Value3
+                        }
+                    ]
+                };
+
+                var myBar = new Chart(document.getElementById("CitationsPerDocumentChartjsBar")
+                    .getContext("2d")).Bar(barChartData);
+            })();
+
+            //External Cites per document Morris Area
+            // -------------------
+            (function () {
+                var jarrCites = JSON.parse(modelo.Cites);
+                var data_v1 = [];
+                var data_v2 = [];
+                var data_final= [];
+                jarrCites.forEach(function (ele) {
+                    //convert to json arrays
+                    if (ele["Cites"] == "External Cites per document")
+                        data_v1.push({ "Year": ele["Year"], "ValueExternal": ele["Value"] });
+                    else
+                        data_v2.push( ele["Value"]);
+                });
+
+                for (var i = 0; i < data_v1.length; i++) {
+                    data_v1[i]["ValueCites"]=data_v2[i];
+                }
+
+                Morris.Area({
+                    element: 'ExternalCitesMorrisArea',
+                    data: data_v1,
+                    xkey: 'Year',
+                    ykeys: ['ValueCites','ValueExternal'],
+                    labels: ['Cites A', 'External B'],
+                    behaveLikeLine: true,
+                    ymax: 1,
+                    resize: false,
+                    pointSize: 3,
+                    smooth: true,
+                    gridTextColor: '#474e54',
+                    gridLineColor: '#eef0f2',
+                    goalLineColors: '#e3e6ea',
+                    gridTextWeight: '200',
+                    numLines: 5,
+                    gridtextSize: 12,
+                    lineWidth: 1,
+                    fillOpacity: 0.3,
+                    lineColors: ["rgb(243, 149, 59, 600)", "rgb(24, 33, 146, 600)"]
+                });
+            })();
+
+
+            //Citable documents Non-citable documents Morris Area
+            // -------------------
+            (function () {
+
+                var jarrCites = JSON.parse(modelo.DocumentsNoncitable);
+                var data_v1 = [];
+                var data_v2 = [];
+                var data_Value = [];
+                jarrCites.forEach(function (ele) {
+                    //convert to json arrays
+                    data_Value.push(ele["Value"]);
+                    if (ele["Documents"] == "Non-citable documents")
+                        data_v1.push({ "Year": ele["Year"], "ValueNonCitable": ele["Value"] });
+                    else
+                        data_v2.push(ele["Value"]);
+                });
+
+                for (var i = 0; i < data_v1.length; i++) {
+                    data_v1[i]["ValueCites"] = data_v2[i];
+                }
+
+                Morris.Area({
+                    element: 'NonCitesMorrisArea',
+                    data: data_v1,
+                    xkey: 'Year',
+                    ykeys: ['ValueCites', 'ValueNonCitable'],
+                    labels: ['Cites A', 'Non Citable B'],
+                    behaveLikeLine: true,
+                    ymax: Math.max.apply(null, data_Value),
+                    resize: false,
+                    pointSize: 3,
+                    smooth: true,
+                    gridTextColor: '#474e54',
+                    gridLineColor: '#eef0f2',
+                    goalLineColors: '#e3e6ea',
+                    gridTextWeight: '200',
+                    numLines: 5,
+                    gridtextSize: 12,
+                    lineWidth: 2,
+                    fillOpacity: 0.5,
+                    lineColors: ["rgb(243, 149, 59, 600)", "rgb(24, 33, 146, 500)"]
+                });
+            })();
+
+
+            //Citable documents Un-citable documents Morris Area
+            // -------------------
+            (function () {
+
+                var jarrCites = JSON.parse(modelo.DocumentsUncited);
+                var data_v1 = [];
+                var data_v2 = [];
+                var data_Value = [];
+                jarrCites.forEach(function (ele) {
+                    //convert to json arrays
+                    data_Value.push(ele["Value"]);
+                    if (ele["Documents"] == "Uncited documents")
+                        data_v1.push({ "Year": ele["Year"], "ValueUnCited": ele["Value"] });
+                    else
+                        data_v2.push(ele["Value"]);
+                });
+
+                for (var i = 0; i < data_v1.length; i++) {
+                    data_v1[i]["ValueCites"] = data_v2[i];
+                }
+
+                Morris.Area({
+                    element: 'UnCitesMorrisArea',
+                    data: data_v1,
+                    xkey: 'Year',
+                    ykeys: ['ValueCites', 'ValueUnCited'],
+                    labels: ['Cites A', 'UnCited B'],
+                    behaveLikeLine: true,
+                    ymax: Math.max.apply(null, data_Value),
+                    resize: true,
+                    pointSize: 5,
+                    smooth: true,
+                    gridTextColor: '#474e54',
+                    gridLineColor: '#eef0f2',
+                    goalLineColors: '#e3e6ea',
+                    gridTextWeight: '200',
+                    numLines: 5,
+                    gridtextSize: 12,
+                    lineWidth: 2,
+                    fillOpacity: 0.5,
+                    lineColors: ["rgb(243, 149, 59, 600)", "rgb(24, 33, 146, 500)"]
+                });
+            })();
+
+            // Individual column searching
+            // ---------------------------
+            (function () {
+                $(document).ready(function () {
+                    var defaults = $.components.getDefaults("dataTable");
+
+                    var options = $.extend(true, {}, defaults, {
+                        initComplete: function () {
+                            this.api().columns().every(function () {
+                                var column = this;
+                                var select = $(
+                                    '<select class="form-control width-full"><option value=""></option></select>'
+                                )
+                                    .appendTo($(column.footer()).empty())
+                                    .on('change', function () {
+                                        var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                        );
+
+                                        column
+                                            .search(val ? '^' + val + '$' : '',
+                                            true, false)
+                                            .draw();
+                                    });
+
+                                column.data().unique().sort().each(function (
+                                    d, j) {
+                                    select.append('<option value="' + d +
+                                        '">' + d + '</option>')
+                                });
+                            });
+                        }
+                    });
+
+                    $('#exampleTableSearch').DataTable(options);
+                });
+            })();
+
+
+        })(document, window, jQuery);
+</script>

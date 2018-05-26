@@ -2063,6 +2063,8 @@
     <Content Include="Template\docs\changelog\index.html" />
     <Content Include="Template\docs\components\index.html" />
     <Content Include="Template\docs\credits\index.html" />
+    <Content Include="Template\docs\css\chart.css" />
+    <Content Include="Template\docs\css\datatable.css" />
     <Content Include="Template\docs\css\highlight.css" />
     <Content Include="Template\docs\css\theme.css" />
     <Content Include="Template\docs\css\theme_extra.css" />

@@ -44,8 +44,8 @@ $.components.register("animsition", {
       'zoom-out-sm', 'zoom-out', 'zoom-out-lg'
     ]
   },
-  init: function(context, callback) {
-    var options = $.components.getDefaults("animsition");
+    init: function (context, callback) {
+        var options = $.components.getDefault("animsition");
 
     if (options.random) {
       var li = options.inDefaults.length,
