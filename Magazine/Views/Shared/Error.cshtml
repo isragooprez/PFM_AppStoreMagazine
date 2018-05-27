@@ -3,7 +3,37 @@
 @{
     ViewBag.Title = "Error";
 }
+<!-- Page -->
+<link rel="stylesheet" href="../../assets/css/pages/errors.css">
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">Error al procesar la solicitud.</h2>
+<body class="page-error page-error-400 layout-full">
+    <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    <!-- Page -->
+    <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
+         data-animsition-out="fade-out">
+        <div class="page-content vertical-align-middle">
+            <img class="error-mark animation-slide-top" src="~/Template/assets/images/400.png" alt="...">
+            <h2>Page Not Found !</h2>
+            <p class="error-advise">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">Error al procesar la solicitud.</h2>
+            <a class="btn btn-primary btn-round" href="../index.html"> @Html.ActionLink("GO TO HOME PAGE", "Index","Home")</a>
+        </div>
+    </div>
+    <!-- End Page -->
+    <!-- Core  -->
+    <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+    <script>
+        (function (document, window, $) {
+            'use strict';
 
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
+
+</body>

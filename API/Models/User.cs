@@ -20,6 +20,7 @@ namespace API.Models
         {
             this.Magazines = new HashSet<Magazine>();
         }
+
         [JsonProperty("Id")]
         public int Id { get; set; }
         [JsonProperty("Nombre")]
@@ -30,7 +31,7 @@ namespace API.Models
         public string Email { get; set; }
         [JsonProperty("Password")]
         public string Password { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Magazine> Magazines { get; set; }
     }

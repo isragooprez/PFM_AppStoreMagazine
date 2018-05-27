@@ -21,6 +21,10 @@
 <!-- Inline -->
 <link href="~/Template/docs/css/chart.css" rel="stylesheet" />
 <link href="~/Template/docs/css/datatable.css" rel="stylesheet" />
+
+<script>
+    Breakpoints();
+</script>
 <h2>Details</h2>
 <!-- Panel -->
 <div class="panel">
@@ -273,7 +277,6 @@
     </div>
 </div>
 <!-- End Panel -->
-
 <!-- MAIN  JQUERY -->
 <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
 
@@ -293,7 +296,7 @@
 <script>
         (function (document, window, $) {
             'use strict';
-         
+
               //Model
             var modelo = @Html.Raw(Json.Encode(Model));
 

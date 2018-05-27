@@ -3,39 +3,71 @@
     ViewBag.Title = "Registrarse";
 }
 
-<h2>@ViewBag.Title.</h2>
+<!-- Stylesheets -->
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap-extend.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/site.min.css">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Cree una cuenta nueva.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Registrarse" />
-        </div>
-    </div>
-}
 
+
+<link href="~/Template/docs/css/login.css" rel="stylesheet" />
+<!-- Page -->
+<script>
+    Breakpoints();
+</script>
+<body class="page-login layout-full" style="background-color:darkblue; color:white">
+    <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    <!-- Page -->
+    <div class="page vertical-align text-center" style="color:white; background-image: url('../Template/assets/example-images/background-login.jpg'); background-color: rgba(38, 50, 56, 0.85); width: 100%; background-position-y: top;   height: 100%; opacity: 1; top: 0; left: 0; bottom: 0; right: 0; position: fixed; z-index: 1;">
+        <div class="page-content vertical-align-middle  col-md-pull-10" style="color:white">
+
+            <h2>@ViewBag.Title.</h2>
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Cree una cuenta nueva.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group ">
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo electrónico" })
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña" })
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirmar contraseña" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Registrarse" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+
+<script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

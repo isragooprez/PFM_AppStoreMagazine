@@ -308,6 +308,7 @@
     <Content Include="Template\assets\css\widgets\data.min.css" />
     <Content Include="Template\assets\css\widgets\social.css" />
     <Content Include="Template\assets\css\widgets\social.min.css" />
+    <Content Include="Template\assets\example-images\background-login.jpg" />
     <Content Include="Template\assets\example-images\coming-soon.jpg" />
     <Content Include="Template\assets\example-images\dashboard-header.jpg" />
     <Content Include="Template\assets\example-images\landing\apps-calendar.png" />
@@ -2066,6 +2067,7 @@
     <Content Include="Template\docs\css\chart.css" />
     <Content Include="Template\docs\css\datatable.css" />
     <Content Include="Template\docs\css\highlight.css" />
+    <Content Include="Template\docs\css\login.css" />
     <Content Include="Template\docs\css\theme.css" />
     <Content Include="Template\docs\css\theme_extra.css" />
     <Content Include="Template\docs\fonts\fontawesome-webfont.svg" />

@@ -15,7 +15,6 @@ namespace API.Models
     
     public partial class Magazine
     {
-
         [JsonProperty("Id")]
         public int Id { get; set; }
         [JsonProperty("Name")]
@@ -58,6 +57,12 @@ namespace API.Models
         public string DocumentsUncited { get; set; }
         [JsonProperty("TotalCites")]
         public string TotalCites { get; set; }
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+        [JsonProperty("DateIn")]
+        public Nullable<System.DateTime> DateIn { get; set; }
+        [JsonProperty("Favorite")]
+        public string Favorite { get; set; }
         [JsonProperty("UserId")]
         public int UserId { get; set; }
 

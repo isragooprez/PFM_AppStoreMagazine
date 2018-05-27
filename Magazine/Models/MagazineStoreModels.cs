@@ -27,6 +27,9 @@ namespace Magazine.Models
         public string DocumentsNoncitable { get; set; }
         public string DocumentsUncited { get; set; }
         public string TotalCites { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> DateIn { get; set; }
+        public string Favorite { get; set; }
         public int UserId { get; set; }
     }
 }

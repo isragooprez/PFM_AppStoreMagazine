@@ -30,6 +30,9 @@
           <Property Name="DocumentsNoncitable" Type="nvarchar(max)" />
           <Property Name="DocumentsUncited" Type="nvarchar(max)" />
           <Property Name="TotalCites" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateIn" Type="datetime" />
+          <Property Name="Favorite" Type="char" MaxLength="1" />
           <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -99,6 +102,9 @@
           <Property Name="DocumentsNoncitable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DocumentsUncited" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TotalCites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateIn" Type="DateTime" Precision="3" />
+          <Property Name="Favorite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="MagazinesDBModel.FK_UserMagazine" FromRole="Magazine" ToRole="User" />
         </EntityType>
@@ -135,6 +141,9 @@
             <EntityTypeMapping TypeName="MagazinesDBModel.Magazine">
               <MappingFragment StoreEntitySet="Magazines">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TotalCites" ColumnName="TotalCites" />
                 <ScalarProperty Name="DocumentsUncited" ColumnName="DocumentsUncited" />
                 <ScalarProperty Name="DocumentsNoncitable" ColumnName="DocumentsNoncitable" />

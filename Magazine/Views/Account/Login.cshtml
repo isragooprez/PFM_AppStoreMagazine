@@ -1,11 +1,14 @@
 ﻿@using Magazine.Models
 @model LoginViewModel
 
+<!-- Stylesheets -->
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap-extend.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/site.min.css">
 
 
+<link href="~/Template/docs/css/login.css" rel="stylesheet" />
 
-
-<link href="~/Template/assets/css/pages/login.css" rel="stylesheet" />
 <!-- Page -->
 <script>
     Breakpoints();
@@ -14,58 +17,59 @@
     <!--[if lt IE 8]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-            <!-- Page -->
-            <div class="page vertical-align text-center" style="color:white; background-image: url('../Template/assets/example-images/login.jpg'); background-color: rgba(38, 50, 56, 0.85); width: 100%; background-position-y: top;   height: 100%; opacity: 0.5; top: 0; left: 0; bottom: 0; right: 0; position: fixed; z-index: 1;">
-                <div class="page-content vertical-align-middle text-center" style="color:white">
-                    <div class="brand">
-                        <img class="brand-img" src="~/Template/assets/images/logo.png" alt="...">
-                        <h2 class="brand-text" style="color:white">STORE MAGAZINE</h2>
-                    </div>
-                    <p>Sign into your pages account</p>
-                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <h4  style="color:white">Use una cuenta local para iniciar sesión.</h4>
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            <div class="col-md-12" >
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Iniciar sesión" class="btn btn-default" />
-                            </div>
-                        </div>
-                        <p style="color:white" >
-                           @Html.ActionLink("Registrar como nuevo usuario", "Register")
-                        </p>
-                        @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                            <p>
-                                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                            </p>*@
-                    }
-                </div>
+    <!-- Page -->
+    <div class="page vertical-align text-center" style="color:white; background-image: url('../Template/assets/example-images/background-login.jpg'); background-color: rgba(38, 50, 56, 0.85); width: 100%; background-position-y: top;   height: 100%; opacity: 1; top: 0; left: 0; bottom: 0; right: 0; position: fixed; z-index: 1;">
+        <div class="page-content vertical-align-middle  col-md-pull-10" style="color:white">
+            <div class="brand">
+                <img class="brand-img" src="~/Template/assets/images/logo.png" alt="...">
+                <h2 class="brand-text" style="color:white">STORE MAGAZINE</h2>
             </div>
-            <!-- End Page -->
+            <p>Sign into your pages account</p>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4 style="color:white">Use una cuenta local para iniciar sesión.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Iniciar sesión" class="btn btn-default" />
+                    </div>
+                </div>
+                <p style="color:white">
+                    @Html.ActionLink("Registrar como nuevo usuario", "Register")
+                </p>
+                @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
+                    <p>
+                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+                    </p>*@
+            }
+        </div>
+    </div>
+    <!-- End Page -->
     <!-- Core  -->
     <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+    <script src="~/Template/assets/vendor/bootstrap/bootstrap.js"></script>
 
     <script>
         (function (document, window, $) {
@@ -80,6 +84,3 @@
 
 </body>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
