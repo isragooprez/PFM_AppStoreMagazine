@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Conctato.
+        ///   Busca una cadena traducida similar a Contacto.
         /// </summary>
         public static string IndexHomeContactos {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Register.
+        ///   Busca una cadena traducida similar a Registre.
         /// </summary>
         public static string IndexHomeResgistrarse {
             get {
@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Realice una busqueda de una revista favorita..
+        ///   Busca una cadena traducida similar a Realice una búsqueda de una revista favorita..
         /// </summary>
         public static string MnsHomeFilterMgz {
             get {
@@ -151,11 +151,38 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La revista ya a sido agendada..
+        ///   Busca una cadena traducida similar a La revista ya ha sido agendada..
         /// </summary>
         public static string MnsMgzStoreExist {
             get {
                 return ResourceManager.GetString("MnsMgzStoreExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardado Correctamente..
+        /// </summary>
+        public static string MnsMgzSucessSave {
+            get {
+                return ResourceManager.GetString("MnsMgzSucessSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revista Agendada.
+        /// </summary>
+        public static string MnsMgzSucessStoreVirtual {
+            get {
+                return ResourceManager.GetString("MnsMgzSucessStoreVirtual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se a podido agendar..
+        /// </summary>
+        public static string MsnMgzErrorStoredVirtual {
+            get {
+                return ResourceManager.GetString("MsnMgzErrorStoredVirtual", resourceCulture);
             }
         }
         

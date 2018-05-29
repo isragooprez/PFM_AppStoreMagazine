@@ -71,7 +71,7 @@ namespace Magazine.Controllers
         {
             try
             {
-
+                _magazine.UserId = 2;
                 MagazineModels magazinefind;
                 HttpResponseMessage _httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
                 magazinefind = _httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;

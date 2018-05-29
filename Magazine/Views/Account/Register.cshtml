@@ -22,36 +22,40 @@
     <!-- Page -->
     <div class="page vertical-align text-center" style="color:white; background-image: url('../Template/assets/example-images/background-login.jpg'); background-color: rgba(38, 50, 56, 0.85); width: 100%; background-position-y: top;   height: 100%; opacity: 1; top: 0; left: 0; bottom: 0; right: 0; position: fixed; z-index: 1;">
         <div class="page-content vertical-align-middle  col-md-pull-10" style="color:white">
-
+            <div class="brand">
+                <img class="brand-img" src="~/Template/assets/images/logo.png" alt="...">
+                <h2 class="brand-text" style="color:white">STORE MAGAZINE</h2>
+            </div>
             <h2>@ViewBag.Title.</h2>
-
-            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Cree una cuenta nueva.</h4>
-                <hr />
-                @Html.ValidationSummary("", new { @class = "text-danger" })
-                <div class="form-group ">
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo electrónico" })
+            <div class="container-fluid">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4>Cree una cuenta nueva.</h4>
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group ">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo electrónico" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group ">
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña" })
+                    <div class="form-group ">
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group ">
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirmar contraseña" })
+                    <div class="form-group ">
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirmar contraseña" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-md-10">
-                        <input type="submit" class="btn btn-default" value="Registrarse" />
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-2 ">
+                            <input type="submit" class="btn btn-default" value="Registrarse" />
+                        </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </body>

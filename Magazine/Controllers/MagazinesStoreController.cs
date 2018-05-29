@@ -7,10 +7,13 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Magazine.Controllers
 {
     public class MagazinesStoreController : Controller
     {
+
+
         // GET: MagazineDiary
         public ActionResult Index()
         {
@@ -45,7 +48,8 @@ namespace Magazine.Controllers
                     var isExisteProdVirtualCar = (from mgz in _magazineStoreVirtualModels where mgz.Url == url select mgz).Any();
                     if (isExisteProdVirtualCar == true)
                     {
-                        ViewBag.MessageExist =Resources.Resource.MnsMgzStoreExist;
+                        ViewBag.MessageExist = Resources.Resource.MnsMgzStoreExist;
+                        TempData["ErrorMessage"] = Resources.Resource.MnsMgzStoreExist;
                     }
                     else
                     {
@@ -54,15 +58,20 @@ namespace Magazine.Controllers
                         HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
                         magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;
                         //
-                        // TODO OJO FALTA cont5rolar auntomatico
+                        // TODO OJO FALTA cont5rolar auntomatico 
+                        //USUARIO 
+                        //FABORITO y FEHCA desde el MODELO
                         //
 
                         magazineModels.UserId = 2;
+                        magazineModels.DateIn = DateTime.Today;
+                        magazineModels.Favorite = "F";
                         _magazineStoreVirtualModels.Add(magazineModels);
+                        TempData["SuccessMessage"] = Resources.Resource.MnsMgzSucessStoreVirtual;
                     }
                 }
                 ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
-                return RedirectToAction("Index","Home",_magazineStoreVirtualModels);
+                return RedirectToAction("Index", "Home", _magazineStoreVirtualModels);
             }
             catch
             {
@@ -82,7 +91,16 @@ namespace Magazine.Controllers
                 }
                 CleanStoreVirtualMagazines(_magazineDiaryModels);
                 _magazineDiaryModels = null;
-                if (magazine_created != null) return RedirectToAction("Index", "Home"); else return RedirectToAction("AddDiary", "MagazinesDiary");
+                if (magazine_created != null)
+                {
+                    TempData["SuccessMessage"] = Resources.Resource.MnsMgzSucessSave;
+                    return RedirectToAction("Index", "Magazine");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = Resources.Resource.MsnMgzErrorStoredVirtual;
+                    return RedirectToAction("Index", "Home");
+                }
             }
             catch (Exception)
             {

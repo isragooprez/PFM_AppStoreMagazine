@@ -3,6 +3,8 @@
 @using System.Web.Script.Serialization;
 
 @{
+    /**/
+
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -44,9 +46,23 @@
 
                         <dl class="dl-horizontal">
                             <dt>
-                                @Html.DisplayNameFor(model => model.Country)
+                                @Html.DisplayNameFor(model => model.Name)
                             </dt>
 
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Hindexlegend)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Hindexlegend) @Html.DisplayFor(model => model.Hindexnumber)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </dt>
                             <dd>
                                 @Html.DisplayFor(model => model.Country)
                             </dd>
@@ -98,6 +114,27 @@
                             <dd>
                                 @Html.DisplayFor(model => model.Scope)
                             </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DateIn)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DateIn)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Favorite)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Favorite)
+                            </dd>
                         </dl>
                     </div>
 
@@ -109,174 +146,180 @@
     </div>
 </div>
 <!-- End Panel -->
-<!-- Panel -->
-<div class="panel">
-    <header class="panel-heading">
-        <h3 class="panel-title">@Html.DisplayNameFor(model => model.Quartiles)</h3>
-    </header>
-    <div class="panel-body">
-        @{
+@{
+    if (Model.Quartiles != null)
+    {
+        dynamic input = JsonConvert.DeserializeObject(Model.Quartiles);
+        <!-- Panel -->
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">@Html.DisplayNameFor(model => model.Quartiles)</h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-hover dataTable table-striped width-full" id="exampleTableSearch">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Quartile</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Quartile</th>
+                        </tr>
+                    </tfoot>
 
-            dynamic input = JsonConvert.DeserializeObject(Model.Quartiles);
-        }
-        <table class="table table-hover dataTable table-striped width-full" id="exampleTableSearch">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Year</th>
-                    <th>Quartile</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Category</th>
-                    <th>Year</th>
-                    <th>Quartile</th>
-                </tr>
-            </tfoot>
+                    <tbody>
+                        @foreach (var inputAttribute in input)
+                        {
+                            <tr>
+                                <td>@inputAttribute.Category</td>
+                                <td>@inputAttribute.Year</td>
+                                <td>@inputAttribute.Quartile</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
-            <tbody>
-                @foreach (var inputAttribute in input)
-                {
-                    <tr>
-                        <td>@inputAttribute.Category</td>
-                        <td>@inputAttribute.Year</td>
-                        <td>@inputAttribute.Quartile</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-        <div class="row row-lg">
-            <div class="col-md-6">
-                <!-- DATA SJR Bi-Polar Line -->
-                <div class="example-wrap">
-                    <h4 class="example-title">SJR</h4>
-                    <p>
-                        The line chart requires an array of labels for each of the data
-                        points. This is shown on the X axis. The data for line charts
-                        is broken up into an array of datasets. Each dataset has a colour
-                        for the fill, a colour for the line and colours for the points
-                        and strokes of the points. These colours are strings just like
-                        CSS. You can use RGBA, RGB, HEX or HSL notation.
-                    </p>
-                    <div class="example">
-                        <div class="ct-chart" id="SJROnlyArea"></div>
+                <div class="row row-lg">
+                    <div class="col-md-6">
+                        <!-- DATA SJR Bi-Polar Line -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">SJR</h4>
+                            <p>
+                                The line chart requires an array of labels for each of the data
+                                points. This is shown on the X axis. The data for line charts
+                                is broken up into an array of datasets. Each dataset has a colour
+                                for the fill, a colour for the line and colours for the points
+                                and strokes of the points. These colours are strings just like
+                                CSS. You can use RGBA, RGB, HEX or HSL notation.
+                            </p>
+                            <div class="example">
+                                <div class="ct-chart" id="SJROnlyArea"></div>
+                            </div>
+                        </div>
+                        <!-- End Example Bi Polar Line -->
                     </div>
-                </div>
-                <!-- End Example Bi Polar Line -->
-            </div>
-            <div class="col-md-6">
-                <!-- DATA International CollaborationOnly AreaBi-Polar Line -->
-                <div class="example-wrap">
-                    <h4 class="example-title">International Collaboration</h4>
-                    <p>
-                        The line chart requires an array of labels for each of the data
-                        points. This is shown on the X axis. The data for line charts
-                        is broken up into an array of datasets. Each dataset has a colour
-                        for the fill, a colour for the line and colours for the points
-                        and strokes of the points. These colours are strings just like
-                        CSS. You can use RGBA, RGB, HEX or HSL notation.
-                    </p>
-                    <div class="example">
-                        <div class="ct-chart" id="InternationalCollaborationOnlyArea"></div>
+                    <div class="col-md-6">
+                        <!-- DATA International CollaborationOnly AreaBi-Polar Line -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">International Collaboration</h4>
+                            <p>
+                                The line chart requires an array of labels for each of the data
+                                points. This is shown on the X axis. The data for line charts
+                                is broken up into an array of datasets. Each dataset has a colour
+                                for the fill, a colour for the line and colours for the points
+                                and strokes of the points. These colours are strings just like
+                                CSS. You can use RGBA, RGB, HEX or HSL notation.
+                            </p>
+                            <div class="example">
+                                <div class="ct-chart" id="InternationalCollaborationOnlyArea"></div>
+                            </div>
+                        </div>
+                        <!-- End Example Bi Polar Line -->
                     </div>
-                </div>
-                <!-- End Example Bi Polar Line -->
-            </div>
 
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<!-- End Panel -->
-<div class="page-content">
-    <!-- Panel -->
-    <div class="panel">
-        <div class="panel-body container-fluid">
-            <div class="row row-lg">
-                <div class="col-md-6">
-                    <!-- Example Line -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">Total Cites</h4>
-                        <p>
-                            The line chart requires an array of labels for each of the data
-                            points. This is shown on the X axis. The data for line charts
-                            is broken up into an array of datasets. Each dataset has a colour
-                            for the fill, a colour for the line and colours for the points
-                            and strokes of the points. These colours are strings just like
-                            CSS. You can use RGBA, RGB, HEX or HSL notation.
-                        </p>
-                        <div class="example text-center">
-                            <canvas id="TotalCitesChartjsLine" height="300" width="450"></canvas>
+        <!-- End Panel -->
+        <div class="page-content">
+            <!-- Panel -->
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row row-lg">
+                        <div class="col-md-6">
+                            <!-- Example Line -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">Total Cites</h4>
+                                <p>
+                                    The line chart requires an array of labels for each of the data
+                                    points. This is shown on the X axis. The data for line charts
+                                    is broken up into an array of datasets. Each dataset has a colour
+                                    for the fill, a colour for the line and colours for the points
+                                    and strokes of the points. These colours are strings just like
+                                    CSS. You can use RGBA, RGB, HEX or HSL notation.
+                                </p>
+                                <div class="example text-center">
+                                    <canvas id="TotalCitesChartjsLine" height="300" width="450"></canvas>
+                                </div>
+                            </div>
+                            <!-- End Example Line -->
+                        </div>
+                        <div class="col-md-6 ">
+                            <!-- Example Bar -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">Citations Per Document</h4>
+                                <p>
+                                    The bar chart has the a very similar data structure to the line
+                                    chart, and has an array of datasets, each with colours and an
+                                    array of data. Again, colours are in CSS format. We have an array
+                                    of labels too for display. In the example, we are showing the
+                                    same data as the previous line chart example.
+                                </p>
+                                <div class="example text-center">
+                                    <canvas id="CitationsPerDocumentChartjsBar" height="300" width="450"></canvas>
+                                </div>
+                            </div>
+                            <!-- End Example Bar -->
                         </div>
                     </div>
-                    <!-- End Example Line -->
                 </div>
-                <div class="col-md-6 ">
-                    <!-- Example Bar -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">Citations Per Document</h4>
-                        <p>
-                            The bar chart has the a very similar data structure to the line
-                            chart, and has an array of datasets, each with colours and an
-                            array of data. Again, colours are in CSS format. We have an array
-                            of labels too for display. In the example, we are showing the
-                            same data as the previous line chart example.
-                        </p>
-                        <div class="example text-center">
-                            <canvas id="CitationsPerDocumentChartjsBar" height="300" width="450"></canvas>
+            </div>
+            <!-- End Panel -->
+        </div>
+
+        <!-- Panel -->
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+
+                    <div class="col-md-6">
+                        <!-- Example ExternalCitesMorrisArea Area -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">External Cites per Doc | Cites per Doc</h4>
+                            <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                            <div class="example">
+                                <div id="ExternalCitesMorrisArea"></div>
+                            </div>
                         </div>
+                        <!-- End Example Area -->
                     </div>
-                    <!-- End Example Bar -->
+                    <div class="col-md-6">
+                        <!-- Example ExternalCitesMorrisArea Area -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">Citable documents | Non-citable documents</h4>
+                            <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                            <div class="example">
+                                <div id="NonCitesMorrisArea"></div>
+                            </div>
+                        </div>
+                        <!-- End Example Area -->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Example ExternalCitesMorrisArea Area -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">Cited documents | Uncited documents</h4>
+                            <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
+                            <div class="example">
+                                <div id="UnCitesMorrisArea"></div>
+                            </div>
+                        </div>
+                        <!-- End Example Area -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Panel -->
-</div>
+        <!-- End Panel -->
+    }
+}
 
-<!-- Panel -->
-<div class="panel">
-    <div class="panel-body container-fluid">
-        <div class="row row-lg">
 
-            <div class="col-md-6">
-                <!-- Example ExternalCitesMorrisArea Area -->
-                <div class="example-wrap">
-                    <h4 class="example-title">External Cites per Doc | Cites per Doc</h4>
-                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
-                    <div class="example">
-                        <div id="ExternalCitesMorrisArea"></div>
-                    </div>
-                </div>
-                <!-- End Example Area -->
-            </div>
-            <div class="col-md-6">
-                <!-- Example ExternalCitesMorrisArea Area -->
-                <div class="example-wrap">
-                    <h4 class="example-title">Citable documents | Non-citable documents</h4>
-                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
-                    <div class="example">
-                        <div id="NonCitesMorrisArea"></div>
-                    </div>
-                </div>
-                <!-- End Example Area -->
-            </div>
-            <div class="col-md-6">
-                <!-- Example ExternalCitesMorrisArea Area -->
-                <div class="example-wrap">
-                    <h4 class="example-title">Cited documents | Uncited documents</h4>
-                    <p>Create an area chart using: <code>Morris.Area(options)</code>.</p>
-                    <div class="example">
-                        <div id="UnCitesMorrisArea"></div>
-                    </div>
-                </div>
-                <!-- End Example Area -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Panel -->
+
+
 <!-- MAIN  JQUERY -->
 <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
 

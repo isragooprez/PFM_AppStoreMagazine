@@ -150,6 +150,15 @@
   <data name="MnsMgzStoreExist" xml:space="preserve">
     <value>The magazine has already been scheduled.</value>
   </data>
+  <data name="MnsMgzSucessSave" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="MnsMgzSucessStoreVirtual" xml:space="preserve">
+    <value>Schedule Magazine</value>
+  </data>
+  <data name="MsnMgzErrorStoredVirtual" xml:space="preserve">
+    <value>Could not schedule</value>
+  </data>
   <data name="MsnMgzNotStored" xml:space="preserve">
     <value>There are no journals scheduled.</value>
   </data>

@@ -133,22 +133,31 @@
     <value>Cerrar sesión</value>
   </data>
   <data name="IndexHomeContactos" xml:space="preserve">
-    <value>Conctato</value>
+    <value>Contacto</value>
   </data>
   <data name="IndexHomeIniciarSesion" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
   <data name="IndexHomeResgistrarse" xml:space="preserve">
-    <value>Register</value>
+    <value>Registre</value>
   </data>
   <data name="IndexMagazineMyRevistas" xml:space="preserve">
     <value>Mis Revistas Favoritas</value>
   </data>
   <data name="MnsHomeFilterMgz" xml:space="preserve">
-    <value>Realice una busqueda de una revista favorita.</value>
+    <value>Realice una búsqueda de una revista favorita.</value>
   </data>
   <data name="MnsMgzStoreExist" xml:space="preserve">
-    <value>La revista ya a sido agendada.</value>
+    <value>La revista ya ha sido agendada.</value>
+  </data>
+  <data name="MnsMgzSucessSave" xml:space="preserve">
+    <value>Guardado Correctamente.</value>
+  </data>
+  <data name="MnsMgzSucessStoreVirtual" xml:space="preserve">
+    <value>Revista Agendada</value>
+  </data>
+  <data name="MsnMgzErrorStoredVirtual" xml:space="preserve">
+    <value>No se a podido agendar.</value>
   </data>
   <data name="MsnMgzNotStored" xml:space="preserve">
     <value>No hay revistas agendadas.</value>

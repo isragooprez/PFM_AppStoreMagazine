@@ -17,6 +17,14 @@ else
     {
         @ViewBag.MessageExist
     }
+    if (TempData.Peek("SuccessMessage") != null)
+    {
+        <input id="SuccessMessage" type="hidden" value="@TempData["SuccessMessage"]" />
+    }
+    else
+    {
+        <input id="ErrorMessage" type="hidden" value="@TempData["ErrorMessage"]" />
+    }
 
     <div class="row">
         <div class="col-lg-12">
@@ -127,4 +135,29 @@ else
 
 }
 
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        (function (document, window, $) {
+            'use strict';
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+                var successMessage = $("#SuccessMessage").val();
+                if (successMessage != "" && successMessage != null) {
+                    alertify.success(successMessage);
+                    $("#SuccessMessage").val("");
+                }
+                var errorMessage = $("#ErrorMessage").val();
+                if (errorMessage != "" && errorMessage != null) {
+                    alertify.error(errorMessage);
+                    $("#ErrorMessage").val("");
+                }
+
+
+            });
+
+        })(document, window, jQuery);
+    </script>
+}
 

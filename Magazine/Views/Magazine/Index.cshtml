@@ -7,58 +7,119 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Subjec)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Publisher)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublicationType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ISSN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Coverage)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subjec)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Publisher)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublicationType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ISSN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Coverage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@if (TempData.Peek("SuccessMessage") != null)
+{
+    <input id="SuccessMessage" type="hidden" value="@TempData["SuccessMessage"]" />
 }
+else
+{
+    <input id="ErrorMessage" type="hidden" value="@TempData["ErrorMessage"]" />
+}
+<table class="table table-striped">
+    <thead class="table-heading">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subjec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISSN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coverage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Favorite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subjec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicationType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Favorite)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        (function (document, window, $) {
+            'use strict';
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+                var successMessage = $("#SuccessMessage").val();
+                if (successMessage != "" && successMessage != null) {
+                    alertify.success(successMessage);
+                    $("#SuccessMessage").val("");
+                }
+                var errorMessage = $("#ErrorMessage").val();
+                if (errorMessage != "" && errorMessage != null) {
+                    alertify.error(errorMessage);
+                    $("#ErrorMessage").val("");
+                }
+
+
+            });
+
+        })(document, window, jQuery);
+    </script>
+}

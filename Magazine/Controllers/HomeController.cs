@@ -23,7 +23,7 @@ namespace Magazine.Controllers
                 return View(nsoupModels);
             }
             ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
-            @ViewBag.Message=Resources.Resource.MnsHomeFilterMgz;
+            ViewBag.Message=Resources.Resource.MnsHomeFilterMgz;
             return View();
         }
         public ActionResult Save(List<NsoupMagazineModels> lstMagazines)

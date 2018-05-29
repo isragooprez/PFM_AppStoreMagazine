@@ -2,23 +2,63 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<!-- Plugin -->
+<link rel="stylesheet" href="~/Template/assets/vendor/ladda-bootstrap/ladda.css">
+@*<link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />*@
+<script src="@Url.Content("~/Scripts/external.js")" type="text/javascript"></script>
 
+<div class="clearfix visible-md-block"></div>
 
-
-<div class="jumbotron">
-    <div class="col-sm-offset-2 col-md-4 col-md-offset-4">
-        <h2 class="col-sm-12 control-label" style="text-align:center">SJR</h2>
-        <h4 class="col-sm-12 control-label" style="text-align:center">Scimago Journal & Country Rank</h4>
+<div class="container-fluid  text-center">
+    <div class="jumbotron" style="color:white; background-color:#263238">
+        <h1 class="display-4">SJR</h1>
+        <p class="lead">Scimago Journal & Country Rank</p>
+        <hr class="my-4">
         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
         {
-            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control", placeholder = "Enter Journal Title, ISSN or Publisher Name" })
-            <input type="submit" value="Search" class="btn btn-primary glyphicon glyphicon-search" />
-            <input type="submit" value="Clear" onclick="location.href='@Url.Action("Index","Home")'" class="btn btn-primary glyphicon glyphicon-search" />
+            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = "Journal Title, ISSN or Publisher Name" })
+
+            <div class="col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4 ">
+                <!-- Example Zoom -->
+                <div class="example-wrap">
+                    <div class="example example-buttons">
+                        <div class="pull-left">
+                            <button type="submit" class="btn btn-primary ladda-button"
+                                    data-plugin="ladda">
+                                <span class="ladda-label">
+                                    <i class="icon wb-search margin-right-10" aria-hidden="true"></i>Search
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="pull-left">
+                            <button type="button" class="btn btn-primary ladda-button"
+                                    data-plugin="ladda" onclick="location.href='@Url.Action("Index","Home")'">
+                                <span class="ladda-label">
+                                    <i class="icon wb-format-clear margin-right-10" aria-hidden="true"></i>Clear
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Example Zoom -->
+            </div>
         }
+        <br />
+        <hr class="my-4">
     </div>
-    <br />
 </div>
-<br />    <br />    <br />    <br />
+<div class="clearfix visible-md-block"></div>
+@if (TempData.Peek("SuccessMessage") != null)
+{
+    <input id="SuccessMessage" type="hidden" value="@TempData["SuccessMessage"]" />
+}
+else
+{
+    <input id="ErrorMessage" type="hidden" value="@TempData["ErrorMessage"]" />
+}
+
 <!-- Page -->
 <div class="page-content">
     <!-- Panel -->
@@ -29,63 +69,48 @@
                 <h4 class="example-title">MAGAZINES FOUND</h4>
                 <div class="example">
 
-
-
-                    @if (Model != null)
-                    {
-                        <div class="row row-lg">
-
-
-                            @foreach (var item in Model)
-                            {
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="pricing-list text-left">
-                                        <div class="pricing-header bg-blue-600">
-                                            <div class="pricing-title"> @Html.DisplayFor(modelItem => item.Name)</div>
-                                            <div class="pricing-price">
-
-                                                <img src="@Html.DisplayFor(modelItem => item.Image)" style=" width:150px;height:200px;">
-
-
+                    <div class="container-fluid">
+                        @if (Model != null)
+                        {
+                            <div class="row row-lg">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="pricing-list text-left">
+                                            <div class="pricing-header bg-blue-600">
+                                                <div class="pricing-title"> @Html.DisplayFor(modelItem => item.Name)</div>
+                                                <div class="pricing-price">
+                                                    <img src="@Html.DisplayFor(modelItem => item.Image)" style=" width:150px;height:200px;">
+                                                </div>
                                             </div>
-                                            <p class="padding-horizontal-30 padding-bottom-25">Vestibulum lacinia arcu eget nulla. Class aptent taciti</p>
-                                        </div>
-                                        <ul class="pricing-features">
-                                            <li>
-                                                <strong>    @Html.DisplayNameFor(model => model.Country) </strong> @Html.DisplayFor(modelItem => item.Country)
-                                            </li>
-                                            <li>
-                                                <strong>@Html.DisplayNameFor(model => model.Publisher)</strong> @Html.DisplayFor(modelItem => item.Publisher)
-                                            </li>
+                                            <ul class="pricing-features">
+                                                <li>
+                                                    <strong>    @Html.DisplayNameFor(model => model.Country) </strong> @Html.DisplayFor(modelItem => item.Country)
+                                                </li>
+                                                <li>
+                                                    <strong>@Html.DisplayNameFor(model => model.Publisher)</strong> @Html.DisplayFor(modelItem => item.Publisher)
+                                                </li>
 
-                                        </ul>
-                                        <div class="pricing-footer text-center bg-blue-grey-100">
-                                            @Ajax.ActionLink("Add", "AddDiary", "MagazinesStore", new { url = item.Url }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-primary btn-lg" })
+                                            </ul>
+                                            <div class="pricing-footer text-center bg-blue-grey-100">
+                                                @Ajax.ActionLink("Add", "AddDiary", "MagazinesStore", new { url = item.Url }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-primary btn-lg" })
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <h3 style="text-align:center"> @ViewBag.Message</h3>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h3 style="text-align:center"> @ViewBag.Message    @ViewBag.msng</h3>
 
-                    }
-
-
-
-
-
-
-
-
-
+                        }
+                    </div>
                 </div>
             </div>
             <!-- End Example Pricing List2 -->
@@ -94,6 +119,38 @@
     <!-- End Panel -->
 </div>
 
+@TempData["SuccessMessage"]
+<script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+<script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
+<script src="~/Template/assets/js/components/buttons.js"></script>
+<script src="~/Template/assets/js/components/ladda-bootstrap.js"></script>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        (function (document, window, $) {
+            'use strict';
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+                var successMessage = $("#SuccessMessage").val();
+                if (successMessage != "" && successMessage != null) {
+                    alertify.success(successMessage);
+                    $("#SuccessMessage").val("");
+                }
+                var errorMessage = $("#ErrorMessage").val();
+                if (errorMessage != "" && errorMessage != null) {
+                    alertify.error(errorMessage);
+                    $("#ErrorMessage").val("");
+                }
+
+                   
+                });
+
+        })(document, window, jQuery);
+    </script>
+}
 
 
 

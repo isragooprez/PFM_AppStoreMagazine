@@ -45,7 +45,7 @@ $.components.register("animsition", {
     ]
   },
     init: function (context, callback) {
-        var options = $.components.getDefault("animsition");
+        var options = $.components.getDefaults("animsition");
 
     if (options.random) {
       var li = options.inDefaults.length,
