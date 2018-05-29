@@ -10,20 +10,20 @@ namespace Magazine.Controllers
 {
     public class HomeController : Controller
     {
-
-
+        List<NsoupMagazineModels> nsoupModels;
+   
+    
         public ActionResult Index(string filter, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             if (filter != string.Empty && filter != null)
             {
-                List<NsoupMagazineModels> nsoupModels;
                 HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter.ToString()).Result;
                 nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
                 ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
                 return View(nsoupModels);
             }
             ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
-            ViewBag.Message=Resources.Resource.MnsHomeFilterMgz;
+            ViewBag.Message = Resources.Resource.MnsHomeFilterMgz;
             return View();
         }
         public ActionResult Save(List<NsoupMagazineModels> lstMagazines)

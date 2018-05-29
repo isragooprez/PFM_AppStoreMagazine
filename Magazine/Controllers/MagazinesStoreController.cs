@@ -13,24 +13,6 @@ namespace Magazine.Controllers
     public class MagazinesStoreController : Controller
     {
 
-
-        // GET: MagazineDiary
-        public ActionResult Index()
-        {
-
-            return View();
-        }
-
-
-        // GET: MagazineDiary/ListNsoupFilter/filter
-        public ActionResult ListNsoupFilter(string filter)
-        {
-            NsoupMagazineModels nsoupModels;
-            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter).Result;
-            nsoupModels = httpResponseMessage.Content.ReadAsAsync<NsoupMagazineModels>().Result;
-            return View(nsoupModels);
-        }
-
         // GET: MagazinesDiary/AddDiary/5
         public ActionResult AddDiary(string url, MagazinesVirtualModels _magazineStoreVirtualModels)
         {

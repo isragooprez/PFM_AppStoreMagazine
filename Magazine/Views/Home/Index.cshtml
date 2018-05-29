@@ -2,11 +2,22 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
+
+<script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
+<script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
+
 <!-- Plugin -->
-<link rel="stylesheet" href="~/Template/assets/vendor/ladda-bootstrap/ladda.css">
-@*<link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
-    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />*@
-<script src="@Url.Content("~/Scripts/external.js")" type="text/javascript"></script>
+<link href="~/Template/assets/vendor/datatables-bootstrap/dataTables.bootstrap.css" rel="stylesheet">
+<link href="~/Template/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css" rel="stylesheet">
+<link href="~/Template/assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+<link href="~/Template/assets/vendor/ladda-bootstrap/ladda.css" rel="stylesheet">
+<link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+<link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+
+<script>
+    Breakpoints();
+</script>
 
 <div class="clearfix visible-md-block"></div>
 
@@ -15,7 +26,7 @@
         <h1 class="display-4">SJR</h1>
         <p class="lead">Scimago Journal & Country Rank</p>
         <hr class="my-4">
-        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
             @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = "Journal Title, ISSN or Publisher Name" })
 
@@ -52,10 +63,13 @@
 <div class="clearfix visible-md-block"></div>
 @if (TempData.Peek("SuccessMessage") != null)
 {
+    var asdf = TempData["SuccessMessage"];
     <input id="SuccessMessage" type="hidden" value="@TempData["SuccessMessage"]" />
 }
 else
 {
+    var error = TempData["ErrorMessage"];
+
     <input id="ErrorMessage" type="hidden" value="@TempData["ErrorMessage"]" />
 }
 
@@ -108,7 +122,6 @@ else
                             <br />
                             <br />
                             <h3 style="text-align:center"> @ViewBag.Message    @ViewBag.msng</h3>
-
                         }
                     </div>
                 </div>
@@ -119,38 +132,38 @@ else
     <!-- End Panel -->
 </div>
 
-@TempData["SuccessMessage"]
+<script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+<script src="~/Scripts/alertify.min.js"></script>
+
+
 <script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
 <script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
 <script src="~/Template/assets/js/components/buttons.js"></script>
 <script src="~/Template/assets/js/components/ladda-bootstrap.js"></script>
 
 
-@section scripts{
-    @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        (function (document, window, $) {
-            'use strict';
-            var Site = window.Site;
-            $(document).ready(function () {
-                Site.run();
-                var successMessage = $("#SuccessMessage").val();
-                if (successMessage != "" && successMessage != null) {
-                    alertify.success(successMessage);
-                    $("#SuccessMessage").val("");
-                }
-                var errorMessage = $("#ErrorMessage").val();
-                if (errorMessage != "" && errorMessage != null) {
-                    alertify.error(errorMessage);
-                    $("#ErrorMessage").val("");
-                }
+<script src="~/Scripts/MicrosoftMvcAjax.js"></script>
 
-                   
-                });
+<script>
+    (function (document, window, $) {
+        'use strict';
+        $(document).ready(function () {
+            var successMessage = $("#SuccessMessage").val();
+            if (successMessage != "" && successMessage != null) {
+                alertify.success(successMessage);
+                $("#SuccessMessage").val("");
+            }
+            var errorMessage = $("#ErrorMessage").val();
+            if (errorMessage != "" && errorMessage != null) {
+                alertify.error(errorMessage);
+                $("#ErrorMessage").val("");
+            }
 
-        })(document, window, jQuery);
-    </script>
-}
+
+        });
+
+    })(document, window, jQuery);
+</script>
 
 
 
