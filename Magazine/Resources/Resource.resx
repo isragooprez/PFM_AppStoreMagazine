@@ -156,6 +156,9 @@
   <data name="MnsMgzSucessStoreVirtual" xml:space="preserve">
     <value>Revista Agendada</value>
   </data>
+  <data name="MsnMgzErrorNotFoundData" xml:space="preserve">
+    <value>No se ha encontrado datos.</value>
+  </data>
   <data name="MsnMgzErrorStoredVirtual" xml:space="preserve">
     <value>No se a podido agendar.</value>
   </data>

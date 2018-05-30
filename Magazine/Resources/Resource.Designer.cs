@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No se ha encontrado datos..
+        /// </summary>
+        public static string MsnMgzErrorNotFoundData {
+            get {
+                return ResourceManager.GetString("MsnMgzErrorNotFoundData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No se a podido agendar..
         /// </summary>
         public static string MsnMgzErrorStoredVirtual {

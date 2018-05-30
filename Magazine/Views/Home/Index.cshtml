@@ -28,6 +28,8 @@
         <hr class="my-4">
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
+            @Html.AntiForgeryToken();
+
             @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = "Journal Title, ISSN or Publisher Name" })
 
             <div class="col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4 ">
@@ -142,7 +144,7 @@ else
 <script src="~/Template/assets/js/components/ladda-bootstrap.js"></script>
 
 
-<script src="~/Scripts/MicrosoftMvcAjax.js"></script>
+@*<script src="~/Scripts/MicrosoftMvcAjax.js"></script>*@
 
 <script>
     (function (document, window, $) {

@@ -5,20 +5,37 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
+using Magazine.Content.Utils;
 
 namespace Magazine.Controllers
 {
     public class HomeController : Controller
     {
         List<NsoupMagazineModels> nsoupModels;
-   
-    
+
+        /**
+         *Seguridades ValidateInput protege ataques XSS  activado por defecto los otros controladores no lo 
+         * especifico por que ya esa activado automaticamente
+         **/
+        [ValidateInput(true)]
+        //[ValidateAntiForgeryToken]
         public ActionResult Index(string filter, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
+
             if (filter != string.Empty && filter != null)
             {
-                HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + filter.ToString()).Result;
+                var _filter = string.Empty;
+                _filter = Utils.ClearTagsHtml(filter);
+
+                HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + _filter.ToString()).Result;
                 nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
+                if (nsoupModels == null || nsoupModels.Count() <= 0)
+                {
+                    TempData["ErrorMessage"] = Resources.Resource.MsnMgzErrorNotFoundData;
+                }
                 ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
                 return View(nsoupModels);
             }
@@ -26,6 +43,7 @@ namespace Magazine.Controllers
             ViewBag.Message = Resources.Resource.MnsHomeFilterMgz;
             return View();
         }
+
         public ActionResult Save(List<NsoupMagazineModels> lstMagazines)
         {
             try
@@ -58,7 +76,6 @@ namespace Magazine.Controllers
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -156,6 +156,9 @@
   <data name="MnsMgzSucessStoreVirtual" xml:space="preserve">
     <value>Schedule Magazine</value>
   </data>
+  <data name="MsnMgzErrorNotFoundData" xml:space="preserve">
+    <value>Not Found Data.</value>
+  </data>
   <data name="MsnMgzErrorStoredVirtual" xml:space="preserve">
     <value>Could not schedule</value>
   </data>

@@ -64,14 +64,15 @@ namespace Magazine.Controllers
             magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
             return View(magazine);
         }
-
+        //Control de Vulnerabilidad de Asignaciones Masivas (OverPosting) | Seguridad Web
+        //[Bind(Include = "Description,Favorite,Scope")]
         // POST: Magazine/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, MagazineModels _magazine)
+        public ActionResult Edit(int id, [Bind(Include = "Description,Favorite,Scope")] MagazineModels _magazineViewModel)
         {
             try
             {
-                _magazine.UserId = 2;
+                _magazineViewModel.UserId = 2;
                 MagazineModels magazinefind;
                 HttpResponseMessage _httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
                 magazinefind = _httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
@@ -80,7 +81,10 @@ namespace Magazine.Controllers
                 {
 
                     MagazineModels magazine;
-                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PutAsJsonAsync("Magazines/" + _magazine.Id, _magazine).Result;
+                    magazinefind.Description = _magazineViewModel.Description;
+                    magazinefind.Favorite = _magazineViewModel.Favorite;
+                    magazinefind.Scope = _magazineViewModel.Scope;
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PutAsJsonAsync("Magazines/" + magazinefind.Id, magazinefind).Result;
                     magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
                 }
 
