@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Web.Script.Serialization;
 
-namespace API.Services
+namespace API._30.DistributedServices
 {
     public class NsoupServices
     {
@@ -106,29 +106,42 @@ namespace API.Services
             }
             //Quartiles
             magazine.Quartiles = ToJsonQuartiles(document);
+            magazine.QuartilesDesc = ToJsonQuartilesDesc(document);
             //SJR
             magazine.SJR = ToJsonSJR(document);
+            magazine.SJRDesc = ToJsonSJRDesc(document);
             //CitationsPerDocument
             magazine.CitationsPerDocument = ToJsonCitationsPerDocument(document);
+            magazine.CitationsPerDocumentDesc = ToJsonCitationsPerDocumentDesc(document);
             //TotalCites
             magazine.TotalCites = ToJsonTotalCites(document);
+            magazine.TotalCitesDesc = ToJsonTotalCitesDesc(document);
             //CitesPerDoc
             magazine.Cites = ToJsonCites(document);
+            magazine.CitesDesc = ToJsonCitesDesc(document);
             //InternationalCollaboration
             magazine.InternationalCollaboration = ToJsonInternationalCollaboration(document);
+            magazine.InternationalCollaborationDesc = ToJsonInternationalCollaborationDesc(document);
             //DocumentsNoncitable
             magazine.DocumentsNoncitable = ToJsonDocumentsNoncitable(document);
+            magazine.DocumentsNoncitableDesc = ToJsonDocumentsNoncitableDesc(document);
             //DocumentsUncited
             magazine.DocumentsUncited = ToJsonDocumentsUncited(document);
+            magazine.DocumentsUncitedDesc = ToJsonDocumentsUncitedDesc(document);
 
             return magazine;
         }
 
+        public string ToJsonDocumentsUncitedDesc(Document document)
+        {
+            List<DocumentsUncitedModels> lst_DocumentsUncitable = new List<DocumentsUncitedModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[5].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         public string ToJsonDocumentsUncited(Document document)
         {
             List<DocumentsUncitedModels> lst_DocumentsUncitable = new List<DocumentsUncitedModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[5].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 DocumentsUncitedModels _documUnCit = new DocumentsUncitedModels();
@@ -137,17 +150,18 @@ namespace API.Services
                 _documUnCit.Value = elem.Select("td")[2].Text();
                 lst_DocumentsUncitable.Add(_documUnCit);
             }
-
-
             return JsonConvert.SerializeObject(lst_DocumentsUncitable);
-
         }
-
+        public string ToJsonDocumentsNoncitableDesc(Document document)
+        {
+            List<DocumentsNoncitableModels> lst_DocumentsNoncitable = new List<DocumentsNoncitableModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[4].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         public string ToJsonDocumentsNoncitable(Document document)
         {
             List<DocumentsNoncitableModels> lst_DocumentsNoncitable = new List<DocumentsNoncitableModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[4].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 DocumentsNoncitableModels _documNonCit = new DocumentsNoncitableModels();
@@ -158,12 +172,16 @@ namespace API.Services
             }
             return JsonConvert.SerializeObject(lst_DocumentsNoncitable);
         }
-
+        public string ToJsonInternationalCollaborationDesc(Document document)
+        {
+            List<InternationalCollaborationModels> lst_InternationalCollaboratio = new List<InternationalCollaborationModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[3].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         public string ToJsonInternationalCollaboration(Document document)
         {
             List<InternationalCollaborationModels> lst_InternationalCollaboratio = new List<InternationalCollaborationModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[3].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 InternationalCollaborationModels _interColl = new InternationalCollaborationModels();
@@ -174,11 +192,16 @@ namespace API.Services
             return JsonConvert.SerializeObject(lst_InternationalCollaboratio);
         }
 
+        public string ToJsonCitesDesc(Document document)
+        {
+            List<CitesPerDocModels> lst_CitesModels = new List<CitesPerDocModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[2].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         public string ToJsonCites(Document document)
         {
             List<CitesPerDocModels> lst_CitesModels = new List<CitesPerDocModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[2].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 CitesPerDocModels _citesPerDocModels = new CitesPerDocModels();
@@ -190,11 +213,16 @@ namespace API.Services
             return JsonConvert.SerializeObject(lst_CitesModels);
         }
 
+        public string ToJsonTotalCitesDesc(Document document)
+        {
+            List<TotalCitesModels> lst_TotalCitesModels = new List<TotalCitesModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[1].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         public string ToJsonTotalCites(Document document)
         {
             List<TotalCitesModels> lst_TotalCitesModels = new List<TotalCitesModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[1].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 TotalCitesModels _totalCites = new TotalCitesModels();
@@ -206,11 +234,17 @@ namespace API.Services
             return JsonConvert.SerializeObject(lst_TotalCitesModels);
         }
 
+        public string ToJsonCitationsPerDocumentDesc(Document document)
+        {
+            List<CitationsPerDocumentModels> lst_citationsPerDocumentModels = new List<CitationsPerDocumentModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x2").Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
+
         public string ToJsonCitationsPerDocument(Document document)
         {
             List<CitationsPerDocumentModels> lst_citationsPerDocumentModels = new List<CitationsPerDocumentModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x2").Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 CitationsPerDocumentModels _citationsPerDocumentModels = new CitationsPerDocumentModels();
@@ -226,7 +260,6 @@ namespace API.Services
         {
             List<SjrModels> lst_Jsr = new List<SjrModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[0].Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 SjrModels _sjrModels = new SjrModels();
@@ -236,12 +269,17 @@ namespace API.Services
             }
             return JsonConvert.SerializeObject(lst_Jsr);
         }
+        public string ToJsonSJRDesc(Document document)
+        {
+            List<SjrModels> lst_Jsr = new List<SjrModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell1x1")[0].Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
 
         public string ToJsonQuartiles(Document document)
         {
             List<QuartilesModels> lst_quartiles = new List<QuartilesModels>();
             var elem_Quartiles = document.Select(".dashboard").Select(".cell2x1").Select(".cellcontent:has(table)");
-            var hh = elem_Quartiles.Select("p").Text;
             foreach (Element elem in elem_Quartiles.Select("table").Select("tbody").Select("tr"))
             {
                 QuartilesModels _quartiles = new QuartilesModels();
@@ -250,11 +288,15 @@ namespace API.Services
                 _quartiles.Quartile = elem.Select("td")[2].Text();
                 lst_quartiles.Add(_quartiles);
             }
-
-            JavaScriptSerializer j = new JavaScriptSerializer();
             return JsonConvert.SerializeObject(lst_quartiles);
         }
 
+        public string ToJsonQuartilesDesc(Document document)
+        {
+            List<QuartilesModels> lst_quartiles = new List<QuartilesModels>();
+            var elem_Quartiles = document.Select(".dashboard").Select(".cell2x1").Select(".cellcontent:has(table)");
+            return elem_Quartiles.Select("p").Text;
+        }
         private string ConvertArrayToString(object[] array)
         {
             string result = string.Empty;

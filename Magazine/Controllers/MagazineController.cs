@@ -1,34 +1,66 @@
-﻿using Magazine.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
+using Magazine.Models;
+using System.Linq.Dynamic;
 
 namespace Magazine.Controllers
 {
     public class MagazineController : Controller
     {
         // GET: Magazine
-        public ActionResult Index()
+        public ActionResult Index(int page=1, string sort="Name", string sortdir="DESC", string search="")
         {
+            int pageSize = 10;
+            int totalRecord = 0;
+            if (page < 1) page = 1;
+            int skip = (page * pageSize) - pageSize;
+            var listMagazines = GetMagazinesSearch(search, sort, sortdir, skip, pageSize, out totalRecord);
+            ViewBag.TotalRows = totalRecord;
+            ViewBag.Search = search;
+
+            return View(listMagazines);
+        }
+
+        public List<MagazineModels> GetMagazinesSearch(string search, string sort, string sortdir, int skip, int pageSize, out int totalRecord)
+        {
+
             IEnumerable<MagazineModels> listMagazines;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines").Result;
             listMagazines = httpResponseMessage.Content.ReadAsAsync<IEnumerable<MagazineModels>>().Result;
-            return View(listMagazines);
+
+            var _mgznSearch = (from mgzn in listMagazines
+                               where (mgzn.Name != null && mgzn.Country != null && mgzn.Subjec != null && mgzn.Publisher != null && mgzn.PublicationType != null && mgzn.ISSN != null && mgzn.Coverage != null && mgzn.DateIn != null && (mgzn.Favorite == null || mgzn.Favorite != null)) &&
+                                 (
+                                 mgzn.Name.Contains(search) ||
+                                  mgzn.Country.Contains(search) ||
+                                  mgzn.Subjec.Contains(search) ||
+                                  mgzn.Publisher.Contains(search) ||
+                                  mgzn.PublicationType.Contains(search) ||
+                                  mgzn.ISSN.Contains(search) ||
+                                  mgzn.Coverage.Contains(search) ||
+                                  mgzn.DateIn.ToString().Contains(search) ||
+                                  mgzn.Favorite.Contains(search))
+                               select mgzn
+                        );
+            totalRecord = _mgznSearch.Count();
+            _mgznSearch = _mgznSearch.OrderBy(sort + " " + sortdir);
+            if (pageSize > 0)
+            {
+                _mgznSearch = _mgznSearch.Skip(skip).Take(pageSize);
+            }
+            return _mgznSearch.ToList();
         }
 
         // GET: Magazine/Details/5
         public ActionResult Details(int id)
         {
             //AspNetUsers aspNetUsers = factoryDAO.getRepositoryUsers().FindById(user => user.Id == id);
-
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
             magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
-
-
             return View(magazine);
         }
 
@@ -111,13 +143,9 @@ namespace Magazine.Controllers
         {
             try
             {
-
-
                 MagazineModels magazine;
                 HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.DeleteAsync("Magazines/" + id).Result;
                 magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
-
-
                 return RedirectToAction("Index");
             }
             catch

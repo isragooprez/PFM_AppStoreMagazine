@@ -34,6 +34,28 @@ namespace Magazine.Models
         public string Coverage { get; set; }
         [JsonProperty("Scope")]
         public string Scope { get; set; }
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+        [JsonProperty("DateIn")]
+        public Nullable<System.DateTime> DateIn { get; set; }
+        [JsonProperty("Favorite")]
+        public string Favorite { get; set; }
+        [JsonProperty("QuartilesDesc")]
+        public string QuartilesDesc { get; set; }
+        [JsonProperty("SJRDesc")]
+        public string SJRDesc { get; set; }
+        [JsonProperty("CitationsPerDocumentDesc")]
+        public string CitationsPerDocumentDesc { get; set; }
+        [JsonProperty("CitesDesc")]
+        public string CitesDesc { get; set; }
+        [JsonProperty("InternationalCollaborationDesc")]
+        public string InternationalCollaborationDesc { get; set; }
+        [JsonProperty("DocumentsNoncitableDesc")]
+        public string DocumentsNoncitableDesc { get; set; }
+        [JsonProperty("DocumentsUncitedDesc")]
+        public string DocumentsUncitedDesc { get; set; }
+        [JsonProperty("TotalCitesDesc")]
+        public string TotalCitesDesc { get; set; }
         [JsonProperty("Quartiles")]
         public string Quartiles { get; set; }
         [JsonProperty("SJR")]
@@ -50,12 +72,6 @@ namespace Magazine.Models
         public string DocumentsUncited { get; set; }
         [JsonProperty("TotalCites")]
         public string TotalCites { get; set; }
-        [JsonProperty("Description")]
-        public string Description { get; set; }
-        [JsonProperty("DateIn")]
-        public Nullable<System.DateTime> DateIn { get; set; }
-        [JsonProperty("Favorite")]
-        public string Favorite { get; set; }
         [JsonProperty("UserId")]
         public int UserId { get; set; }
     }

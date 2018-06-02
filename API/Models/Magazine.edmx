@@ -22,6 +22,17 @@
           <Property Name="ISSN" Type="nvarchar(max)" />
           <Property Name="Coverage" Type="nvarchar(max)" />
           <Property Name="Scope" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateIn" Type="date" />
+          <Property Name="Favorite" Type="char" MaxLength="1" />
+          <Property Name="QuartilesDesc" Type="nvarchar(max)" />
+          <Property Name="SJRDesc" Type="nvarchar(max)" />
+          <Property Name="CitationsPerDocumentDesc" Type="nvarchar(max)" />
+          <Property Name="CitesDesc" Type="nvarchar(max)" />
+          <Property Name="InternationalCollaborationDesc" Type="nvarchar(max)" />
+          <Property Name="DocumentsNoncitableDesc" Type="nvarchar(max)" />
+          <Property Name="DocumentsUncitedDesc" Type="nvarchar(max)" />
+          <Property Name="TotalCitesDesc" Type="nvarchar(max)" />
           <Property Name="Quartiles" Type="nvarchar(max)" />
           <Property Name="SJR" Type="nvarchar(max)" />
           <Property Name="CitationsPerDocument" Type="nvarchar(max)" />
@@ -30,9 +41,6 @@
           <Property Name="DocumentsNoncitable" Type="nvarchar(max)" />
           <Property Name="DocumentsUncited" Type="nvarchar(max)" />
           <Property Name="TotalCites" Type="nvarchar(max)" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="DateIn" Type="datetime" />
-          <Property Name="Favorite" Type="char" MaxLength="1" />
           <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -94,6 +102,17 @@
           <Property Name="ISSN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Coverage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Scope" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateIn" Type="DateTime" Precision="0" />
+          <Property Name="Favorite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="QuartilesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SJRDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CitationsPerDocumentDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CitesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InternationalCollaborationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentsNoncitableDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentsUncitedDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalCitesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Quartiles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SJR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CitationsPerDocument" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -102,9 +121,6 @@
           <Property Name="DocumentsNoncitable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DocumentsUncited" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TotalCites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DateIn" Type="DateTime" Precision="3" />
-          <Property Name="Favorite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="MagazinesDBModel.FK_UserMagazine" FromRole="Magazine" ToRole="User" />
         </EntityType>
@@ -131,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -141,9 +157,6 @@
             <EntityTypeMapping TypeName="MagazinesDBModel.Magazine">
               <MappingFragment StoreEntitySet="Magazines">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
-                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TotalCites" ColumnName="TotalCites" />
                 <ScalarProperty Name="DocumentsUncited" ColumnName="DocumentsUncited" />
                 <ScalarProperty Name="DocumentsNoncitable" ColumnName="DocumentsNoncitable" />
@@ -152,6 +165,17 @@
                 <ScalarProperty Name="CitationsPerDocument" ColumnName="CitationsPerDocument" />
                 <ScalarProperty Name="SJR" ColumnName="SJR" />
                 <ScalarProperty Name="Quartiles" ColumnName="Quartiles" />
+                <ScalarProperty Name="TotalCitesDesc" ColumnName="TotalCitesDesc" />
+                <ScalarProperty Name="DocumentsUncitedDesc" ColumnName="DocumentsUncitedDesc" />
+                <ScalarProperty Name="DocumentsNoncitableDesc" ColumnName="DocumentsNoncitableDesc" />
+                <ScalarProperty Name="InternationalCollaborationDesc" ColumnName="InternationalCollaborationDesc" />
+                <ScalarProperty Name="CitesDesc" ColumnName="CitesDesc" />
+                <ScalarProperty Name="CitationsPerDocumentDesc" ColumnName="CitationsPerDocumentDesc" />
+                <ScalarProperty Name="SJRDesc" ColumnName="SJRDesc" />
+                <ScalarProperty Name="QuartilesDesc" ColumnName="QuartilesDesc" />
+                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Scope" ColumnName="Scope" />
                 <ScalarProperty Name="Coverage" ColumnName="Coverage" />
                 <ScalarProperty Name="ISSN" ColumnName="ISSN" />

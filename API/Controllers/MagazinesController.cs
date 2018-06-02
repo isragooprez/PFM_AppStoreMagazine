@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Data.Entity.Infrastructure;
-using API.Services;
 using System.Net;
 using API._50.Dominio.Core;
 using API._80.Infraestructure.Data.Core;

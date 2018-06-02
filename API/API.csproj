@@ -365,15 +365,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="Services\CitationsPerDocumentModels.cs" />
-    <Compile Include="Services\CitesPerDocModels.cs" />
-    <Compile Include="Services\DocumentsNoncitableModels.cs" />
-    <Compile Include="Services\DocumentsUncitedModels.cs" />
-    <Compile Include="Services\InternationalCollaborationModels.cs" />
-    <Compile Include="Services\NsoupServices.cs" />
-    <Compile Include="Services\QuartilesModels.cs" />
-    <Compile Include="Services\SjrModels.cs" />
-    <Compile Include="Services\TotalCitesModels.cs" />
+    <Compile Include="Models\CitationsPerDocumentModels.cs" />
+    <Compile Include="Models\CitesPerDocModels.cs" />
+    <Compile Include="Models\DocumentsNoncitableModels.cs" />
+    <Compile Include="Models\DocumentsUncitedModels.cs" />
+    <Compile Include="Models\InternationalCollaborationModels.cs" />
+    <Compile Include="30.DistributedServices\NsoupServices.cs" />
+    <Compile Include="Models\QuartilesModels.cs" />
+    <Compile Include="Models\SjrModels.cs" />
+    <Compile Include="Models\TotalCitesModels.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

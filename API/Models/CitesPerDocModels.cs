@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace API.Services
+namespace API.Models
 {
-    public class DocumentsUncitedModels
+    public class CitesPerDocModels
     {
-        [JsonProperty("Documents")]
-        public string Documents { get; set; }
+        [JsonProperty("Cites")]
+        public string Cites { get; set; }
         [JsonProperty("Year")]
         public string Year { get; set; }
         [JsonProperty("Value")]
