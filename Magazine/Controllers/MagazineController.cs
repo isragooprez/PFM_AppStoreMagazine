@@ -41,8 +41,7 @@ namespace Magazine.Controllers
                                   mgzn.PublicationType.Contains(search) ||
                                   mgzn.ISSN.Contains(search) ||
                                   mgzn.Coverage.Contains(search) ||
-                                  mgzn.DateIn.ToString().Contains(search) ||
-                                  mgzn.Favorite.Contains(search))
+                                  mgzn.DateIn.ToString().Contains(search))
                                select mgzn
                         );
             totalRecord = _mgznSearch.Count();

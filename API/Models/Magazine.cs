@@ -12,7 +12,8 @@ namespace API.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Magazine
     {
         [JsonProperty("Id")]
@@ -44,9 +45,10 @@ namespace API.Models
         [JsonProperty("Description")]
         public string Description { get; set; }
         [JsonProperty("DateIn")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DateIn { get; set; }
         [JsonProperty("Favorite")]
-        public string Favorite { get; set; }
+        public Nullable<bool> Favorite { get; set; }
         [JsonProperty("QuartilesDesc")]
         public string QuartilesDesc { get; set; }
         [JsonProperty("SJRDesc")]

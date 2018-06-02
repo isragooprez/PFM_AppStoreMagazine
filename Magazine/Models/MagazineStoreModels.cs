@@ -37,7 +37,7 @@ namespace Magazine.Models
         [JsonProperty("DateIn")]
         public Nullable<System.DateTime> DateIn { get; set; }
         [JsonProperty("Favorite")]
-        public string Favorite { get; set; }
+        public Nullable<bool> Favorite { get; set; }
         [JsonProperty("QuartilesDesc")]
         public string QuartilesDesc { get; set; }
         [JsonProperty("SJRDesc")]

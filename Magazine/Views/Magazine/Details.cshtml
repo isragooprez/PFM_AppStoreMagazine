@@ -5,7 +5,6 @@
 @{
     /**/
 
-    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
@@ -19,315 +18,350 @@
 
 <link rel="stylesheet" href="~/Template/assets/vendor/chartist-js/chartist.css">
 <link rel="stylesheet" href="~/Template/assets/vendor/morris-js/morris.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/ladda-bootstrap/ladda.css">
+
 
 <!-- Inline -->
 <link href="~/Template/docs/css/chart.css" rel="stylesheet" />
 <link href="~/Template/docs/css/datatable.css" rel="stylesheet" />
+<link href="~/Template/docs/css/buttons.css" rel="stylesheet" />
 
 <script>
     Breakpoints();
 </script>
-<h2>Details</h2>
 <!-- Panel -->
 <div class="panel">
     <div class="panel-body">
         <!-- Example Pricing List2 -->
         <div class="example-wrap">
-            <h4 class="example-title">DETALLE</h4>
             <div class="example">
                 <div class="row row-lg">
-                    <div>
-                        <h4>MagazineModels</h4>
-                        <hr />
-                        <p>
-                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                            @Html.ActionLink("Back to List", "Index")
-                        </p>
+                    <div class="container-fluid">
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="example">
+                                <div class="ribbon ribbon-warning">
+                                    <span class="ribbon-inner">Detail</span>
+                                </div>
+                                <hr />
 
-                        <dl class="dl-horizontal">
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Name)
-                            </dd>
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Hindexlegend)
-                            </dt>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Hindexlegend) @Html.DisplayFor(model => model.Hindexnumber)
-                            </dd>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Name)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Hindexlegend)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Country)
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Country)
-                            </dd>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Hindexlegend) @Html.DisplayFor(model => model.Hindexnumber)
+                                    </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Subjec)
-                            </dt>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Country)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Country)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Subjec)
-                            </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Subjec)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Publisher)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Subjec)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Publisher)
-                            </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Publisher)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.PublicationType)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Publisher)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.PublicationType)
-                            </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.PublicationType)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.ISSN)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.PublicationType)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.ISSN)
-                            </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ISSN)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Coverage)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ISSN)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Coverage)
-                            </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Coverage)
+                                    </dt>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Scope)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Coverage)
+                                    </dd>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Scope)
-                            </dd>
-                            <dt>
-                                @Html.DisplayNameFor(model => model.DateIn)
-                            </dt>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Scope)
+                                    </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.DateIn)
-                            </dd>
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Description)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Scope)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.DateIn)
+                                    </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Description)
-                            </dd>
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Favorite)
-                            </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.DateIn)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Favorite)
-                            </dd>
-                        </dl>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Description)
+                                    </dd>
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Favorite)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Favorite)
+                                    </dd>
+                                </dl>
+                                <div class="btn-group" aria-label="Basic example" role="group">
+                                    @Html.ActionLink(" Back to List", "Index", null, new { @Class = "btn btn-primary  icon wb-chevron-left" })
+                                    @Html.ActionLink(" Edit", "Edit", new { id = Model.Id }, new { @Class = "btn btn-primary icon wb-edit" })
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
+                <!-- End Example Pricing List2 -->
             </div>
-            <!-- End Example Pricing List2 -->
         </div>
     </div>
-</div>
-<!-- End Panel -->
-@{
-    if (Model.Quartiles != null)
-    {
-        dynamic input = JsonConvert.DeserializeObject(Model.Quartiles);
-        <!-- Panel -->
-<div class="panel">
-    <header class="panel-heading">
-        <h3 class="panel-title">@Html.DisplayNameFor(model => model.Quartiles)</h3>
-        <p>
-            @Model.QuartilesDesc
-        </p>
-    </header>
-    
-    <div class="panel-body">
-        <table class="table table-hover dataTable table-striped width-full" id="exampleTableSearch">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Year</th>
-                    <th>Quartile</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Category</th>
-                    <th>Year</th>
-                    <th>Quartile</th>
-                </tr>
-            </tfoot>
-
-            <tbody>
-                @foreach (var inputAttribute in input)
-                {
-                    <tr>
-                        <td>@inputAttribute.Category</td>
-                        <td>@inputAttribute.Year</td>
-                        <td>@inputAttribute.Quartile</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-        <div class="row row-lg">
-            <div class="col-md-6">
-                <!-- DATA SJR Bi-Polar Line -->
-                <div class="example-wrap">
-                    <h4 class="example-title">SJR</h4>
+    <!-- End Panel -->
+    @{
+        if (Model.Quartiles != null)
+        {
+            dynamic input = JsonConvert.DeserializeObject(Model.Quartiles);
+            <!-- Panel -->
+            <div class="panel">
+                <header class="panel-heading">
+                    <h3 class="panel-title">@Html.DisplayNameFor(model => model.Quartiles)</h3>
                     <p>
-                        @Model.SJRDesc
+                        @Model.QuartilesDesc
                     </p>
-                    <div class="example">
-                        <div class="ct-chart" id="SJROnlyArea"></div>
+                </header>
+
+                <div class="panel-body">
+                    <table class="table table-hover dataTable table-striped width-full" id="exampleTableSearch">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Year</th>
+                                <th>Quartile</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Category</th>
+                                <th>Year</th>
+                                <th>Quartile</th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            @foreach (var inputAttribute in input)
+                            {
+                                <tr>
+                                    <td>@inputAttribute.Category</td>
+                                    <td>@inputAttribute.Year</td>
+                                    <td>@inputAttribute.Quartile</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="row row-lg">
+                        <div class="col-md-6">
+                            <!-- DATA SJR Bi-Polar Line -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">SJR</h4>
+                                <p>
+                                    @Model.SJRDesc
+                                </p>
+                                <div class="example">
+                                    <div class="ct-chart" id="SJROnlyArea"></div>
+                                </div>
+                            </div>
+                            <!-- End Example Bi Polar Line -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- DATA International CollaborationOnly AreaBi-Polar Line -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">International Collaboration</h4>
+                                <p>
+                                    @Model.InternationalCollaborationDesc
+                                </p>
+                                <div class="example">
+                                    <div class="ct-chart" id="InternationalCollaborationOnlyArea"></div>
+                                </div>
+                            </div>
+                            <!-- End Example Bi Polar Line -->
+                        </div>
+
                     </div>
                 </div>
-                <!-- End Example Bi Polar Line -->
             </div>
-            <div class="col-md-6">
-                <!-- DATA International CollaborationOnly AreaBi-Polar Line -->
-                <div class="example-wrap">
-                    <h4 class="example-title">International Collaboration</h4>
-                    <p>
-                        @Model.InternationalCollaborationDesc
-                    </p>
-                    <div class="example">
-                        <div class="ct-chart" id="InternationalCollaborationOnlyArea"></div>
+            <!-- End Panel -->
+            <div class="page-content">
+                <!-- Panel -->
+                <div class="panel">
+                    <div class="panel-body container-fluid">
+                        <div class="row row-lg">
+                            <div class="col-md-6">
+                                <!-- Example Line -->
+                                <div class="example-wrap">
+                                    <h4 class="example-title">Total Cites</h4>
+                                    <p>
+                                        @Model.TotalCitesDesc
+                                    </p>
+                                    <div class="example text-center">
+                                        <canvas id="TotalCitesChartjsLine" height="300" width="450"></canvas>
+                                    </div>
+                                </div>
+                                <!-- End Example Line -->
+                            </div>
+                            <div class="col-md-6 ">
+                                <!-- Example Bar -->
+                                <div class="example-wrap">
+                                    <h4 class="example-title">Citations Per Document</h4>
+                                    <p>
+                                        @Model.CitationsPerDocumentDesc
+                                    </p>
+                                    <div class="example text-center">
+                                        <canvas id="CitationsPerDocumentChartjsBar" height="300" width="450"></canvas>
+                                    </div>
+                                </div>
+                                <!-- End Example Bar -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- End Example Bi Polar Line -->
+                <!-- End Panel -->
             </div>
 
-        </div>
-    </div>
-</div>
-        <!-- End Panel -->
-        <div class="page-content">
             <!-- Panel -->
             <div class="panel">
                 <div class="panel-body container-fluid">
                     <div class="row row-lg">
+
                         <div class="col-md-6">
-                            <!-- Example Line -->
+                            <!-- Example ExternalCitesMorrisArea Area -->
                             <div class="example-wrap">
-                                <h4 class="example-title">Total Cites</h4>
+                                <h4 class="example-title">External Cites per Doc | Cites per Doc</h4>
                                 <p>
-                                   @Model.TotalCitesDesc
+                                    @Model.CitesDesc
                                 </p>
-                                <div class="example text-center">
-                                    <canvas id="TotalCitesChartjsLine" height="300" width="450"></canvas>
+                                <div class="example">
+                                    <div id="ExternalCitesMorrisArea"></div>
                                 </div>
                             </div>
-                            <!-- End Example Line -->
+                            <!-- End Example Area -->
                         </div>
-                        <div class="col-md-6 ">
-                            <!-- Example Bar -->
+                        <div class="col-md-6">
+                            <!-- Example ExternalCitesMorrisArea Area -->
                             <div class="example-wrap">
-                                <h4 class="example-title">Citations Per Document</h4>
+                                <h4 class="example-title">Citable documents | Non-citable documents</h4>
                                 <p>
-                                    @Model.CitationsPerDocumentDesc
+                                    @Model.DocumentsNoncitableDesc
                                 </p>
-                                <div class="example text-center">
-                                    <canvas id="CitationsPerDocumentChartjsBar" height="300" width="450"></canvas>
+                                <div class="example">
+                                    <div id="NonCitesMorrisArea"></div>
                                 </div>
                             </div>
-                            <!-- End Example Bar -->
+                            <!-- End Example Area -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Example ExternalCitesMorrisArea Area -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">Cited documents | Uncited documents</h4>
+                                <p>
+                                    @Model.DocumentsUncitedDesc
+                                </p>
+                                <div class="example">
+                                    <div id="UnCitesMorrisArea"></div>
+                                </div>
+                            </div>
+                            <!-- End Example Area -->
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Panel -->
-        </div>
+        }
+    }
 
-        <!-- Panel -->
-        <div class="panel">
-            <div class="panel-body container-fluid">
-                <div class="row row-lg">
+    <div class="example example-buttons">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary">
+                    <i class="icon wb-star" aria-hidden="true"></i>
+                    <br>
+                    <span class="text-uppercase hidden-xs">Favourites</span>
+                </button>
+            </div>
 
-                    <div class="col-md-6">
-                        <!-- Example ExternalCitesMorrisArea Area -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">External Cites per Doc | Cites per Doc</h4>
-                            <p>
-                                @Model.CitesDesc
-                            </p>
-                            <div class="example">
-                                <div id="ExternalCitesMorrisArea"></div>
-                            </div>
-                        </div>
-                        <!-- End Example Area -->
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Example ExternalCitesMorrisArea Area -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">Citable documents | Non-citable documents</h4>
-                            <p>
-                                @Model.DocumentsNoncitableDesc
-                            </p>
-                            <div class="example">
-                                <div id="NonCitesMorrisArea"></div>
-                            </div>
-                        </div>
-                        <!-- End Example Area -->
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Example ExternalCitesMorrisArea Area -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">Cited documents | Uncited documents</h4>
-                            <p>
-                                @Model.DocumentsUncitedDesc
-                            </p>
-                            <div class="example">
-                                <div id="UnCitesMorrisArea"></div>
-                            </div>
-                        </div>
-                        <!-- End Example Area -->
-                    </div>
-                </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-info">
+                    <i class="icon wb-time" aria-hidden="true"></i>
+                    <br>
+                    <span class="text-uppercase hidden-xs">Recent</span>
+                </button>
+            </div>
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-success">
+                    <i class="icon wb-user" aria-hidden="true"></i>
+                    <br>
+                    <span class="text-uppercase hidden-xs">Contacts</span>
+                </button>
             </div>
         </div>
-        <!-- End Panel -->
-    }
-}
+    </div>
 
 
+    <!-- MAIN  JQUERY -->
+    <!-- Core  -->
+    <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+    <script src="~/Template/assets/vendor/bootstrap/bootstrap.js"></script>
 
 
-<!-- MAIN  JQUERY -->
-<script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+    <!-- Plugins -->
+    <script src="~/Template/assets/vendor/raphael/raphael-min.js"></script>
+    <script src="~/Template/assets/vendor/morris-js/morris.min.js"></script>
+    <script src="~/Template/assets/vendor/chartist-js/chartist.js"></script>
+    <script src="~/Template/assets/vendor/chart-js/Chart.js"></script>
 
-<!-- Plugins -->
-<script src="~/Template/assets/vendor/raphael/raphael-min.js"></script>
-<script src="~/Template/assets/vendor/morris-js/morris.min.js"></script>
-<script src="~/Template/assets/vendor/chartist-js/chartist.js"></script>
-<script src="~/Template/assets/vendor/chart-js/Chart.js"></script>
+    <script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+    <script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
 
-@*<script src="~/Template/assets/js/configs/config-colors.js"></script>
-    <script src="~/Template/assets/js/configs/config-tour.js"></script>*@
+    <!-- Script -->
+    <script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+    <script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
 
-
-<!-- End Panel -->
-<script src="~/Template/assets/js/components/datatables.js"></script>
-
-<script>
+    <script>
         (function (document, window, $) {
             'use strict';
 
@@ -674,4 +708,4 @@
 
 
         })(document, window, jQuery);
-</script>
+    </script>

@@ -66,7 +66,7 @@ namespace Magazine.Controllers
                 MagazineStoreModels magazine_created = new MagazineStoreModels();
                 foreach (var _magazine in _magazineDiaryModels)
                 {
-                    _magazine.Favorite = "F";
+                    _magazine.Favorite = false;
                     _magazine.DateIn = DateTime.Now;
                     HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PostAsJsonAsync("Magazines", _magazine).Result;
                     magazine_created = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;

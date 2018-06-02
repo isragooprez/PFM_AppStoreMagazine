@@ -50,31 +50,8 @@ else
                                 <th data-hide="phone, tablet">@Html.DisplayNameFor(model => model.PublicationType)</th>
                                 <th data-hide="phone, tablet">@Html.DisplayNameFor(model => model.ISSN)</th>
                                 <th data-hide="phone, tablet">@Html.DisplayNameFor(model => model.Coverage)</th>
-                                <th data-hide="phone, tablet">Status</th>
                             </tr>
                         </thead>
-                        <div class="form-inline padding-bottom-15">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Status</label>
-                                        <select id="filteringStatus" class="form-control">
-                                            <option value="">Show all</option>
-                                            <option value="active">Active</option>
-                                            <option value="disabled">Disabled</option>
-                                            <option value="suspended">Suspended</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 text-right">
-                                    <div class="form-group">
-                                        <input id="filteringSearch" type="text" placeholder="Search" class="form-control"
-                                               autocomplete="off">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <tbody>
                             @foreach (var item in Model)
                             {
@@ -107,25 +84,14 @@ else
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Coverage)
                                     </td>
-                                    <td>
-                                        <span class="label label-table label-danger">Suspended</span>
-                                    </td>
+
                                     <td>
                                         @*@Html.ActionLink("Details", "Details", new { url = item.Url }) |*@
-                                        @Html.ActionLink("Delete", "Delete", new { url = item.Url })
+                                        @Html.ActionLink(" Delete", "Delete", new { url = item.Url },new { @Class="btn btn-danger icon wb-trash "})
                                     </td>
                                 </tr>
                             }
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">
-                                    <div class="text-right">
-                                        <ul class="pagination"></ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>

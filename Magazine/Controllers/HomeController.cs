@@ -14,7 +14,6 @@ namespace Magazine.Controllers
 {
     public class HomeController : Controller
     {
-        List<NsoupMagazineModels> nsoupModels;
 
         /**
          *Seguridades ValidateInput protege ataques XSS  activado por defecto los otros controladores no lo 
@@ -24,7 +23,7 @@ namespace Magazine.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Index(string filter, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
-
+            List<NsoupMagazineModels> nsoupModels;
             if (filter != string.Empty && filter != null)
             {
                 var _filter = string.Empty;

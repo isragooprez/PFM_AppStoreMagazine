@@ -2103,6 +2103,7 @@
     <Content Include="Template\docs\css\datatable.css" />
     <Content Include="Template\docs\css\highlight.css" />
     <Content Include="Template\docs\css\login.css" />
+    <Content Include="Template\docs\css\ribbon.css" />
     <Content Include="Template\docs\css\theme.css" />
     <Content Include="Template\docs\css\theme_extra.css" />
     <Content Include="Template\docs\fonts\fontawesome-webfont.svg" />
@@ -2504,7 +2505,6 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Magazine\Index.cshtml" />
-    <Content Include="Views\Magazine\Create.cshtml" />
     <Content Include="Views\Magazine\Edit.cshtml" />
     <Content Include="Views\Magazine\Delete.cshtml" />
     <Content Include="Views\Magazine\Details.cshtml" />
@@ -2963,6 +2963,8 @@
     <Content Include="Template\src\vendor\webui-popover\webui-popover.less" />
     <Content Include="Template\src\vendor\x-editable\x-editable.less" />
     <Content Include="Views\Shared\_Backup_Layout.cshtml" />
+    <Content Include="Views\Magazine\ViewEdit.cshtml" />
+    <Content Include="Views\Magazine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

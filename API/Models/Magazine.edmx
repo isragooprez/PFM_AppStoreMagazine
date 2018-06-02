@@ -24,7 +24,7 @@
           <Property Name="Scope" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="DateIn" Type="date" />
-          <Property Name="Favorite" Type="char" MaxLength="1" />
+          <Property Name="Favorite" Type="bit" />
           <Property Name="QuartilesDesc" Type="nvarchar(max)" />
           <Property Name="SJRDesc" Type="nvarchar(max)" />
           <Property Name="CitationsPerDocumentDesc" Type="nvarchar(max)" />
@@ -104,7 +104,7 @@
           <Property Name="Scope" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateIn" Type="DateTime" Precision="0" />
-          <Property Name="Favorite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Favorite" Type="Boolean" />
           <Property Name="QuartilesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SJRDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CitationsPerDocumentDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
