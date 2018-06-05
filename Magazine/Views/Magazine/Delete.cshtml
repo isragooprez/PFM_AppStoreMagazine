@@ -9,7 +9,7 @@
     <div class="col-sm-6 col-lg-12">
         <div class="example">
             <div class="ribbon ribbon-danger">
-                <span class="ribbon-inner">Delete</span>
+                <span class="ribbon-inner">@Resources.Resource.Delete</span>
             </div>
             <h4>Are you sure you want to delete this?</h4>
 
@@ -90,7 +90,7 @@
 
 
                 <div class="btn-group" aria-label="Basic example" role="group">
-                    @Html.ActionLink("Back to List", "Index", null, new { @Class = "btn btn-primary  icon wb-chevron-left" })
+                    @Html.ActionLink(Resources.Resource.BackView, "Index", null, new { @Class = "btn btn-primary  icon wb-chevron-left" })
                     <button type="submit" class="btn btn-danger icon wb-trash "><i class=""></i> Delete</button>
                 </div>
             }

@@ -15,20 +15,22 @@ namespace Magazine.Controllers
     public class HomeController : Controller
     {
 
-        MagazinesVirtualModels _magazineStoreVirtualModels;
+        MagazinesVirtualModels _magazineStoreVirtualModels = new MagazinesVirtualModels();
+        NsoupVirtualModels _nsoupMagazineModels = new NsoupVirtualModels();
         /**
          *Seguridades ValidateInput protege ataques XSS  activado por defecto los otros controladores no lo 
          * especifico por que ya esa activado automaticamente
          **/
         [ValidateInput(true)]
         //[ValidateAntiForgeryToken]
-        public ActionResult Index(string filter, MagazinesVirtualModels _magazineStoreVirtualModels)
+        public ActionResult Index(string filter, MagazinesVirtualModels _magazineStoreVirtualModels, NsoupVirtualModels _nsoupMagazineModels)
         {
-            List<NsoupMagazineModels> nsoupModels;
+            List<NsoupMagazineModels> nsoupModels = new List<NsoupMagazineModels>();
             if (filter != string.Empty && filter != null)
             {
                 var _filter = string.Empty;
                 _filter = Utils.ClearTagsHtml(filter);
+                _nsoupMagazineModels.Clear();
 
                 HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + _filter.ToString()).Result;
                 nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
@@ -36,12 +38,39 @@ namespace Magazine.Controllers
                 {
                     TempData["ErrorMessage"] = Resources.Resource.MsnMgzErrorNotFoundData;
                 }
+                if (_nsoupMagazineModels.Count() == 0)
+                {
+                    return View(StoreSearchInSession(nsoupModels, _magazineStoreVirtualModels, _nsoupMagazineModels));
+                }
                 ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
                 return View(nsoupModels);
             }
+            else
+            {
+                if (_nsoupMagazineModels.Count() > 0)
+                {
+                    return View(StoreSearchInSession(nsoupModels, _magazineStoreVirtualModels, _nsoupMagazineModels));
+
+                }
+            }
+
             ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
             ViewBag.Message = Resources.Resource.MnsHomeFilterMgz;
             return View();
+        }
+
+        public List<NsoupMagazineModels> StoreSearchInSession(List<NsoupMagazineModels> nsoupModels, MagazinesVirtualModels _magazineStoreVirtualModels, NsoupVirtualModels _nsoupMagazineModels)
+        {
+            if (nsoupModels != null)
+            {
+                foreach (var nsoup in nsoupModels)
+                {
+                    _nsoupMagazineModels.Add(nsoup);
+                }
+                ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
+
+            }
+            return _nsoupMagazineModels;
         }
 
         public ActionResult Save(List<NsoupMagazineModels> lstMagazines)
@@ -74,7 +103,7 @@ namespace Magazine.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-                ViewBag.TotalMgzVirtual= (_magazineStoreVirtualModels ==null)?0: _magazineStoreVirtualModels.Count(); 
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
             return View();
         }
         public ActionResult Contact()

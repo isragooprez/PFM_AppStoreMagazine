@@ -225,4 +225,16 @@
   <data name="TituloPanelUser" xml:space="preserve">
     <value>Store Journals</value>
   </data>
+  <data name="AddFavorite" xml:space="preserve">
+    <value>Add to Favorites</value>
+  </data>
+  <data name="BackView" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
 </root>

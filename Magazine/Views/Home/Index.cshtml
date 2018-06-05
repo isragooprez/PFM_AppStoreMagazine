@@ -4,17 +4,22 @@
 }
 
 
-<script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
-<script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
 
 <!-- Plugin -->
-<link href="~/Template/assets/vendor/datatables-bootstrap/dataTables.bootstrap.css" rel="stylesheet">
-<link href="~/Template/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css" rel="stylesheet">
-<link href="~/Template/assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/datatables-responsive/dataTables.responsive.css">
+
+<link rel="stylesheet" href="~/Template/assets/vendor/ladda-bootstrap/ladda.css">
+<link href="~/Template/docs/css/buttons.css" rel="stylesheet" />
+<!-- Plugin -->
 <link href="~/Template/assets/vendor/ladda-bootstrap/ladda.css" rel="stylesheet">
 <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
 <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
 
+
+<script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
+<script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
 <script>
     Breakpoints();
 </script>
@@ -30,7 +35,7 @@
         {
             @Html.AntiForgeryToken();
 
-            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = Resources.Resource.IHMarkSearch.ToString() })
+            @Html.TextBox("filter", null, new { maxlength = 100, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = Resources.Resource.IHMarkSearch.ToString() })
 
             <div class="col-sm-12 col-sm-offset-5 col-md-12 col-md-offset-5 ">
                 <!-- Example Zoom -->
@@ -42,7 +47,6 @@
                                 @Html.ActionLink(Resources.Resource.IHClear.ToString(), "Index", "Home", null, new { @Class = "btn btn-primary  icon wb-format-clear ladda-button" })
                             </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -100,7 +104,7 @@ else
 
                                             </ul>
                                             <div class="pricing-footer text-center bg-blue-grey-100">
-                                                @Ajax.ActionLink("Add", "AddDiary", "MagazinesStore", new { url = item.Url }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-primary btn-lg" })
+                                                @Ajax.ActionLink(Resources.Resource.Schedule, "AddDiary", "MagazinesStore", new { url = item.Url }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-primary btn-lg" })
                                             </div>
                                         </div>
                                     </div>
@@ -128,11 +132,14 @@ else
 <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
 <script src="~/Scripts/alertify.min.js"></script>
 
-
 <script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
 <script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
 <script src="~/Template/assets/js/components/buttons.js"></script>
-<script src="~/Template/assets/js/components/ladda-bootstrap.js"></script>
+
+<!-- Script -->
+<script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+<script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
+
 
 
 @*<script src="~/Scripts/MicrosoftMvcAjax.js"></script>*@

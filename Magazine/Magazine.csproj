@@ -219,9 +219,11 @@
     </Compile>
     <Compile Include="Models\Entidad.cs" />
     <Compile Include="Models\MagazineStoreModels.cs" />
+    <Compile Include="Models\ModelBinder\NsoupModelBinder.cs" />
     <Compile Include="Models\ModelBinder\MagazineModelBinder.cs" />
     <Compile Include="Models\MagazinesVirtualModels.cs" />
     <Compile Include="Models\NsoupMagazineModels.cs" />
+    <Compile Include="Models\NsoupVirtualModels.cs" />
     <Compile Include="ProxiAPI\GlobalVarApi.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -2965,7 +2967,6 @@
     <Content Include="Template\src\vendor\webui-popover\webui-popover.less" />
     <Content Include="Template\src\vendor\x-editable\x-editable.less" />
     <Content Include="Views\Shared\_Backup_Layout.cshtml" />
-    <Content Include="Views\Magazine\ViewEdit.cshtml" />
     <Content Include="Views\Magazine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

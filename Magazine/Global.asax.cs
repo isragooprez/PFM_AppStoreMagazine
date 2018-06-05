@@ -24,6 +24,7 @@ namespace Magazine
 
             /***Configuracion de Bundle o contendor Carrito de compras en Sesion  ***/
             ModelBinders.Binders.Add(typeof(MagazinesVirtualModels), new MagazineModelBinder());
+            ModelBinders.Binders.Add(typeof(NsoupVirtualModels), new NsoupModelBinder());
             /*** Configuracion de JSON ***/
             GlobalConfiguration.Configuration.Formatters.Clear();
             GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());

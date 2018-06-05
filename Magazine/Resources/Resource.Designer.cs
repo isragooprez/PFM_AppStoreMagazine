@@ -70,6 +70,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Agregar a Favoritos.
+        /// </summary>
+        public static string AddFavorite {
+            get {
+                return ResourceManager.GetString("AddFavorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Atraz.
+        /// </summary>
+        public static string BackView {
+            get {
+                return ResourceManager.GetString("BackView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ciudad.
         /// </summary>
         public static string Country {
@@ -156,6 +174,15 @@ namespace Resources {
         public static string IHSearch {
             get {
                 return ResourceManager.GetString("IHSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inicio.
+        /// </summary>
+        public static string Index {
+            get {
+                return ResourceManager.GetString("Index", resourceCulture);
             }
         }
         
@@ -345,6 +372,15 @@ namespace Resources {
         public static string RegDate {
             get {
                 return ResourceManager.GetString("RegDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Agendar.
+        /// </summary>
+        public static string Schedule {
+            get {
+                return ResourceManager.GetString("Schedule", resourceCulture);
             }
         }
         

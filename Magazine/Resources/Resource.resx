@@ -225,4 +225,16 @@
   <data name="TituloPanelUser" xml:space="preserve">
     <value>Agendar Revistas</value>
   </data>
+  <data name="AddFavorite" xml:space="preserve">
+    <value>Agregar a Favoritos</value>
+  </data>
+  <data name="BackView" xml:space="preserve">
+    <value>Atraz</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Agendar</value>
+  </data>
 </root>
