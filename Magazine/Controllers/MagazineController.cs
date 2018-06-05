@@ -10,6 +10,8 @@ namespace Magazine.Controllers
 {
     public class MagazineController : Controller
     {
+        MagazinesVirtualModels _magazineStoreVirtualModels;
+
         // GET: Magazine
         public ActionResult Index(int page=1, string sort="Name", string sortdir="DESC", string search="")
         {
@@ -20,7 +22,7 @@ namespace Magazine.Controllers
             var listMagazines = GetMagazinesSearch(search, sort, sortdir, skip, pageSize, out totalRecord);
             ViewBag.TotalRows = totalRecord;
             ViewBag.Search = search;
-
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
             return View(listMagazines);
         }
 
@@ -45,6 +47,8 @@ namespace Magazine.Controllers
                                select mgzn
                         );
             totalRecord = _mgznSearch.Count();
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+
             _mgznSearch = _mgznSearch.OrderBy(sort + " " + sortdir);
             if (pageSize > 0)
             {
@@ -60,6 +64,8 @@ namespace Magazine.Controllers
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
             magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+
             return View(magazine);
         }
 
@@ -93,6 +99,8 @@ namespace Magazine.Controllers
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
             magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+
             return View(magazine);
         }
         //Control de Vulnerabilidad de Asignaciones Masivas (OverPosting) | Seguridad Web
@@ -118,6 +126,7 @@ namespace Magazine.Controllers
                     HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PutAsJsonAsync("Magazines/" + magazinefind.Id, magazinefind).Result;
                     magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
                 }
+                ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
 
                 return RedirectToAction("Index");
             }
@@ -133,6 +142,8 @@ namespace Magazine.Controllers
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
             magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+
             return View(magazine);
         }
 
@@ -145,7 +156,10 @@ namespace Magazine.Controllers
                 MagazineModels magazine;
                 HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.DeleteAsync("Magazines/" + id).Result;
                 magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+                ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+
                 return RedirectToAction("Index");
+
             }
             catch
             {

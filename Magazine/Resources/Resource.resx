@@ -120,6 +120,36 @@
   <data name="AddDiaryMagazinesDiaryAgenda" xml:space="preserve">
     <value>Agendadas</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Favorite" xml:space="preserve">
+    <value>Favorito</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtro</value>
+  </data>
+  <data name="IHClear" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="IHJournalsFound" xml:space="preserve">
+    <value>Revistas Encontradas</value>
+  </data>
+  <data name="IHMarkSearch" xml:space="preserve">
+    <value>Nombre revista, ISSN o Nombre Editor</value>
+  </data>
+  <data name="IHSearch" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
   <data name="IndexHome" xml:space="preserve">
     <value>INICIO</value>
   </data>
@@ -139,10 +169,16 @@
     <value>Iniciar sesión</value>
   </data>
   <data name="IndexHomeResgistrarse" xml:space="preserve">
-    <value>Registre</value>
+    <value>Registrarse</value>
   </data>
   <data name="IndexMagazineMyRevistas" xml:space="preserve">
     <value>Mis Revistas Favoritas</value>
+  </data>
+  <data name="ISSN" xml:space="preserve">
+    <value>ISSN</value>
+  </data>
+  <data name="MgzJournalsFavorites" xml:space="preserve">
+    <value>REVISTAS FAVORITAS</value>
   </data>
   <data name="MnsHomeFilterMgz" xml:space="preserve">
     <value>Realice una búsqueda de una revista favorita.</value>
@@ -164,6 +200,21 @@
   </data>
   <data name="MsnMgzNotStored" xml:space="preserve">
     <value>No hay revistas agendadas.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="PubType" xml:space="preserve">
+    <value>Tip.Pub.</value>
+  </data>
+  <data name="RegDate" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Tema</value>
   </data>
   <data name="TituloApp" xml:space="preserve">
     <value>Agenda de Revistas</value>

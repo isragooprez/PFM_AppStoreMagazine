@@ -70,6 +70,96 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ciudad.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Detalles.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Favorito.
+        /// </summary>
+        public static string Favorite {
+            get {
+                return ResourceManager.GetString("Favorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Filtro.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Limpiar.
+        /// </summary>
+        public static string IHClear {
+            get {
+                return ResourceManager.GetString("IHClear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revistas Encontradas.
+        /// </summary>
+        public static string IHJournalsFound {
+            get {
+                return ResourceManager.GetString("IHJournalsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre revista, ISSN o Nombre Editor.
+        /// </summary>
+        public static string IHMarkSearch {
+            get {
+                return ResourceManager.GetString("IHMarkSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Buscar.
+        /// </summary>
+        public static string IHSearch {
+            get {
+                return ResourceManager.GetString("IHSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a INICIO.
         /// </summary>
         public static string IndexHome {
@@ -124,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Registre.
+        ///   Busca una cadena traducida similar a Registrarse.
         /// </summary>
         public static string IndexHomeResgistrarse {
             get {
@@ -138,6 +228,24 @@ namespace Resources {
         public static string IndexMagazineMyRevistas {
             get {
                 return ResourceManager.GetString("IndexMagazineMyRevistas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISSN.
+        /// </summary>
+        public static string ISSN {
+            get {
+                return ResourceManager.GetString("ISSN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a REVISTAS FAVORITAS.
+        /// </summary>
+        public static string MgzJournalsFavorites {
+            get {
+                return ResourceManager.GetString("MgzJournalsFavorites", resourceCulture);
             }
         }
         
@@ -201,6 +309,51 @@ namespace Resources {
         public static string MsnMgzNotStored {
             get {
                 return ResourceManager.GetString("MsnMgzNotStored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editor.
+        /// </summary>
+        public static string Publisher {
+            get {
+                return ResourceManager.GetString("Publisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tip.Pub..
+        /// </summary>
+        public static string PubType {
+            get {
+                return ResourceManager.GetString("PubType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
+        /// </summary>
+        public static string RegDate {
+            get {
+                return ResourceManager.GetString("RegDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tema.
+        /// </summary>
+        public static string Subject {
+            get {
+                return ResourceManager.GetString("Subject", resourceCulture);
             }
         }
         

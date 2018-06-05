@@ -15,6 +15,7 @@ namespace Magazine.Controllers
     public class HomeController : Controller
     {
 
+        MagazinesVirtualModels _magazineStoreVirtualModels;
         /**
          *Seguridades ValidateInput protege ataques XSS  activado por defecto los otros controladores no lo 
          * especifico por que ya esa activado automaticamente
@@ -73,11 +74,13 @@ namespace Magazine.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+                ViewBag.TotalMgzVirtual= (_magazineStoreVirtualModels ==null)?0: _magazineStoreVirtualModels.Count(); 
             return View();
         }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
 
             return View();
         }

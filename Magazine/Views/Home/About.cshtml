@@ -1,53 +1,158 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Acerca";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<!-- Page -->
+<link rel="stylesheet" href="~/Template/assets/css/pages/profile.css">
+<!-- Plugin -->
+<!-- Stylesheets -->
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/bootstrap-extend.min.css">
+<link rel="stylesheet" href="~/Template/assets/css/site.min.css">
 
-<p>Use this area to provide additional information.</p>
-<div class="page-content container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Page Widget -->
-            <div class="widget widget-shadow text-center">
-                <div class="widget-header">
-                    <div class="widget-header-content">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="../../assets/portraits/5.jpg" alt="...">
-                        </a>
-                        <div class="profile-user">Terrance arnold</div>
-                        <div class="profile-job">Art director</div>
-                        <p>
-                            Hi! I'm Adrian the Senior UI Designer at AmazingSurge. We hope
-                            you enjoy the design and quality of Social.
-                        </p>
-                        <div class="profile-social">
-                            <a class="icon bd-twitter" href="javascript:void(0)"></a>
-                            <a class="icon bd-facebook" href="javascript:void(0)"></a>
-                            <a class="icon bd-dribbble" href="javascript:void(0)"></a>
-                            <a class="icon bd-github" href="javascript:void(0)"></a>
+<link rel="stylesheet" href="~/Template/assets/vendor/animsition/animsition.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/asscrollable/asScrollable.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/switchery/switchery.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/intro-js/introjs.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/slidepanel/slidePanel.css">
+<link rel="stylesheet" href="~/Template/assets/vendor/flag-icon-css/flag-icon.css">
+
+<!-- Plugin -->
+<link rel="stylesheet" href="~/Template/assets/vendor/ladda-bootstrap/ladda.css">
+
+
+<!-- Fonts -->
+<link rel="stylesheet" href="~/Template/assets/fonts/web-icons/web-icons.min.css">
+<link rel="stylesheet" href="~/Template/assets/fonts/brand-icons/brand-icons.min.css">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+<!-- Inline -->
+<link href="~/Template/docs/css/buttons.css" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+  <script src="~/Template/assets/vendor/html5shiv/html5shiv.min.js"></script>
+  <![endif]-->
+<!--[if lt IE 10]>
+  <script src="~/Template/assets/vendor/media-match/media.match.min.js"></script>
+  <script src="~/Template/assets/vendor/respond/respond.min.js"></script>
+  <![endif]-->
+<!-- Scripts -->
+<script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
+<script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
+<script>
+    Breakpoints();
+</script>
+
+<div class="page-profile">
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Page Widget -->
+                <div class="widget widget-shadow text-center">
+                    <div class="widget-header">
+                        <div class="ribbon ribbon-primary">
+                            <span class="ribbon-inner">@ViewBag.Title</span>
                         </div>
-                        <button type="button" class="btn btn-primary">Follow</button>
+                        <hr />
+                        <div class="widget-header-content">
+                            <a class="avatar avatar-lg" href="javascript:void(0)">
+                                <img src="~/Content/Contact/sprezFoto.jpg" />
+                            </a>
+                            <div class="profile-user">Santiago Pérez</div>
+                            <div class="profile-job">Art director In CRACK ZOLUTTION</div>
+                            <p>
+                                Hi! I'm Adrian the Senior UI Designer at AmazingSurge. We hope
+                                you enjoy the design and quality of Social.
+                            </p>
+                       
+
+                            <div class="example-wrap margin-lg-0">
+                                <h2>  Bueno, pero... ¿Que es PREZ ZOLUTION?  </h2>
+                                <p>
+                                    PREZ ZOLUTION es el nombre que hemos elegido para ofrecerte Software como Servicio o SaaS (Software as a Service)
+                                    100% a medida del cliente. Esto quiere decir que no adaptamos o personalizamos un software ya existente, sino que
+                                    desarrollamos en exclusiva para ti el software que tu empresa necesita, desde cero, analizando cada punto de tu
+                                    negocio para que el software se adapte a ti y no al revés.
+                                </p>
+                                <h2>Muy bien, pongámonos un poco más técnicos…</h2>
+                                
+                                <p>
+                                    PREZ ZOLUTION (tu Software) funcionara alojado en la "nube" de Microsoft, con copias de seguridad diarias y con una
+                                    capacidad de almacenamiento en base de datos y tráfico ilimitados, es decir: No tendrás que realizar inversión
+                                    alguna en infraestructura (servidores, licencias, dispositivos de copias de seguridad, etc…) únicamente tendrás que
+                                    disponer de un ordenador, tablet, etc.. con conexión a internet para poder utilizarlo, y... ya está! ¿Sencillo,
+                                    verdad?
+                                </p>
+
+                                <H2> ¿Y el soporte, mantenimiento y demás?   </H2>
+                                <P>
+                                    Este es el apartado que realmente marca la diferencia.
+                                    Como usuario de PREZ ZOLUTION, tendrás un consultor asignado a tu proyecto en todo momento, disponible tanto
+                                    telefónica como presencialmente en tus oficinas siempre que lo requieras, y por supuesto sin coste alguno para ti.
+                                    ¡No te cortes!. Mes tras mes podrás solicitarnos tantas modificaciones, mejoras e ideas como consideres necesarias
+                                    sobre el software, PREZ ZOLUTION se adapta a tu negocio en todo momento y sin ningún tipo de limitación.
+                                </P>
+                            </div>
+                            <!-- End Example Social In Labels -->
+                            <div class="clearfix visible-md-block"></div>
+                        </div>
+                    </div>
+                    <div class="widget-footer">
+                        <div class="row no-space">
+                            <div class="col-xs-4">
+                                <address>
+                                    UPM Universidad Pólitecnica de Madrid<br />
+                                    Madrid, 28031<br />
+                                    CAMPUS SUR<br />
+                                    <abbr title="Phone">Phone: +593 92886509</abbr>
+                                </address>
+                            </div>
+                            <div class="col-xs-4">
+                                <address>
+                                    <strong>Support:</strong>   <a href="mailto:isragoo.prez@gmail.com">isragoo.prez@gmail.com</a><br />
+                                    <strong>Marketing:</strong> <a href="mailto:isragoo.prez@hotmail.com">isragoo.prez@hotmail.com</a>
+                                </address>
+                            </div>
+                            <div class="col-xs-4">
+                                <img src="~/Content/Contact/logoUPMcompleto.jpg" width="150" height="100" />
+                            </div>
+
+                          
+                           
+                        </div>
                     </div>
                 </div>
-                <div class="widget-footer">
-                    <div class="row no-space">
-                        <div class="col-xs-4">
-                            <strong class="profile-stat-count">260</strong>
-                            <span>Follower</span>
-                        </div>
-                        <div class="col-xs-4">
-                            <strong class="profile-stat-count">180</strong>
-                            <span>Following</span>
-                        </div>
-                        <div class="col-xs-4">
-                            <strong class="profile-stat-count">2000</strong>
-                            <span>Tweets</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- End Page Widget -->
             </div>
-            <!-- End Page Widget -->
         </div>
     </div>
 </div>
+<!-- Core  -->
+<script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+<script src="~/Template/assets/vendor/bootstrap/bootstrap.js"></script>
+<script src="~/Template/assets/vendor/animsition/jquery.animsition.js"></script>
+
+<!-- Plugins -->
+<script src="~/Template/assets/vendor/switchery/switchery.min.js"></script>
+
+<script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+<script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
+
+<!-- Scripts -->
+<script src="~/Template/assets/js/core.js"></script>
+<script src="~/Template/assets/js/site.js"></script>
+
+
+<script src="~/Template/assets/js/components/animsition.js"></script>
+<script src="~/Template/assets/vendor/ladda-bootstrap/spin.js"></script>
+<script src="~/Template/assets/vendor/ladda-bootstrap/ladda.js"></script>
+
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>

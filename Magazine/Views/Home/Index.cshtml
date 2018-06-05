@@ -30,29 +30,20 @@
         {
             @Html.AntiForgeryToken();
 
-            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = "Journal Title, ISSN or Publisher Name" })
+            @Html.TextBox("filter", null, new { maxlength = 100, size = 10, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = Resources.Resource.IHMarkSearch.ToString() })
 
-            <div class="col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4 ">
+            <div class="col-sm-12 col-sm-offset-5 col-md-12 col-md-offset-5 ">
                 <!-- Example Zoom -->
                 <div class="example-wrap">
                     <div class="example example-buttons">
                         <div class="pull-left">
-                            <button type="submit" class="btn btn-primary ladda-button"
-                                    data-plugin="ladda">
-                                <span class="ladda-label">
-                                    <i class="icon wb-search margin-right-10" aria-hidden="true"></i>Search
-                                </span>
-                            </button>
+                            <div class="btn-group" aria-label="Basic example" role="group">
+                                <button type="submit" class="btn btn-primary icon wb-search  ladda-button"><i class=""></i> @Resources.Resource.IHSearch</button>
+                                @Html.ActionLink(Resources.Resource.IHClear.ToString(), "Index", "Home", null, new { @Class = "btn btn-primary  icon wb-format-clear ladda-button" })
+                            </div>
                         </div>
 
-                        <div class="pull-left">
-                            <button type="button" class="btn btn-primary ladda-button"
-                                    data-plugin="ladda" onclick="location.href='@Url.Action("Index","Home")'">
-                                <span class="ladda-label">
-                                    <i class="icon wb-format-clear margin-right-10" aria-hidden="true"></i>Clear
-                                </span>
-                            </button>
-                        </div>
+
                     </div>
                 </div>
                 <!-- End Example Zoom -->
@@ -82,7 +73,7 @@ else
         <div class="panel-body">
             <!-- Example Pricing List2 -->
             <div class="example-wrap">
-                <h4 class="example-title">MAGAZINES FOUND</h4>
+                <h4 class="example-title">@Resources.Resource.IHJournalsFound</h4>
                 <div class="example">
 
                     <div class="container-fluid">

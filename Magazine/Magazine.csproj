@@ -272,6 +272,8 @@
     <Content Include="Content\alertifyjs\themes\semantic.min.css" />
     <Content Include="Content\alertifyjs\themes\semantic.rtl.css" />
     <Content Include="Content\alertifyjs\themes\semantic.rtl.min.css" />
+    <Content Include="Content\Contact\logoUPMcompleto.jpg" />
+    <Content Include="Content\Contact\sprezFoto.jpg" />
     <Content Include="Scripts\alertify.js" />
     <Content Include="Scripts\alertify.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
