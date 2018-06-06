@@ -205,9 +205,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Content\Utils\IdentyError.cs" />
     <Compile Include="Content\Utils\Utils.cs" />
     <Compile Include="Content\Utils\WebGridExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MagazineController.cs" />
     <Compile Include="Controllers\MagazinesStoreController.cs" />
@@ -2967,6 +2969,7 @@
     <Content Include="Views\Shared\_Backup_Layout.cshtml" />
     <Content Include="Views\Magazine\ViewEdit.cshtml" />
     <Content Include="Views\Magazine\Create.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

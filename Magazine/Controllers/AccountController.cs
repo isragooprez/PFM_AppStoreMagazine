@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Magazine.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace Magazine.Controllers
 {
@@ -22,7 +25,7 @@ namespace Magazine.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +37,9 @@ namespace Magazine.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +123,7 @@ namespace Magazine.Controllers
             // Si un usuario introduce códigos incorrectos durante un intervalo especificado de tiempo, la cuenta del usuario 
             // se bloqueará durante un período de tiempo especificado. 
             // Puede configurar el bloqueo de la cuenta en IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -149,23 +152,38 @@ namespace Magazine.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            RegisterViewModel _registerViewModel;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Enviar correo electrónico con este vínculo
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
+                var json = JsonConvert.SerializeObject(model);
+                var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
 
-                    return RedirectToAction("Index", "Home");
+                HttpResponseMessage response = await GlobalVarApi.WebApiClient.PostAsJsonAsync("/api/account/register", stringContent);
+                _registerViewModel = response.Content.ReadAsAsync<RegisterViewModel>().Result;
+                var result = await response.Content.ReadAsStringAsync();
+                if (result != string.Empty)
+                {
+                    String[] strArrayError;
+                    var resulDecode = JsonConvert.DeserializeObject<dynamic>(result);
+                    var resulDecodef = JsonConvert.DeserializeObject<dynamic>(result);
+                    if (resulDecode.Message == "Error.")
+                    {
+                        strArrayError = new String[] { resulDecode.Message, resulDecode.ExceptionMessage};
+                    }
+                    else
+                    {
+                       strArrayError = new String[] { resulDecode.Message, resulDecode.ModelState[""][0] };
+
+                    }
+
+
+                    IdentityResult sdf = new IdentityResult(strArrayError);
+                    if (sdf.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(sdf);
                 }
-                AddErrors(result);
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario

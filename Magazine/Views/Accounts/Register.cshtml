@@ -28,7 +28,7 @@
             </div>
             <h2>@ViewBag.Title.</h2>
             <div class="container-fluid">
-                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                @using (Html.BeginForm("Register", "Accounts", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     <h4>Cree una cuenta nueva.</h4>
