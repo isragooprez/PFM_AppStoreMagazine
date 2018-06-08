@@ -34,6 +34,12 @@ namespace API
              );
 
             config.Routes.MapHttpRoute(
+              name: "MagazineByIdUser",
+             routeTemplate: "api/Magazines/User/{idUser}",
+             defaults: new { controller = "Magazines", action = "GetMagazinesByIdUser", idUser = " " }
+             );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

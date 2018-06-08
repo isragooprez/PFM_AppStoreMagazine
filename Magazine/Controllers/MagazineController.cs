@@ -5,32 +5,33 @@ using System.Net.Http;
 using System.Web.Mvc;
 using Magazine.Models;
 using System.Linq.Dynamic;
+using Microsoft.AspNet.Identity;
 
 namespace Magazine.Controllers
 {
+    [Authorize]
     public class MagazineController : Controller
     {
-        MagazinesVirtualModels _magazineStoreVirtualModels;
 
         // GET: Magazine
-        public ActionResult Index(int page=1, string sort="Name", string sortdir="DESC", string search="")
+        public ActionResult Index(MagazinesVirtualModels _magazineStoreVirtualModels, int page = 1, string sort = "Name", string sortdir = "DESC", string search = "")
         {
             int pageSize = 10;
             int totalRecord = 0;
             if (page < 1) page = 1;
             int skip = (page * pageSize) - pageSize;
-            var listMagazines = GetMagazinesSearch(search, sort, sortdir, skip, pageSize, out totalRecord);
+            var listMagazines = GetMagazinesSearch(_magazineStoreVirtualModels, search, sort, sortdir, skip, pageSize, out totalRecord);
             ViewBag.TotalRows = totalRecord;
             ViewBag.Search = search;
             ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
             return View(listMagazines);
         }
 
-        public List<MagazineModels> GetMagazinesSearch(string search, string sort, string sortdir, int skip, int pageSize, out int totalRecord)
+        public List<MagazineModels> GetMagazinesSearch(MagazinesVirtualModels _magazineStoreVirtualModels, string search, string sort, string sortdir, int skip, int pageSize, out int totalRecord)
         {
 
             IEnumerable<MagazineModels> listMagazines;
-            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines").Result;
+            HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/User/" + User.Identity.GetUserId()).Result;
             listMagazines = httpResponseMessage.Content.ReadAsAsync<IEnumerable<MagazineModels>>().Result;
 
             var _mgznSearch = (from mgzn in listMagazines
@@ -58,7 +59,7 @@ namespace Magazine.Controllers
         }
 
         // GET: Magazine/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             //AspNetUsers aspNetUsers = factoryDAO.getRepositoryUsers().FindById(user => user.Id == id);
             MagazineModels magazine;
@@ -94,7 +95,7 @@ namespace Magazine.Controllers
         }
 
         // GET: Magazine/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
@@ -107,11 +108,11 @@ namespace Magazine.Controllers
         //[Bind(Include = "Description,Favorite,Scope")]
         // POST: Magazine/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, [Bind(Include = "Description,Favorite,Scope")] MagazineModels _magazineViewModel)
+        public ActionResult Edit(int id, [Bind(Include = "Description,Favorite,Scope")] MagazineModels _magazineViewModel, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             try
             {
-                _magazineViewModel.UserId = 2;
+                _magazineViewModel.UserId = User.Identity.GetUserId();
                 MagazineModels magazinefind;
                 HttpResponseMessage _httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id).Result;
                 magazinefind = _httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
@@ -137,7 +138,7 @@ namespace Magazine.Controllers
         }
 
         // GET: Magazine/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
@@ -149,7 +150,7 @@ namespace Magazine.Controllers
 
         // POST: Magazine/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, MagazineModels _magazine)
+        public ActionResult Delete(int id, MagazineModels _magazine, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             try
             {

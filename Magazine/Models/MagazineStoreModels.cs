@@ -71,6 +71,6 @@ namespace Magazine.Models
         [JsonProperty("TotalCites")]
         public string TotalCites { get; set; }
         [JsonProperty("UserId")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -60,6 +60,11 @@ namespace API._40.Domain
         }
 
 
+        public IEnumerable<Magazine> GetByIdUser(string idUser)
+        {
+            return _repository.Find(magaz => magaz.UserId == idUser);
+        }
+
         public void GetByPublisher(string publisher)
         {
             throw new NotImplementedException();

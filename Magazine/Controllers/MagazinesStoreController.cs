@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 
 namespace Magazine.Controllers
 {
+    [Authorize]
     public class MagazinesStoreController : Controller
     {
 
@@ -39,13 +41,8 @@ namespace Magazine.Controllers
                         MagazineStoreModels magazineModels;
                         HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
                         magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;
-                        //
-                        // TODO OJO FALTA cont5rolar auntomatico 
-                        //USUARIO 
-                        //FABORITO y FEHCA desde el MODELO
-                        //
-
-                        magazineModels.UserId = 2;
+                        magazineModels.UserId = User.Identity.GetUserId();
+                        var idd= User.Identity.GetUserId();
                         _magazineStoreVirtualModels.Add(magazineModels);
                         TempData["SuccessMessage"] = Resources.Resource.MnsMgzSucessStoreVirtual;
                     }

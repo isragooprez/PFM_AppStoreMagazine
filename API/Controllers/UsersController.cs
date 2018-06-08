@@ -22,7 +22,7 @@ namespace API.Controllers
 
         // GET: api/Users/5
         [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(int id)
+        public IHttpActionResult GetUser(string id)
         {
             User user = factoryDAO.GetRepositoryUser().FindById(users => users.Id == id);
             if (user == null)
@@ -35,7 +35,7 @@ namespace API.Controllers
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUser(int id, User user)
+        public IHttpActionResult PutUser(string id, User user)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace API.Controllers
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
-        public IHttpActionResult DeleteUser(int id)
+        public IHttpActionResult DeleteUser(string id)
         {
             User user = factoryDAO.GetRepositoryUser().FindById(users => users.Id == id);
             if (user == null)
@@ -101,9 +101,9 @@ namespace API.Controllers
             return Ok(user);
         }
 
-        private bool UserExists(int id)
+        private bool UserExists(string id)
         {
-            if (factoryDAO.GetRepositoryUser().FindById(users => users.Id == id).Id > 0)
+            if (factoryDAO.GetRepositoryUser().FindById(users => users.Id == id) != null)
                 return true;
             return false;
         }

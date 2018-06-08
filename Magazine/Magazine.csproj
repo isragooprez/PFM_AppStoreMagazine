@@ -217,6 +217,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806071351264_InitialCreate.cs" />
+    <Compile Include="Migrations\201806071351264_InitialCreate.Designer.cs">
+      <DependentUpon>201806071351264_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806080056187_SegundaMigracion.cs" />
+    <Compile Include="Migrations\201806080056187_SegundaMigracion.Designer.cs">
+      <DependentUpon>201806080056187_SegundaMigracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entidad.cs" />
     <Compile Include="Models\MagazineStoreModels.cs" />
     <Compile Include="Models\ModelBinder\NsoupModelBinder.cs" />
@@ -246,6 +255,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806071351264_InitialCreate.resx">
+      <DependentUpon>201806071351264_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806080056187_SegundaMigracion.resx">
+      <DependentUpon>201806080056187_SegundaMigracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

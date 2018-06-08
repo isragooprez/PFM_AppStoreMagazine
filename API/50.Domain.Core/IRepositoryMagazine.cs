@@ -3,6 +3,7 @@ using API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace API._50.Domain.Core
@@ -13,6 +14,7 @@ namespace API._50.Domain.Core
         // Definimos metodos que sean unicos para un repositorio en especifico.
         void GetByCountry(string country);
         void GetByPublisher(string publisher);
+        IEnumerable<Magazine> GetByIdUser(string idUser);
 
     }
 }

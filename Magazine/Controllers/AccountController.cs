@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Magazine.Models;
+using System.Net.Http;
 
 namespace Magazine.Controllers
 {
@@ -149,6 +150,7 @@ namespace Magazine.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            UserModels userModels=new UserModels();
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -156,7 +158,16 @@ namespace Magazine.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    userModels.Id = user.Id;
+                    userModels.Name = user.UserName;
+                    userModels.LastName = user.UserName;
+                    userModels.Email = user.Email;
+                    userModels.Password = user.PasswordHash;
+
+                    UserModels _userModels;
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.PostAsJsonAsync("Users", userModels).Result;
+                    _userModels = httpResponseMessage.Content.ReadAsAsync<UserModels>().Result;
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

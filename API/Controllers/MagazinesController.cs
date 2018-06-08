@@ -7,6 +7,7 @@ using System.Net;
 using API._50.Dominio.Core;
 using API._80.Infraestructure.Data.Core;
 using API._50.Domain.Core;
+using System.Collections;
 
 namespace API.Controllers
 {
@@ -43,6 +44,19 @@ namespace API.Controllers
         public IHttpActionResult GetMagazine(int id)
         {
             Magazine magazine = factoryDAO.GetRepositoryMagazine().FindById(magaz => magaz.Id == id);
+            if (magazine == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(magazine);
+        }
+
+        // GET: api/Magazines/User/5
+        [ResponseType(typeof(Magazine))]
+        public IHttpActionResult GetMagazinesByIdUser(string idUser)
+        {
+            IEnumerable magazine = factoryDAO.GetRepositoryMagazine().GetByIdUser(idUser);
             if (magazine == null)
             {
                 return NotFound();

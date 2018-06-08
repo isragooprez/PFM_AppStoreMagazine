@@ -70,25 +70,26 @@ else
                     <button type="submit" value="Buscar" class="btn btn-primary">@Resources.Resource.IHSearch</button>
                 }
             </div>
+            <h5> @Resources.Resource.IHJournalsFound:<strong> @ViewBag.TotalRows </strong> </h5>
         </div>
     </nav>
     <div>
         @grid.Table(
-                     tableStyle: "table table-responsive table-bordered",
-                     columns: grid.Columns(
-                         grid.Column(columnName: "Favorite", header: "Favorite", format: @<a href="/Magazine/Edit/@item.Id" class="btn btn-icon btn-block @(item.Favorite==true ?" btn-danger ":" btn-default ") btn-outline"><i class="icon wb-heart" aria-hidden="true"></i></a> ),
-                             grid.Column(columnName: "Name", header: Resources.Resource.Name),
-                             grid.Column(columnName: "Country", header: Resources.Resource.Country),
-                             grid.Column(columnName: "Subjec", header: Resources.Resource.Subject),
-                             grid.Column(columnName: "Publisher", header: Resources.Resource.Publisher),
-                             grid.Column(columnName: "PublicationType", header: Resources.Resource.PubType),
-                             grid.Column(columnName: "ISSN", header: Resources.Resource.ISSN),
-                             grid.Column(columnName: "DateIn", header: Resources.Resource.RegDate),
-                                     grid.Column(header: Resources.Resource.Edit, format: @<a class="btn btn-info" href="/Magazine/Edit/@item.Id">@Resources.Resource.Edit</a>),
-                                                 grid.Column(header: Resources.Resource.Details, format:@<a class="btn btn-warning" href="/Magazine/Details/@item.Id">@Resources.Resource.Details</a>),
-                                                             grid.Column(header: Resources.Resource.Delete, format:@<a class="btn btn-danger" href="/Magazine/Delete/@item.Id">@Resources.Resource.Delete</a>)
-                                                                                                                                      )
-                                                                                                                                      )
+                               tableStyle: "table table-responsive table-bordered",
+                               columns: grid.Columns(
+                                   grid.Column(columnName: "Favorite", header: "Favorite", format: @<a href="/Magazine/Edit/@item.Id" class="btn btn-icon btn-block @(item.Favorite==true ?" btn-danger ":" btn-default ") btn-outline"><i class="icon wb-heart" aria-hidden="true"></i></a> ),
+                                            grid.Column(columnName: "Name", header: Resources.Resource.Name),
+                                            grid.Column(columnName: "Country", header: Resources.Resource.Country),
+                                            grid.Column(columnName: "Subjec", header: Resources.Resource.Subject),
+                                            grid.Column(columnName: "Publisher", header: Resources.Resource.Publisher),
+                                            grid.Column(columnName: "PublicationType", header: Resources.Resource.PubType),
+                                            grid.Column(columnName: "ISSN", header: Resources.Resource.ISSN),
+                                            grid.Column(columnName: "DateIn", header: Resources.Resource.RegDate),
+                                                    grid.Column(header: Resources.Resource.Edit, format: @<a class="btn btn-info" href="/Magazine/Edit/@item.Id">@Resources.Resource.Edit</a>),
+                                                                         grid.Column(header: Resources.Resource.Details, format:@<a class="btn btn-warning" href="/Magazine/Details/@item.Id">@Resources.Resource.Details</a>),
+                                                                                             grid.Column(header: Resources.Resource.Delete, format:@<a class="btn btn-danger" href="/Magazine/Delete/@item.Id">@Resources.Resource.Delete</a>)
+                                                                                                                                                                              )
+                                                                                                                                                                              )
     </div>
     <div class="row">
         @grid.PagerList(mode: WebGridPagerModes.All, paginationStyle: "pagination pagination-small pagination-right")
