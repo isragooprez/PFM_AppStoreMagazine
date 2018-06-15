@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Atraz.
+        ///   Busca una cadena traducida similar a Atras.
         /// </summary>
         public static string BackView {
             get {
@@ -295,6 +295,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La revista ya ha sido almacenada como favorita..
+        /// </summary>
+        public static string MnsMgzStoreExistFavorite {
+            get {
+                return ResourceManager.GetString("MnsMgzStoreExistFavorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Guardado Correctamente..
         /// </summary>
         public static string MnsMgzSucessSave {
@@ -372,6 +381,15 @@ namespace Resources {
         public static string RegDate {
             get {
                 return ResourceManager.GetString("RegDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         

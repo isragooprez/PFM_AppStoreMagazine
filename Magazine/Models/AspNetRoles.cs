@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace API.Models
+namespace Magazine.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public AspNetRoles()
         {
-            this.Magazines = new HashSet<Magazine>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
         public string Id { get; set; }
         public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Magazine> Magazines { get; set; }
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

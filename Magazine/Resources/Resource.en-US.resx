@@ -237,4 +237,10 @@
   <data name="Schedule" xml:space="preserve">
     <value>Schedule</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MnsMgzStoreExistFavorite" xml:space="preserve">
+    <value>The magazine has already been stored as a favorite.</value>
+  </data>
 </root>

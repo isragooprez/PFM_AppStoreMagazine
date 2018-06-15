@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-
+using Magazine.Content.Utils;
 
 namespace Magazine.Controllers
 {
@@ -18,6 +18,7 @@ namespace Magazine.Controllers
         // GET: MagazinesDiary/AddDiary/5
         public ActionResult AddDiary(string url, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
+            HttpResponseMessage httpResponseMessage;
             try
             {
                 if (url == null && _magazineStoreVirtualModels.Count() == 0)
@@ -29,20 +30,33 @@ namespace Magazine.Controllers
                 }
                 else
                 {
+                    IEnumerable<MagazineModels> magazineStoreModelsExistStored;
                     var isExisteProdVirtualCar = (from mgz in _magazineStoreVirtualModels where mgz.Url == url select mgz).Any();
+
+                    var g = Utils.UrlEnCode(url.Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty));
+
+                    httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/Magazine/" + Utils.UrlEnCode(url.Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty)) + "/" + User.Identity.GetUserId()).Result;
+                    magazineStoreModelsExistStored = httpResponseMessage.Content.ReadAsAsync<IEnumerable<MagazineModels>>().Result;
+
                     if (isExisteProdVirtualCar == true)
                     {
                         ViewBag.MessageExist = Resources.Resource.MnsMgzStoreExist;
                         TempData["ErrorMessage"] = Resources.Resource.MnsMgzStoreExist;
                     }
+                    else if (magazineStoreModelsExistStored != null)
+                    {
+                        ViewBag.MessageExist = Resources.Resource.MnsMgzStoreExist;
+                        TempData["ErrorMessage"] = Resources.Resource.MnsMgzStoreExistFavorite;
+
+                    }
                     else
                     {
                         string cleanURL = url.Trim().Replace(ConfigurationManager.AppSettings.Get("BASE_URL"), string.Empty).Replace('&', ',');
                         MagazineStoreModels magazineModels;
-                        HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
+                        httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/GetDataMagazine/" + cleanURL).Result;
                         magazineModels = httpResponseMessage.Content.ReadAsAsync<MagazineStoreModels>().Result;
                         magazineModels.UserId = User.Identity.GetUserId();
-                        var idd= User.Identity.GetUserId();
+                        var idd = User.Identity.GetUserId();
                         _magazineStoreVirtualModels.Add(magazineModels);
                         TempData["SuccessMessage"] = Resources.Resource.MnsMgzSucessStoreVirtual;
                     }

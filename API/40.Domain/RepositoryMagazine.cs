@@ -54,20 +54,16 @@ namespace API._40.Domain
             return _repository.FindOne(predicado);
         }
 
-        public void GetByCountry(string country)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public IEnumerable<Magazine> GetByIdUser(string idUser)
         {
             return _repository.Find(magaz => magaz.UserId == idUser);
         }
 
-        public void GetByPublisher(string publisher)
+        public IEnumerable<Magazine> GetByUrl(string url, string idUser)
         {
-            throw new NotImplementedException();
+          
+            return _repository.Find(magaz => magaz.Url == url && magaz.UserId==idUser);
         }
 
         public void Save()

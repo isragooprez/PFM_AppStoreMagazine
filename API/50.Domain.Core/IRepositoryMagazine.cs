@@ -12,8 +12,7 @@ namespace API._50.Domain.Core
     {
 
         // Definimos metodos que sean unicos para un repositorio en especifico.
-        void GetByCountry(string country);
-        void GetByPublisher(string publisher);
+        IEnumerable<Magazine> GetByUrl(string url, string idUser);
         IEnumerable<Magazine> GetByIdUser(string idUser);
 
     }

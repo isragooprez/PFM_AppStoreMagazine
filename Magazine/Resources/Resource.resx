@@ -229,12 +229,18 @@
     <value>Agregar a Favoritos</value>
   </data>
   <data name="BackView" xml:space="preserve">
-    <value>Atraz</value>
+    <value>Atras</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Inicio</value>
   </data>
   <data name="Schedule" xml:space="preserve">
     <value>Agendar</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="MnsMgzStoreExistFavorite" xml:space="preserve">
+    <value>La revista ya ha sido almacenada como favorita.</value>
   </data>
 </root>

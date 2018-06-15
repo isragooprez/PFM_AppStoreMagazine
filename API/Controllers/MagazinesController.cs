@@ -8,6 +8,8 @@ using API._50.Dominio.Core;
 using API._80.Infraestructure.Data.Core;
 using API._50.Domain.Core;
 using System.Collections;
+using API.Content.Utils;
+using System.Configuration;
 
 namespace API.Controllers
 {
@@ -57,6 +59,20 @@ namespace API.Controllers
         public IHttpActionResult GetMagazinesByIdUser(string idUser)
         {
             IEnumerable magazine = factoryDAO.GetRepositoryMagazine().GetByIdUser(idUser);
+            if (magazine == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(magazine);
+        }
+
+        // GET: api/Magazines/Magazine/5
+        [ResponseType(typeof(Magazine))]
+        public IHttpActionResult GetMagazinesByUrl(string url, string idUser)
+        {
+
+            IEnumerable magazine = factoryDAO.GetRepositoryMagazine().GetByUrl(ConfigurationManager.AppSettings.Get("BASE_URL") + Utils.UrlDecode(url), idUser);
             if (magazine == null)
             {
                 return NotFound();

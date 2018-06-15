@@ -14,6 +14,7 @@ using NSoup.Nodes;
 using Newtonsoft.Json;
 using System.Text;
 using System.Web.Script.Serialization;
+using API.Content.Utils;
 
 namespace API._30.DistributedServices
 {
@@ -55,7 +56,7 @@ namespace API._30.DistributedServices
         {
             Magazine magazine = new Magazine();
             // Connecting & Fetching ...
-            IConnection connection = NSoupClient.Connect(ConfigurationManager.AppSettings.Get("BASE_URL") + UrlDecode(ulrMagazine));
+            IConnection connection = NSoupClient.Connect(ConfigurationManager.AppSettings.Get("BASE_URL") + Utils.UrlDecode(ulrMagazine));
             connection.Timeout(30000);
             Document document = connection.Get();
             // Parsing ...
@@ -305,30 +306,12 @@ namespace API._30.DistributedServices
             return result;
         }
 
-        public string UrlEnCode(string url)
-        {
-            var url_code = string.Empty;
-            if (url != string.Empty)
-            {
-                url_code = url.Replace('&', ',');
-            }
-            return url_code;
-        }
-
-        public string UrlDecode(string url)
-        {
-            var url_decode = string.Empty;
-            if (url != string.Empty)
-            {
-                url_decode = url.Replace(',', '&');
-            }
-            return url_decode;
-        }
+        
 
         public string GetResquestImageByIssn(string ulrMagazine)
         {
             string url_validate = "https://image.freepik.com/free-vector/business-brochure-with-colorful-hexagonal-shapes_1017-3145.jpg";
-            IConnection connection = NSoupClient.Connect(UrlDecode(ulrMagazine));
+            IConnection connection = NSoupClient.Connect(Utils.UrlDecode(ulrMagazine));
             connection.Timeout(30000);
             Document document = connection.Get();
             // Parsing ...

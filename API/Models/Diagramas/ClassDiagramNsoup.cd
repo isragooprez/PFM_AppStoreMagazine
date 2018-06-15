@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="API.Models.HtmlDataModels">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAAAAAAAEAEAAAAAAAQAAgAAAAAAACAAAgABAAAA=</HashCode>
+      <FileName>Models\HtmlDataModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.NsoupMagazine">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACACAAAAAQAAAIAABAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\NsoupMagazine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.CitationsPerDocumentModels">
+    <Position X="7.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\CitationsPerDocumentModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.CitesPerDocModels">
+    <Position X="4.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\CitesPerDocModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.DocumentsNoncitableModels">
+    <Position X="7.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAACAAAgAAAAAAA=</HashCode>
+      <FileName>Models\DocumentsNoncitableModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.DocumentsUncitedModels">
+    <Position X="0.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAACAAAgAAAAAAA=</HashCode>
+      <FileName>Models\DocumentsUncitedModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.InternationalCollaborationModels">
+    <Position X="3" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InternationalCollaborationModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.QuartilesModels">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\QuartilesModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.SjrModels">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SjrModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.TotalCitesModels">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\TotalCitesModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

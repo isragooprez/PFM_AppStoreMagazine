@@ -24,13 +24,13 @@ namespace API
             config.Routes.MapHttpRoute(
                  name: "NsoupFilter",
                 routeTemplate: "api/Nsoup/{filter}",
-                defaults: new { controller = "Nsoup", action = "GetFilter", filter=" "}
+                defaults: new { controller = "Nsoup", action = "GetFilter", filter = " " }
                 );
 
             config.Routes.MapHttpRoute(
-              name: "NsoupGetData",
-             routeTemplate: "api/Nsoup/GetDataMagazine/{url}",
-             defaults: new { controller = "Nsoup", action = "GetDataMagazine", url = " " }
+                name: "NsoupGetData",
+                routeTemplate: "api/Nsoup/GetDataMagazine/{url}",
+                defaults: new { controller = "Nsoup", action = "GetDataMagazine", url = " " }
              );
 
             config.Routes.MapHttpRoute(
@@ -38,7 +38,11 @@ namespace API
              routeTemplate: "api/Magazines/User/{idUser}",
              defaults: new { controller = "Magazines", action = "GetMagazinesByIdUser", idUser = " " }
              );
-
+            config.Routes.MapHttpRoute(
+                name: "MagazineByUrl",
+                routeTemplate: "api/Magazines/Magazine/{url}/{idUser}",
+                defaults: new { controller = "Magazines", action = "GetMagazinesByUrl" }
+            );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
