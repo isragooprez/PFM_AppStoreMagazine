@@ -62,8 +62,7 @@ namespace API._40.Domain
 
         public IEnumerable<Magazine> GetByUrl(string url, string idUser)
         {
-          
-            return _repository.Find(magaz => magaz.Url == url && magaz.UserId==idUser);
+            return _repository.Find(magaz => magaz.Url == url && magaz.UserId== idUser);
         }
 
         public void Save()

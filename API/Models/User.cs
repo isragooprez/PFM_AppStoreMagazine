@@ -9,6 +9,7 @@
 
 namespace API.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,13 +20,18 @@ namespace API.Models
         {
             this.Magazines = new HashSet<Magazine>();
         }
-    
+
+        [JsonProperty("Id")]
         public string Id { get; set; }
+        [JsonProperty("Name")]
         public string Name { get; set; }
+        [JsonProperty("LastName")]
         public string LastName { get; set; }
+        [JsonProperty("Email")]
         public string Email { get; set; }
+        [JsonProperty("Password")]
         public string Password { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Magazine> Magazines { get; set; }
     }
