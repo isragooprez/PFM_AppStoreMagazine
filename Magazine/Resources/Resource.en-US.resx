@@ -210,7 +210,7 @@
   <data name="RegDate" xml:space="preserve">
     <value>Reg.Date</value>
   </data>
-  <data name="String1" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filter</value>
   </data>
   <data name="Subject" xml:space="preserve">
@@ -242,5 +242,29 @@
   </data>
   <data name="MnsMgzStoreExistFavorite" xml:space="preserve">
     <value>The magazine has already been stored as a favorite.</value>
+  </data>
+  <data name="MCoverage" xml:space="preserve">
+    <value>Coverage</value>
+  </data>
+  <data name="MDataIn" xml:space="preserve">
+    <value>Date Ing.</value>
+  </data>
+  <data name="MDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="MFavorite" xml:space="preserve">
+    <value>Favorite</value>
+  </data>
+  <data name="MIndex" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="MIssn" xml:space="preserve">
+    <value>ISSN</value>
+  </data>
+  <data name="Mscope" xml:space="preserve">
+    <value>Scope</value>
+  </data>
+  <data name="MOptions" xml:space="preserve">
+    <value>Options</value>
   </data>
 </root>

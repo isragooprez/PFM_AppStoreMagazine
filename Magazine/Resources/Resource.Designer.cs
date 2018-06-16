@@ -268,11 +268,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cobertura.
+        /// </summary>
+        public static string MCoverage {
+            get {
+                return ResourceManager.GetString("MCoverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Ing..
+        /// </summary>
+        public static string MDataIn {
+            get {
+                return ResourceManager.GetString("MDataIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Descripción.
+        /// </summary>
+        public static string MDescription {
+            get {
+                return ResourceManager.GetString("MDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Favorita.
+        /// </summary>
+        public static string MFavorite {
+            get {
+                return ResourceManager.GetString("MFavorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a REVISTAS FAVORITAS.
         /// </summary>
         public static string MgzJournalsFavorites {
             get {
                 return ResourceManager.GetString("MgzJournalsFavorites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Indice.
+        /// </summary>
+        public static string MIndex {
+            get {
+                return ResourceManager.GetString("MIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISSN.
+        /// </summary>
+        public static string MIssn {
+            get {
+                return ResourceManager.GetString("MIssn", resourceCulture);
             }
         }
         
@@ -318,6 +372,24 @@ namespace Resources {
         public static string MnsMgzSucessStoreVirtual {
             get {
                 return ResourceManager.GetString("MnsMgzSucessStoreVirtual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Opciones.
+        /// </summary>
+        public static string MOptions {
+            get {
+                return ResourceManager.GetString("MOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alcance.
+        /// </summary>
+        public static string Mscope {
+            get {
+                return ResourceManager.GetString("Mscope", resourceCulture);
             }
         }
         

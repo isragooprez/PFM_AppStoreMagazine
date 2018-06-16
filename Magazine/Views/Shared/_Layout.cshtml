@@ -150,9 +150,7 @@
                                 <a href="javascript:void(0)" data-slug="dashboard">
                                     <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                                     <span class="site-menu-title">@Resources.Resource.TituloPanelAdmin</span>
-                                    <div class="site-menu-badge">
-                                        <span class="badge badge-success">( @ViewBag.TotalMgzVirtual )</span>
-                                    </div>
+                                   
                                 </a>
                             }
                             else
@@ -160,9 +158,6 @@
                                 <a href="javascript:void(0)" data-slug="dashboard">
                                     <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                                     <span class="site-menu-title">@Resources.Resource.TituloPanelUser</span>
-                                    <div class="site-menu-badge">
-                                        <span class="badge badge-success">(@ViewBag.TotalMgzVirtual)</span>
-                                    </div>
                                 </a>
                             }
 
@@ -177,6 +172,9 @@
                                     <a class="animsition-link" href="@Url.Action("AddDiary", "MagazinesStore")" data-slug="dashboard-v2">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
                                         <span class="site-menu-title">@Resources.Resource.AddDiaryMagazinesDiaryAgenda</span>
+                                        <div class="site-menu-badge">
+                                            <span class="badge badge-success">( @ViewBag.TotalMgzVirtual )</span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="site-menu-item">

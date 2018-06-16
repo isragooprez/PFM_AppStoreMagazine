@@ -243,4 +243,28 @@
   <data name="MnsMgzStoreExistFavorite" xml:space="preserve">
     <value>La revista ya ha sido almacenada como favorita.</value>
   </data>
+  <data name="MCoverage" xml:space="preserve">
+    <value>Cobertura</value>
+  </data>
+  <data name="MDataIn" xml:space="preserve">
+    <value>Fecha Ing.</value>
+  </data>
+  <data name="MDescription" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="MFavorite" xml:space="preserve">
+    <value>Favorita</value>
+  </data>
+  <data name="MIndex" xml:space="preserve">
+    <value>Indice</value>
+  </data>
+  <data name="MIssn" xml:space="preserve">
+    <value>ISSN</value>
+  </data>
+  <data name="MOptions" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="Mscope" xml:space="preserve">
+    <value>Alcance</value>
+  </data>
 </root>

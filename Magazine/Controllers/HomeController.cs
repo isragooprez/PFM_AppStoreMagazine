@@ -30,17 +30,23 @@ namespace Magazine.Controllers
             {
                 var _filter = string.Empty;
                 _filter = Utils.ClearTagsHtml(filter);
-                _nsoupMagazineModels.Clear();
-                HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + _filter.ToString()).Result;
-                nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
-                ViewBag.TotalMgzFilterVirtual = nsoupModels.Count();
-                if (nsoupModels == null || nsoupModels.Count() <= 0)
+                if (System.Web.HttpContext.Current.Session["sessionfilter"] as String != filter)
                 {
+                    System.Web.HttpContext.Current.Session["sessionfilter"] = filter;
+                    _nsoupMagazineModels.Clear();
+                    HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Nsoup/" + _filter.ToString()).Result;
+                    nsoupModels = httpResponseMessage.Content.ReadAsAsync<List<NsoupMagazineModels>>().Result;
+                    StoreSearchInSession(nsoupModels, _magazineStoreVirtualModels, _nsoupMagazineModels);
+                }
+                ViewBag.TotalMgzFilterVirtual = nsoupModels.Count();
+                if (_nsoupMagazineModels == null || _nsoupMagazineModels.Count() <= 0)
+                {
+
                     TempData["ErrorMessage"] = Resources.Resource.MsnMgzErrorNotFoundData;
                 }
-                if (_nsoupMagazineModels.Count() == 0)
+                if (_nsoupMagazineModels.Count() > 0)
                 {
-                    return View(StoreSearchInSession(nsoupModels, _magazineStoreVirtualModels, _nsoupMagazineModels));
+                    return View(_nsoupMagazineModels);
                 }
                 ViewBag.TotalMgzFilterVirtual = _nsoupMagazineModels.Count();
                 ViewBag.TotalMgzVirtual = _magazineStoreVirtualModels.Count();
