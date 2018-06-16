@@ -1,43 +1,243 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html class="no-js before-run" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap admin template">
+    <meta name="author" content="">
+    <title>Api Magazines</title>
+    <link rel="apple-touch-icon" href="~/Template/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/Template/assets/images/favicon.ico">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/Template/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Template/assets/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="~/Template/assets/css/site.min.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/animsition/animsition.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/asscrollable/asScrollable.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/switchery/switchery.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/intro-js/introjs.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/flag-icon-css/flag-icon.css">
+    <!-- Plugin -->
+    <link rel="stylesheet" href="~/Template/assets/vendor/chartist-js/chartist.css">
+    <link rel="stylesheet" href="~/Template/assets/vendor/jvectormap/jquery-jvectormap.css">
+    <!-- Page -->
+    <link rel="stylesheet" href="~/Template/assets/css/~/fonts/weather-icons/weather-icons.css">
+    <link rel="stylesheet" href="~/Template/assets/css/dashboard/v1.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="~/Template/assets/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="~/Template/assets/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link href="~/jsGreton/style.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="~/Template/assets/vendor/html5shiv/html5shiv.min.js"></script>
+      <![endif]-->
+    <!--[if lt IE 10]>
+      <script src="~/Template/assets/vendor/media-match/media.match.min.js"></script>
+      <script src="~/Template/assets/vendor/respond/respond.min.js"></script>
+      <![endif]-->
+    <!-- Scripts -->
+    <script src="~/Template/assets/vendor/modernizr/modernizr.js"></script>
+    <script src="~/Template/assets/vendor/breakpoints/breakpoints.js"></script>
+
+    <script>
+        Breakpoints();
+    </script>
+
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
+<body class="dashboard">
+
+    <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
+                    data-toggle="menubar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+                    data-toggle="collapse">
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
+                    data-toggle="collapse">
+                <span class="sr-only">Toggle Search</span>
+                <i class="icon wb-search" aria-hidden="true"></i>
+            </button>
+
+            <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+                <img class="navbar-brand-logo" src="~/Template/assets/images/logo.png" title="Remark">
+                <span class="navbar-brand-text"> API MAGAZINE</span>
             </div>
         </div>
+        <div class="navbar-container container-fluid">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                <!-- Navbar Toolbar -->
+                <ul class="nav navbar-toolbar">
+                    <li class="hidden-float" id="toggleMenubar">
+                        <a data-toggle="menubar" href="#" role="button">
+                            <i class="icon hamburger hamburger-arrow-left">
+                                <span class="sr-only">Toggle menubar</span>
+                                <span class="hamburger-bar"></span>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="hidden-xs" id="toggleFullscreen">
+                        <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
+                            <span class="sr-only">Toggle fullscreen</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar -->
+                <!-- Navbar Toolbar Right -->
+                <!-- End Navbar Toolbar Right -->
+            </div>
+            <!-- End Navbar Collapse -->
+            <!-- Site Navbar Seach -->
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Site Navbar Seach -->
+        </div>
+    </nav>
+    <div class="site-menubar">
+        <div class="site-menubar-body">
+            <div>
+                <div>
+                    <ul class="site-menu">
+                        <li class="site-menu-category">
+                            <a class="animsition-link" href="@Url.Action("Index", "Home", new { area=""},Request.Url.Scheme)" data-slug="dashboard-v1">
+                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                <span class="site-menu-title">INICIO</span>
+                            </a>
+                        </li>
+                        <li class="site-menu-item">
+                            <a class="animsition-link" href="@Url.Action("Index", "Help", new { area = "" }, Request.Url.Scheme)" data-slug="angular">
+                                <i class="site-menu-icon wb-help-circle" aria-hidden="true"></i>
+                                <span class="site-menu-title">Api Help</span>
+                                <div class="site-menu-label">
+                                    <span class="label label-danger label-round">*</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="site-menu-item">
+                            <a class="animsition-link" href="@Url.Action("About", "Home", new { area = "" }, Request.Url.Scheme)" data-slug="angular">
+                                <i class="site-menu-icon wb-inbox" aria-hidden="true"></i>
+                                <span class="site-menu-title">About</span>
+                                <div class="site-menu-label">
+                                    <span class="label label-danger label-round">*</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="site-menu-item">
+                            <a class="animsition-link" href="@Url.Action("Contact", "Home", new { area = "" }, Request.Url.Scheme)" data-slug="angular">
+                                <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                                <span class="site-menu-title">Contact</span>
+                                <div class="site-menu-label">
+                                    <span class="label label-danger label-round">*</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-menubar-footer">
+            <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip"
+               data-original-title="Settings">
+                <span class="icon wb-settings" aria-hidden="true"></span>
+            </a>
+            <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+                <span class="icon wb-eye-close" aria-hidden="true"></span>
+            </a>
+            <a href="javascript:document.getElementById('logoutForm').submit()" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+                <span class="icon wb-power" aria-hidden="true"></span>
+            </a>
+        </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+    <!-- Page -->
+    <div class="page">
+
+        <div class="page-content padding-30 container-fluid">
+            @RenderBody()
+        </div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <span class="site-footer-legal">&copy; @DateTime.Now.Year UPM Universidad Polítecnica de Madrid</span>
+            <div class="site-footer-right">
+                Crated by  <i class="red-600 wb wb-info-circle"></i> <a href="https://www.facebook.com/isragoo.prez?ref=bookmarks">isragoo.prez</a>
+            </div>
         </footer>
     </div>
+    <!-- End Page -->
+    <!-- Core  -->
+    <script src="~/Template/assets/vendor/jquery/jquery.js"></script>
+    <script src="~/Template/assets/vendor/bootstrap/bootstrap.js"></script>
+    <script src="~/Template/assets/vendor/animsition/jquery.animsition.js"></script>
+    <script src="~/Template/assets/vendor/asscroll/jquery-asScroll.js"></script>
+    <script src="~/Template/assets/vendor/mousewheel/jquery.mousewheel.js"></script>
+    <script src="~/Template/assets/vendor/asscrollable/jquery.asScrollable.all.js"></script>
+    <script src="~/Template/assets/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+    <!-- Plugins -->
+    <script src="~/Template/assets/vendor/switchery/switchery.min.js"></script>
+    <script src="~/Template/assets/vendor/intro-js/intro.js"></script>
+    <script src="~/Template/assets/vendor/screenfull/screenfull.js"></script>
+    <script src="~/Template/assets/vendor/slidepanel/jquery-slidePanel.js"></script>
+    <script src="~/Template/assets/vendor/skycons/skycons.js"></script>
+    <script src="~/Template/assets/vendor/chartist-js/chartist.min.js"></script>
+    <script src="~/Template/assets/vendor/aspieprogress/jquery-asPieProgress.min.js"></script>
+    <script src="~/Template/assets/vendor/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="~/Template/assets/vendor/jvectormap/maps/jquery-jvectormap-ca-lcc-en.js"></script>
+    <script src="~/Template/assets/vendor/matchheight/jquery.matchHeight-min.js"></script>
+    <!-- Scripts -->
+    <script src="~/Template/assets/js/core.js"></script>
+    <script src="~/Template/assets/js/site.js"></script>
+    <script src="~/Template/assets/js/sections/menu.js"></script>
+    <script src="~/Template/assets/js/sections/menubar.js"></script>
+    <script src="~/Template/assets/js/sections/sidebar.js"></script>
+    <script src="~/Template/assets/js/configs/config-colors.js"></script>
+    <script src="~/Template/assets/js/configs/config-tour.js"></script>
+    <script src="~/Template/assets/js/components/asscrollable.js"></script>
+    <script src="~/Template/assets/js/components/animsition.js"></script>
+    <script src="~/Template/assets/js/components/slidepanel.js"></script>
+    <script src="~/Template/assets/js/components/switchery.js"></script>
+    <script src="~/Template/assets/js/components/matchheight.js"></script>
+    <script src="~/Template/assets/js/components/jvectormap.js"></script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        (function (document, window, $) {
+            'use strict';
+
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
+
 </body>
 </html>

@@ -34,13 +34,20 @@ namespace API.Controllers
         //    repositoryMagazine = _repositoryMagazine;
         //}
 
-
+        /// <summary>
+        /// Collect information stored by the user.
+        /// </summary>
+        /// <returns>Get all journals stored by the user.</returns>
         // GET: api/Magazines
         public IQueryable<Magazine> GetMagazines()
         {
             return factoryDAO.GetRepositoryMagazine().AsQueryable();
         }
-
+        /// <summary>
+        /// Remove magazine.
+        /// </summary>
+        /// <param name="id">Magazine identifier</param>
+        /// <returns>Rewrites the elminated magazine</returns>
         // GET: api/Magazines/5
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult GetMagazine(int id)
@@ -54,6 +61,14 @@ namespace API.Controllers
             return Ok(magazine);
         }
 
+
+
+
+        /// <summary>
+        /// Search magazine by user ID. 
+        /// </summary>
+        /// <param name="idUser">User Identifier</param>
+        /// <returns>Returns the user's magazine</returns>
         // GET: api/Magazines/User/5
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult GetMagazinesByIdUser(string idUser)
@@ -66,21 +81,29 @@ namespace API.Controllers
 
             return Ok(magazine);
         }
-
+        /// <summary>
+        /// Get the review given the user url in session.
+        /// </summary>
+        /// <param name="url">Magazine Url</param>
+        /// <param name="idUser">User Identifier</param>
+        /// <returns></returns>
         // GET: api/Magazines/Magazine/5
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult GetMagazinesByUrl(string url, string idUser)
         {
-
             IEnumerable magazine = factoryDAO.GetRepositoryMagazine().GetByUrl(ConfigurationManager.AppSettings.Get("BASE_URL") + Utils.UrlDecode(url), idUser);
             if (magazine == null)
             {
                 return NotFound();
             }
-
             return Ok(magazine);
         }
-
+        /// <summary>
+        /// Partial update of a magazine.
+        /// </summary>
+        /// <param name="id">Magazine identifier</param>
+        /// <param name="magazine">Object magazine </param>
+        /// <returns></returns>
         // PUT: api/Magazines/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMagazine(int id, Magazine magazine)
@@ -108,7 +131,11 @@ namespace API.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// Create a magazine
+        /// </summary>
+        /// <param name="magazine">Object magazine </param>
+        /// <returns>Object magazine</returns>
         // POST: api/Magazines
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult PostMagazine(Magazine magazine)
@@ -117,7 +144,11 @@ namespace API.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = magazine.Id }, magazine);
         }
-
+        /// <summary>
+        /// Delete magazine
+        /// </summary>
+        /// <param name="id">Magazine identifier</param>
+        /// <returns>Returns the elminated magazine</returns>
         // DELETE: api/Magazines/5
         [ResponseType(typeof(Magazine))]
         public IHttpActionResult DeleteMagazine(int id)

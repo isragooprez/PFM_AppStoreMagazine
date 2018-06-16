@@ -12,7 +12,8 @@ namespace API.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,18 +21,40 @@ namespace API.Models
         {
             this.Magazines = new HashSet<Magazine>();
         }
-
+        /// <summary>
+        /// Id (Cadena)
+        /// </summary>
         [JsonProperty("Id")]
+        [Required]
         public string Id { get; set; }
+        /// <summary>
+        /// Nombre (Cadena)
+        /// </summary>
         [JsonProperty("Name")]
+        [Required]
         public string Name { get; set; }
+        /// <summary>
+        /// Apellido (Cadena)
+        /// </summary>
         [JsonProperty("LastName")]
+        [Required]
         public string LastName { get; set; }
+        /// <summary>
+        /// Correo (Cadena)
+        /// </summary>
         [JsonProperty("Email")]
+        [Required]
         public string Email { get; set; }
+        /// <summary>
+        /// Contraseña (Password)
+        /// </summary>
         [JsonProperty("Password")]
+        [Required]
         public string Password { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Magazine> Magazines { get; set; }
     }

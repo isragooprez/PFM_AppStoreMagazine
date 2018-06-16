@@ -50,7 +50,10 @@ namespace API.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
-
+        /// <summary>
+        /// Get the user information online
+        /// </summary>
+        /// <returns>Returns a UserInfoViewModel object</returns>
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
@@ -65,7 +68,10 @@ namespace API.Controllers
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
         }
-
+        /// <summary>
+        /// End the session
+        /// </summary>
+        /// <returns>Redirect To View</returns>
         // POST api/Account/Logout
         [Route("Logout")]
         public IHttpActionResult Logout()
@@ -73,7 +79,12 @@ namespace API.Controllers
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             return Ok();
         }
-
+        /// <summary>
+        /// Magane Information about login provider external.
+        /// </summary>
+        /// <param name="returnUrl">Url</param>
+        /// <param name="generateState">State</param>
+        /// <returns></returns>
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
@@ -113,7 +124,11 @@ namespace API.Controllers
                 ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
             };
         }
-
+        /// <summary>
+        /// Allow to change og password
+        /// </summary>
+        /// <param name="model">Obtjec typo model or view</param>
+        /// <returns>IHttpActionResult</returns>
         // POST api/Account/ChangePassword
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
@@ -133,7 +148,11 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Allow set password
+        /// </summary>
+        /// <param name="model">Object type of SetPasswordBindingModel</param>
+        /// <returns>IHttpActionResult</returns>
         // POST api/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
@@ -152,7 +171,11 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Allow add externa login
+        /// </summary>
+        /// <param name="model">Object type model or view </param>
+        /// <returns>IHttpActionResult</returns>
         // POST api/Account/AddExternalLogin
         [Route("AddExternalLogin")]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
@@ -190,7 +213,11 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Allow remove login
+        /// </summary>
+        /// <param name="model">Object type model or view </param>
+        /// <returns>IHttpActionResult</returns>
         // POST api/Account/RemoveLogin
         [Route("RemoveLogin")]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
@@ -219,7 +246,12 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Get external login
+        /// </summary>
+        /// <param name="provider">Provider login external</param>
+        /// <param name="error">Error generate</param>
+        /// <returns>IHttpActionResult</returns>
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
@@ -276,7 +308,12 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Get External Logins
+        /// </summary>
+        /// <param name="returnUrl">Url</param>
+        /// <param name="generateState">State</param>
+        /// <returns>Object type ExternalLoginViewModel</returns>
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
@@ -317,7 +354,11 @@ namespace API.Controllers
 
             return logins;
         }
-
+        /// <summary>
+        /// Register 
+        /// </summary>
+        /// <param name="model">Model type RegisterBindingModel</param>
+        /// <returns>IHttpActionResult</returns>
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -339,7 +380,11 @@ namespace API.Controllers
 
             return Ok();
         }
-
+        /// <summary>
+        /// Task Register External
+        /// </summary>
+        /// <param name="model">Object type of RegisterExternalBindingModel</param>
+        /// <returns></returns>
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]

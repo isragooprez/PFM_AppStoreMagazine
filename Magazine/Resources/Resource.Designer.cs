@@ -214,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Cerrar sesión.
+        ///   Busca una cadena traducida similar a Cerrar.
         /// </summary>
         public static string IndexHomeCerrarSesion {
             get {

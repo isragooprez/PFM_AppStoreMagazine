@@ -12,76 +12,206 @@ namespace API.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Magazine
     {
+        /// <summary>
+        /// Identificador
+        /// </summary>
         [JsonProperty("Id")]
         public int Id { get; set; }
+        /// <summary>
+        /// Nombre (Cadena)
+        /// </summary>
         [JsonProperty("Name")]
+        [Required]
         public string Name { get; set; }
+        /// <summary>
+        /// Imagen (Cadena)
+        /// </summary>
         [JsonProperty("Imagen")]
+        [Required]
         public string Imagen { get; set; }
+        /// <summary>
+        /// Número de índice H (Cadena)
+        /// </summary>
         [JsonProperty("Hindexnumber")]
+        [Required]
         public string Hindexnumber { get; set; }
+        /// <summary>
+        /// Leyenda del índice (Cadena)
+        /// </summary>
         [JsonProperty("Hindexlegend")]
+        [Required]
         public string Hindexlegend { get; set; }
+        /// <summary>
+        /// Url (Cadena)
+        /// </summary>
         [JsonProperty("Url")]
+        [Required]
         public string Url { get; set; }
+        /// <summary>
+        /// País (Cadena)
+        /// </summary>
         [JsonProperty("Country")]
+        [Required]
         public string Country { get; set; }
+        /// <summary>
+        /// Tema (Cadena)
+        /// </summary>
         [JsonProperty("Subjec")]
+        [Required]
         public string Subjec { get; set; }
+        /// <summary>
+        /// Editor (Cadena)
+        /// </summary>
         [JsonProperty("Publisher")]
+        [Required]
         public string Publisher { get; set; }
+        /// <summary>
+        /// Tipo de publicación (Cadena)
+        /// </summary>
         [JsonProperty("PublicationType")]
+        [Required]
         public string PublicationType { get; set; }
+        /// <summary>
+        /// ISSN (Cadena)
+        /// </summary>
         [JsonProperty("ISSN")]
+        [Required]
         public string ISSN { get; set; }
+        /// <summary>
+        /// Cobertura (Cadena)
+        /// </summary>
         [JsonProperty("Coverage")]
+        [Required]
         public string Coverage { get; set; }
+        /// <summary>
+        /// Alcance (Cadena)
+        /// </summary>
         [JsonProperty("Scope")]
         public string Scope { get; set; }
+        /// <summary>
+        /// Descripción (Cadena)
+        /// </summary>
         [JsonProperty("Description")]
         public string Description { get; set; }
+        /// <summary>
+        /// Fecha de Ingreso (Cadena)
+        /// </summary>
         [JsonProperty("DateIn")]
         public Nullable<System.DateTime> DateIn { get; set; }
+        /// <summary>
+        /// Favorito (Cadena)
+        /// </summary>
         [JsonProperty("Favorite")]
         public Nullable<bool> Favorite { get; set; }
+        /// <summary>
+        /// Descripción Cuartiles (Cadena)
+        /// </summary>
         [JsonProperty("QuartilesDesc")]
+        [Required]
         public string QuartilesDesc { get; set; }
+        /// <summary>
+        /// Descripción SJR  (Cadena)
+        /// </summary>
         [JsonProperty("SJRDesc")]
+        [Required]
         public string SJRDesc { get; set; }
+        /// <summary>
+        /// Descripción Citaciones por documento (Cadena)
+        /// </summary>
         [JsonProperty("CitationsPerDocumentDesc")]
+        [Required]
         public string CitationsPerDocumentDesc { get; set; }
+        /// <summary>
+        /// Descripción Citas  (Cadena)
+        /// </summary>
         [JsonProperty("CitesDesc")]
+        [Required]
         public string CitesDesc { get; set; }
+        /// <summary>
+        /// Descripción Colaboración internacional (Cadena)
+        /// </summary>
         [JsonProperty("InternationalCollaborationDesc")]
+        [Required]
         public string InternationalCollaborationDesc { get; set; }
+        /// <summary>
+        /// Descripción Documentos no elegibles (Cadena)
+        /// </summary>
         [JsonProperty("DocumentsNoncitableDesc")]
+        [Required]
         public string DocumentsNoncitableDesc { get; set; }
+        /// <summary>
+        /// Descripción Documentos no citados (Cadena)
+        /// </summary>
         [JsonProperty("DocumentsUncitedDesc")]
+        [Required]
         public string DocumentsUncitedDesc { get; set; }
+        /// <summary>
+        /// Descripción Total de citas (Cadena)
+        /// </summary>
         [JsonProperty("TotalCitesDesc")]
+        [Required]
         public string TotalCitesDesc { get; set; }
+        /// <summary>
+        /// Cuartiles (Json)
+        /// </summary>
         [JsonProperty("Quartiles")]
+        [Required]
         public string Quartiles { get; set; }
+        /// <summary>
+        /// SJR (Json)
+        /// </summary>
         [JsonProperty("SJR")]
+        [Required]
         public string SJR { get; set; }
+        /// <summary>
+        /// Citaciones por documento  (Json)
+        /// </summary>
         [JsonProperty("CitationsPerDocument")]
+        [Required]
         public string CitationsPerDocument { get; set; }
+        /// <summary>
+        /// Citas  (Json)
+        /// </summary>}
         [JsonProperty("Cites")]
+        [Required]
         public string Cites { get; set; }
+        /// <summary>
+        /// Colaboración internacional (Json)
+        /// </summary>
         [JsonProperty("InternationalCollaboration")]
+        [Required]
         public string InternationalCollaboration { get; set; }
+        /// <summary>
+        /// Documentos no elegibles (Json)
+        /// </summary>
         [JsonProperty("DocumentsNoncitable")]
+        [Required]
         public string DocumentsNoncitable { get; set; }
+        /// <summary>
+        /// Documentos no citados  (Json)
+        /// </summary>
         [JsonProperty("DocumentsUncited")]
+        [Required]
         public string DocumentsUncited { get; set; }
+        /// <summary>
+        /// Total de citas  (Json)
+        /// </summary>
         [JsonProperty("TotalCites")]
+        [Required]
         public string TotalCites { get; set; }
+        /// <summary>
+        /// Identificador de Usuario  (Cadena)
+        /// </summary>
         [JsonProperty("UserId")]
+        [Required]
         public string UserId { get; set; }
-
+        /// <summary>
+        /// Objeto Usuario (Object)
+        /// </summary>
         public virtual User User { get; set; }
     }
 }

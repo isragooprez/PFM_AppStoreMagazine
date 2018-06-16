@@ -8,6 +8,9 @@ namespace API.Models
 
     public class AddExternalLoginBindingModel
     {
+        /// <summary>
+        /// Token de acceso externo
+        /// </summary>
         [Required]
         [Display(Name = "Token de acceso externo")]
         public string ExternalAccessToken { get; set; }
@@ -15,17 +18,24 @@ namespace API.Models
 
     public class ChangePasswordBindingModel
     {
+        /// <summary>
+        /// Contraseña actual
+        /// </summary>
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña actual")]
         public string OldPassword { get; set; }
-
+        /// <summary>
+        /// Nueva contraseña
+        /// </summary>
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nueva contraseña")]
         public string NewPassword { get; set; }
-
+        /// <summary>
+        /// Confirmar la nueva contraseña
+        /// </summary>
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar la nueva contraseña")]
         [Compare("NewPassword", ErrorMessage = "La nueva contraseña y la contraseña de confirmación no coinciden.")]
@@ -34,16 +44,23 @@ namespace API.Models
 
     public class RegisterBindingModel
     {
+        /// <summary>
+        /// Correo electrónico
+        /// </summary>
         [Required]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
-
+        /// <summary>
+        /// Contraseña
+        /// </summary>
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
-
+        /// <summary>
+        /// Confirmar contraseña
+        /// </summary>
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
@@ -52,6 +69,9 @@ namespace API.Models
 
     public class RegisterExternalBindingModel
     {
+        /// <summary>
+        /// Correo electrónico
+        /// </summary>
         [Required]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
@@ -59,10 +79,15 @@ namespace API.Models
 
     public class RemoveLoginBindingModel
     {
+        /// <summary>
+        /// Proveedor de inicio de sesión
+        /// </summary>
         [Required]
         [Display(Name = "Proveedor de inicio de sesión")]
         public string LoginProvider { get; set; }
-
+        /// <summary>
+        /// Clave de proveedor
+        /// </summary>
         [Required]
         [Display(Name = "Clave de proveedor")]
         public string ProviderKey { get; set; }
@@ -70,12 +95,17 @@ namespace API.Models
 
     public class SetPasswordBindingModel
     {
+        /// <summary>
+        /// Nueva contraseña
+        /// </summary>
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nueva contraseña")]
         public string NewPassword { get; set; }
-
+        /// <summary>
+        /// Confirmar la nueva contraseña
+        /// </summary>
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar la nueva contraseña")]
         [Compare("NewPassword", ErrorMessage = "La nueva contraseña y la contraseña de confirmación no coinciden.")]

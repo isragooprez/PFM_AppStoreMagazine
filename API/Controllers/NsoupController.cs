@@ -7,55 +7,28 @@ namespace API.Controllers
 {
     public class NsoupController : ApiController
     {
-
-        ////string base_url= "http://scimagojr.com/journalsearch.php?q=";
-        ////string parameter = "09505849";
-        //string parameter = "Kaunas University of Technology";
-
-        //// GET: api/Nsoup
-        //public List<NsoupMagazine> Get()
-        //{
-
-        //    NsoupServices nsoupService = new NsoupServices();
-        //    return nsoupService.FetchScimagojr(parameter);
-        //}
-
-
-        // GET: api/Nsoup
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+        /// <summary>
+        /// Get magazines given a topic or search criteria Example: "Software"
+        /// </summary>
+        /// <param name="filter">Search criteria</param>
+        /// <returns>List magazines that consider the criteria</returns>
         // GET: api/Nsoup/5
         public List<NsoupMagazine> GetFilter(string filter)
         {
             NsoupServices nsoupService = new NsoupServices();
             return nsoupService.FetchScimagojr(filter);
         }
-
+        /// <summary>
+        /// Obtain information from a journal in Html format, given the URL to be analyzed.
+        /// </summary>
+        /// <param name="url">Unique parameter of the magazines.</param>
+        /// <returns>Object journal with your information analyzed.</returns>
         // GET: api/Nsoup/GetDataMagazine/5
         public Magazine GetDataMagazine(string url)
         {
-            
             NsoupServices nsoupService = new NsoupServices();
             return nsoupService.GedDataMagazine(url);
         }
 
-
-        // POST: api/Nsoup
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Nsoup/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Nsoup/5
-        public void Delete(int id)
-        {
-        }
     }
 }

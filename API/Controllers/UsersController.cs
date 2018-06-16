@@ -13,13 +13,20 @@ namespace API.Controllers
     {
         IFactoryDAO factoryDAO = new FactoryDAO();
 
-
+        /// <summary>
+        /// Get all application users
+        /// </summary>
+        /// <returns>List of user type objects</returns>
         // GET: api/Users
         public IQueryable<User> GetUsers()
         {
             return factoryDAO.GetRepositoryUser().AsQueryable();
         }
-
+        /// <summary>
+        /// You get a user given your id
+        /// </summary>
+        /// <param name="id">User identifier</param>
+        /// <returns>User type object</returns>
         // GET: api/Users/5
         [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(string id)
@@ -32,7 +39,12 @@ namespace API.Controllers
 
             return Ok(user);
         }
-
+        /// <summary>
+        /// Partial update of a User
+        /// </summary>
+        /// <param name="id">User identifier</param>
+        /// <param name="user">User type object</param>
+        /// <returns>Returns the updated user</returns>
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(string id, User user)
@@ -67,7 +79,11 @@ namespace API.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// Create a User
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>Returns the created user object</returns>
         // POST: api/Users
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
@@ -81,7 +97,11 @@ namespace API.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
         }
-
+        /// <summary>
+        /// Remove User by Id
+        /// </summary>
+        /// <param name="id">User identifier</param>
+        /// <returns>Returns the deleted user object</returns>
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
         public IHttpActionResult DeleteUser(string id)
