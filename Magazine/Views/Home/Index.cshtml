@@ -46,8 +46,9 @@ else
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken();
-
-        @Html.TextBox("filter", null, new { maxlength = 100, @class = "form-control col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4", placeholder = Resources.Resource.IHMarkSearch.ToString() })
+        <div class="row" align="center">
+        @Html.TextBox("filter", null, new { maxlength = 100, @class = "form-control ", placeholder = Resources.Resource.IHMarkSearch.ToString() })
+        </div>
         <br>
         <!-- Example Zoom -->
         <div class="align-center">
