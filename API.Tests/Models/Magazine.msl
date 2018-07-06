@@ -1,40 +1,57 @@
-﻿<? xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
-      <Mapping Space = "C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer = "MagazinesDBModelStoreContainer" CdmEntityContainer="MagazinesDBEntities">
-          <EntitySetMapping Name = "Magazines" >
-            < EntityTypeMapping TypeName="MagazinesDBModel.Magazine">
-              <MappingFragment StoreEntitySet = "Magazines" >
-                < ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name = "Country" ColumnName="Country" />
-                <ScalarProperty Name = "Subjec" ColumnName="Subjec" />
-                <ScalarProperty Name = "Publisher" ColumnName="Publisher" />
-                <ScalarProperty Name = "PublicationType" ColumnName="PublicationType" />
-                <ScalarProperty Name = "ISSN" ColumnName="ISSN" />
-                <ScalarProperty Name = "Coverage" ColumnName="Coverage" />
-                <ScalarProperty Name = "Scope" ColumnName="Scope" />
-                <ScalarProperty Name = "Quartiles" ColumnName="Quartiles" />
-                <ScalarProperty Name = "SJR" ColumnName="SJR" />
-                <ScalarProperty Name = "CitationsPerDocument" ColumnName="CitationsPerDocument" />
-                <ScalarProperty Name = "Cites" ColumnName="Cites" />
-                <ScalarProperty Name = "InternationalCollaboration" ColumnName="InternationalCollaboration" />
-                <ScalarProperty Name = "DocumentsNoncitable" ColumnName="DocumentsNoncitable" />
-                <ScalarProperty Name = "DocumentsUncited" ColumnName="DocumentsUncited" />
-                <ScalarProperty Name = "TotalCites" ColumnName="TotalCites" />
-                <ScalarProperty Name = "UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name = "Users" >
-            < EntityTypeMapping TypeName="MagazinesDBModel.User">
-              <MappingFragment StoreEntitySet = "Users" >
-                < ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name = "Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name = "Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name = "Email" ColumnName="Email" />
-                <ScalarProperty Name = "Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
+<!-- C-S mapping content -->
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MagazinesDBModelStoreContainer" CdmEntityContainer="MagazinesDBEntities">
+    <EntitySetMapping Name="Magazines">
+      <EntityTypeMapping TypeName="MagazinesDBModel.Magazine">
+        <MappingFragment StoreEntitySet="Magazines">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TotalCites" ColumnName="TotalCites" />
+          <ScalarProperty Name="DocumentsUncited" ColumnName="DocumentsUncited" />
+          <ScalarProperty Name="DocumentsNoncitable" ColumnName="DocumentsNoncitable" />
+          <ScalarProperty Name="InternationalCollaboration" ColumnName="InternationalCollaboration" />
+          <ScalarProperty Name="Cites" ColumnName="Cites" />
+          <ScalarProperty Name="CitationsPerDocument" ColumnName="CitationsPerDocument" />
+          <ScalarProperty Name="SJR" ColumnName="SJR" />
+          <ScalarProperty Name="Quartiles" ColumnName="Quartiles" />
+          <ScalarProperty Name="TotalCitesDesc" ColumnName="TotalCitesDesc" />
+          <ScalarProperty Name="DocumentsUncitedDesc" ColumnName="DocumentsUncitedDesc" />
+          <ScalarProperty Name="DocumentsNoncitableDesc" ColumnName="DocumentsNoncitableDesc" />
+          <ScalarProperty Name="InternationalCollaborationDesc" ColumnName="InternationalCollaborationDesc" />
+          <ScalarProperty Name="CitesDesc" ColumnName="CitesDesc" />
+          <ScalarProperty Name="CitationsPerDocumentDesc" ColumnName="CitationsPerDocumentDesc" />
+          <ScalarProperty Name="SJRDesc" ColumnName="SJRDesc" />
+          <ScalarProperty Name="QuartilesDesc" ColumnName="QuartilesDesc" />
+          <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Scope" ColumnName="Scope" />
+          <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+          <ScalarProperty Name="ISSN" ColumnName="ISSN" />
+          <ScalarProperty Name="PublicationType" ColumnName="PublicationType" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Subjec" ColumnName="Subjec" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Hindexlegend" ColumnName="Hindexlegend" />
+          <ScalarProperty Name="Hindexnumber" ColumnName="Hindexnumber" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MagazinesDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,56 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
+<!-- SSDL content -->
 <Schema Namespace="MagazinesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-    <EntityType Name="Magazines">
-      <Key>
+  <EntityType Name="Magazines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Imagen" Type="nvarchar(max)" />
+    <Property Name="Hindexnumber" Type="nvarchar(max)" />
+    <Property Name="Hindexlegend" Type="nvarchar(max)" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="Subjec" Type="nvarchar(max)" />
+    <Property Name="Publisher" Type="nvarchar(max)" />
+    <Property Name="PublicationType" Type="nvarchar(max)" />
+    <Property Name="ISSN" Type="nvarchar(max)" />
+    <Property Name="Coverage" Type="nvarchar(max)" />
+    <Property Name="Scope" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateIn" Type="date" />
+    <Property Name="Favorite" Type="bit" />
+    <Property Name="QuartilesDesc" Type="nvarchar(max)" />
+    <Property Name="SJRDesc" Type="nvarchar(max)" />
+    <Property Name="CitationsPerDocumentDesc" Type="nvarchar(max)" />
+    <Property Name="CitesDesc" Type="nvarchar(max)" />
+    <Property Name="InternationalCollaborationDesc" Type="nvarchar(max)" />
+    <Property Name="DocumentsNoncitableDesc" Type="nvarchar(max)" />
+    <Property Name="DocumentsUncitedDesc" Type="nvarchar(max)" />
+    <Property Name="TotalCitesDesc" Type="nvarchar(max)" />
+    <Property Name="Quartiles" Type="nvarchar(max)" />
+    <Property Name="SJR" Type="nvarchar(max)" />
+    <Property Name="CitationsPerDocument" Type="nvarchar(max)" />
+    <Property Name="Cites" Type="nvarchar(max)" />
+    <Property Name="InternationalCollaboration" Type="nvarchar(max)" />
+    <Property Name="DocumentsNoncitable" Type="nvarchar(max)" />
+    <Property Name="DocumentsUncited" Type="nvarchar(max)" />
+    <Property Name="TotalCites" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_UserMagazine">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Magazines" Type="Self.Magazines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
         <PropertyRef Name="Id" />
-      </Key>
-      <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-      <Property Name="Country" Type="nvarchar(max)" />
-      <Property Name="Subjec" Type="nvarchar(max)" />
-      <Property Name="Publisher" Type="nvarchar(max)" />
-      <Property Name="PublicationType" Type="nvarchar(max)" />
-      <Property Name="ISSN" Type="nvarchar(max)" />
-      <Property Name="Coverage" Type="nvarchar(max)" />
-      <Property Name="Scope" Type="nvarchar(max)" />
-      <Property Name="Quartiles" Type="nvarchar(max)" />
-      <Property Name="SJR" Type="nvarchar(max)" />
-      <Property Name="CitationsPerDocument" Type="nvarchar(max)" />
-      <Property Name="Cites" Type="nvarchar(max)" />
-      <Property Name="InternationalCollaboration" Type="nvarchar(max)" />
-      <Property Name="DocumentsNoncitable" Type="nvarchar(max)" />
-      <Property Name="DocumentsUncited" Type="nvarchar(max)" />
-      <Property Name="TotalCites" Type="nvarchar(max)" />
-      <Property Name="UserId" Type="int" />
-    </EntityType>
-    <EntityType Name="Users">
-      <Key>
-        <PropertyRef Name="Id" />
-      </Key>
-      <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-      <Property Name="Nombre" Type="nvarchar(max)" />
-      <Property Name="Apellido" Type="nvarchar(max)" />
-      <Property Name="Email" Type="nvarchar(max)" />
-      <Property Name="Password" Type="nvarchar(max)" />
-    </EntityType>
-    <Association Name="FK_UserMagazine">
-      <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-      <End Role="Magazines" Type="Self.Magazines" Multiplicity="*" />
-      <ReferentialConstraint>
-        <Principal Role="Users">
-          <PropertyRef Name="Id" />
-        </Principal>
-        <Dependent Role="Magazines">
-          <PropertyRef Name="UserId" />
-        </Dependent>
-      </ReferentialConstraint>
-    </Association>
-    <EntityContainer Name="MagazinesDBModelStoreContainer">
-      <EntitySet Name="Magazines" EntityType="Self.Magazines" Schema="dbo" store:Type="Tables" />
-      <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-      <AssociationSet Name="FK_UserMagazine" Association="Self.FK_UserMagazine">
-        <End Role="Users" EntitySet="Users" />
-        <End Role="Magazines" EntitySet="Magazines" />
-      </AssociationSet>
-    </EntityContainer>
-  </Schema>
+      </Principal>
+      <Dependent Role="Magazines">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MagazinesDBModelStoreContainer">
+    <EntitySet Name="Magazines" EntityType="Self.Magazines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_UserMagazine" Association="Self.FK_UserMagazine">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Magazines" EntitySet="Magazines" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

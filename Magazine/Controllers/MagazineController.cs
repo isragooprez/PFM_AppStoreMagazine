@@ -58,6 +58,13 @@ namespace Magazine.Controllers
             return _mgznSearch.ToList();
         }
 
+        // GET: Magazine/Delete
+        [HttpPost]
+        public ActionResult Details()
+        {
+            return View();
+        }
+
         // GET: Magazine/Details/5
         public ActionResult Details(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
@@ -93,6 +100,13 @@ namespace Magazine.Controllers
                 return View();
             }
         }
+        // GET: Magazine/Delete
+        [HttpPost]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
 
         // GET: Magazine/Edit/5
         public ActionResult Edit(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
@@ -138,14 +152,25 @@ namespace Magazine.Controllers
         }
 
         // GET: Magazine/Delete/5
-        public ActionResult Delete(int id, MagazinesVirtualModels _magazineStoreVirtualModels)
+        public ActionResult Delete(int? id, MagazinesVirtualModels _magazineStoreVirtualModels)
         {
             MagazineModels magazine;
             HttpResponseMessage httpResponseMessage = GlobalVarApi.WebApiClient.GetAsync("Magazines/" + id.ToString()).Result;
-            magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
-            ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
+            if (_magazineStoreVirtualModels!= null)
+            {
+                magazine = httpResponseMessage.Content.ReadAsAsync<MagazineModels>().Result;
+                ViewBag.TotalMgzVirtual = (_magazineStoreVirtualModels == null) ? 0 : _magazineStoreVirtualModels.Count();
 
-            return View(magazine);
+                return View(magazine);
+            }
+                return View();
+
+        }
+        // GET: Magazine/Delete
+        [HttpPost]
+        public ActionResult Delete()
+        {
+            return View();
         }
 
         // POST: Magazine/Delete/5

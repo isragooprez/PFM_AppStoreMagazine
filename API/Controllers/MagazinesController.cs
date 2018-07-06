@@ -17,6 +17,7 @@ namespace API.Controllers
     {
 
         IFactoryDAO factoryDAO = new FactoryDAO();
+        IRepositoryMagazine repositoryMagazine;
 
         //IoC Inyection
         //IFactoryDAO factoryDAO;
@@ -26,13 +27,13 @@ namespace API.Controllers
         //}
 
         //private readonly IRepositoryMagazine repositoryMagazine;
-        //public MagazinesController()
-        //{
-        //}
-        //private MagazinesController(IRepositoryMagazine _repositoryMagazine)
-        //{
-        //    repositoryMagazine = _repositoryMagazine;
-        //}
+        public MagazinesController()
+        {
+        }
+        public MagazinesController(IRepositoryMagazine _repositoryMagazine)
+        {
+            repositoryMagazine = _repositoryMagazine;
+        }
 
         /// <summary>
         /// Collect information stored by the user.
