@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API._50.Dominio.Core
+namespace API._50.Domain.Core
 {
     public abstract class  IFactoryDAO
     {

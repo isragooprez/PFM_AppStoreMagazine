@@ -4,7 +4,6 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using API._50.Domain.Core;
-using API._50.Dominio.Core;
 using API._80.Infraestructure.Data.Core;
 using API.Models;
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 
-namespace API._50.Dominio.Core
+namespace API._50.Domain.Core
 {
     public interface IRepository<T> where T: class
     {

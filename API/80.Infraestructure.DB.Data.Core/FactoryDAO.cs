@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using API._40.Domain;
 using API._50.Domain.Core;
-using API._50.Dominio.Core;
 using API._80.Infraestructure.DB.Data.Core;
 
 namespace API._80.Infraestructure.Data.Core

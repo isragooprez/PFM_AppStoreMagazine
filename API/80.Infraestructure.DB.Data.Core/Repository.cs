@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
-using API._50.Dominio.Core;
+using API._50.Domain.Core;
 
 namespace API._80.Infraestructure.Data.Core
 {

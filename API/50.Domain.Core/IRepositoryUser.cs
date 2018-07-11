@@ -1,4 +1,4 @@
-﻿using API._50.Dominio.Core;
+﻿using API._50.Domain.Core;
 using API.Models;
 using System;
 using System.Collections.Generic;

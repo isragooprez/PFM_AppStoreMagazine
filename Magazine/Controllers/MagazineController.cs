@@ -100,8 +100,8 @@ namespace Magazine.Controllers
                 return View();
             }
         }
-        // GET: Magazine/Delete
-        [HttpPost]
+        // GET: Magazine/Edit
+        [HttpPut]
         public ActionResult Edit()
         {
             return View();
@@ -167,7 +167,7 @@ namespace Magazine.Controllers
 
         }
         // GET: Magazine/Delete
-        [HttpPost]
+        [HttpPut]
         public ActionResult Delete()
         {
             return View();
